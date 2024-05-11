@@ -1,0 +1,17 @@
+---
+title: "🚧 WIP 🚧"
+format: gfm
+editor: visual
+---
+
+```{r}
+#| label: "setup"
+#| include: false
+
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+DataFusion Python API: https://arrow.apache.org/datafusion-python/
