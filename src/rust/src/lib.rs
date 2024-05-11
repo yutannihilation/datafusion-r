@@ -19,7 +19,7 @@ impl RDataFrame {
 impl RDataFrame {
     fn print(&mut self) -> savvy::Result<()> {
         let df = self.df.as_ref().clone();
-        let batches = block_on(df.collect()).expect("Must not fail"); // TODO: handle error
+        let batches = block_on(df.collect()).expect("Must not fail"); // TODO: handle async properly
         let batches_as_string = pretty::pretty_format_batches(&batches);
 
         match batches_as_string {
