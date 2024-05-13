@@ -274,6 +274,9 @@ name = "arrow-schema"
 version = "51.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "02d9483aaabe910c4781153ae1b6ae0393f72d9ef757d38d09d450070cf2e528"
+dependencies = [
+ "bitflags 2.5.0",
+]
 
 [[package]]
 name = "arrow-select"
@@ -935,6 +938,7 @@ dependencies = [
 name = "datafusionr"
 version = "0.1.0"
 dependencies = [
+ "arrow",
  "datafusion",
  "pollster",
  "savvy",

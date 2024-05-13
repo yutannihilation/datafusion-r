@@ -32,7 +32,7 @@ RDataFrame_print <- function(self) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
     e$print <- RDataFrame_print(ptr)
-  
+
   class(e) <- "RDataFrame"
   e
 }
@@ -43,5 +43,34 @@ RDataFrame <- new.env(parent = emptyenv())
 
 ### associated functions for RDataFrame
 
+
+
+### wrapper functions for RSessionContext
+
+RSessionContext_create_data_frame <- function(self) {
+  function(batch, table_name) {
+  #batch <- .savvy_extract_ptr(batch, "RRecordBatch")
+  .savvy_wrap_RDataFrame(.Call(savvy_RSessionContext_create_data_frame__impl, self, batch, table_name))
+  }
+}
+
+.savvy_wrap_RSessionContext <- function(ptr) {
+  e <- new.env(parent = emptyenv())
+  e$.ptr <- ptr
+    e$create_data_frame <- RSessionContext_create_data_frame(ptr)
+
+  class(e) <- "RSessionContext"
+  e
+}
+
+
+
+RSessionContext <- new.env(parent = emptyenv())
+
+### associated functions for RSessionContext
+
+RSessionContext$new <- function() {
+  .savvy_wrap_RSessionContext(.Call(savvy_RSessionContext_new__impl))
+}
 
 

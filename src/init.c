@@ -40,10 +40,22 @@ SEXP savvy_RDataFrame_print__impl(SEXP self__) {
     return handle_result(res);
 }
 
+SEXP savvy_RSessionContext_new__impl(void) {
+    SEXP res = savvy_RSessionContext_new__ffi();
+    return handle_result(res);
+}
+
+SEXP savvy_RSessionContext_create_data_frame__impl(SEXP self__, SEXP batch, SEXP table_name) {
+    SEXP res = savvy_RSessionContext_create_data_frame__ffi(self__, batch, table_name);
+    return handle_result(res);
+}
+
 
 static const R_CallMethodDef CallEntries[] = {
 
     {"savvy_RDataFrame_print__impl", (DL_FUNC) &savvy_RDataFrame_print__impl, 1},
+    {"savvy_RSessionContext_new__impl", (DL_FUNC) &savvy_RSessionContext_new__impl, 0},
+    {"savvy_RSessionContext_create_data_frame__impl", (DL_FUNC) &savvy_RSessionContext_create_data_frame__impl, 3},
     {NULL, NULL, 0}
 };
 
