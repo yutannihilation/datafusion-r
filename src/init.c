@@ -50,6 +50,46 @@ SEXP savvy_RDataFrame_select_columns__impl(SEXP self__, SEXP columns) {
     return handle_result(res);
 }
 
+SEXP savvy_RDataFrame_select__impl(SEXP self__, SEXP expr) {
+    SEXP res = savvy_RDataFrame_select__ffi(self__, expr);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_print__impl(SEXP self__) {
+    SEXP res = savvy_RExpr_print__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_col__impl(SEXP x) {
+    SEXP res = savvy_RExpr_col__ffi(x);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_add__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_RExpr_add__ffi(self__, rhs);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_sub__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_RExpr_sub__ffi(self__, rhs);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_mul__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_RExpr_mul__ffi(self__, rhs);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_div__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_RExpr_div__ffi(self__, rhs);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_alias__impl(SEXP self__, SEXP name) {
+    SEXP res = savvy_RExpr_alias__ffi(self__, name);
+    return handle_result(res);
+}
+
 SEXP savvy_RSessionContext_new__impl(void) {
     SEXP res = savvy_RSessionContext_new__ffi();
     return handle_result(res);
@@ -71,6 +111,14 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_RDataFrame_print__impl", (DL_FUNC) &savvy_RDataFrame_print__impl, 1},
     {"savvy_RDataFrame_limit__impl", (DL_FUNC) &savvy_RDataFrame_limit__impl, 3},
     {"savvy_RDataFrame_select_columns__impl", (DL_FUNC) &savvy_RDataFrame_select_columns__impl, 2},
+    {"savvy_RDataFrame_select__impl", (DL_FUNC) &savvy_RDataFrame_select__impl, 2},
+    {"savvy_RExpr_print__impl", (DL_FUNC) &savvy_RExpr_print__impl, 1},
+    {"savvy_RExpr_col__impl", (DL_FUNC) &savvy_RExpr_col__impl, 1},
+    {"savvy_RExpr_add__impl", (DL_FUNC) &savvy_RExpr_add__impl, 2},
+    {"savvy_RExpr_sub__impl", (DL_FUNC) &savvy_RExpr_sub__impl, 2},
+    {"savvy_RExpr_mul__impl", (DL_FUNC) &savvy_RExpr_mul__impl, 2},
+    {"savvy_RExpr_div__impl", (DL_FUNC) &savvy_RExpr_div__impl, 2},
+    {"savvy_RExpr_alias__impl", (DL_FUNC) &savvy_RExpr_alias__impl, 2},
     {"savvy_RSessionContext_new__impl", (DL_FUNC) &savvy_RSessionContext_new__impl, 0},
     {"savvy_RSessionContext_create_data_frame__impl", (DL_FUNC) &savvy_RSessionContext_create_data_frame__impl, 3},
     {"savvy_RawArrayStream_new_without_init__impl", (DL_FUNC) &savvy_RawArrayStream_new_without_init__impl, 0},

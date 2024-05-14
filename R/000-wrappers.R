@@ -40,12 +40,20 @@ RDataFrame_select_columns <- function(self) {
   }
 }
 
+RDataFrame_select <- function(self) {
+  function(expr) {
+    expr <- .savvy_extract_ptr(expr, "RExpr")
+  .savvy_wrap_RDataFrame(.Call(savvy_RDataFrame_select__impl, self, expr))
+  }
+}
+
 .savvy_wrap_RDataFrame <- function(ptr) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
     e$print <- RDataFrame_print(ptr)
   e$limit <- RDataFrame_limit(ptr)
   e$select_columns <- RDataFrame_select_columns(ptr)
+  e$select <- RDataFrame_select(ptr)
   
   class(e) <- "RDataFrame"
   e
@@ -57,6 +65,73 @@ RDataFrame <- new.env(parent = emptyenv())
 
 ### associated functions for RDataFrame
 
+
+
+### wrapper functions for RExpr
+
+RExpr_print <- function(self) {
+  function() {
+  invisible(.Call(savvy_RExpr_print__impl, self))
+  }
+}
+
+RExpr_add <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_add__impl, self, rhs))
+  }
+}
+
+RExpr_sub <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_sub__impl, self, rhs))
+  }
+}
+
+RExpr_mul <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_mul__impl, self, rhs))
+  }
+}
+
+RExpr_div <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_div__impl, self, rhs))
+  }
+}
+
+RExpr_alias <- function(self) {
+  function(name) {
+    .savvy_wrap_RExpr(.Call(savvy_RExpr_alias__impl, self, name))
+  }
+}
+
+.savvy_wrap_RExpr <- function(ptr) {
+  e <- new.env(parent = emptyenv())
+  e$.ptr <- ptr
+    e$print <- RExpr_print(ptr)
+  e$add <- RExpr_add(ptr)
+  e$sub <- RExpr_sub(ptr)
+  e$mul <- RExpr_mul(ptr)
+  e$div <- RExpr_div(ptr)
+  e$alias <- RExpr_alias(ptr)
+  
+  class(e) <- "RExpr"
+  e
+}
+
+
+
+RExpr <- new.env(parent = emptyenv())
+
+### associated functions for RExpr
+
+RExpr$col <- function(x) {
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_col__impl, x))
+}
 
 
 ### wrapper functions for RSessionContext

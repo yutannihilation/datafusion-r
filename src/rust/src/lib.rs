@@ -10,6 +10,7 @@ use datafusion::{
     dataframe::DataFrame,
     datasource::MemTable,
     execution::context::SessionContext,
+    logical_expr::{col, Expr},
 };
 use pollster::block_on;
 use savvy::{r_eprintln, r_println, savvy, StringSexp};
@@ -108,5 +109,51 @@ impl RDataFrame {
             .select_columns(&columns)
             .map_err(|e| <savvy::Error>::from(e.to_string()))?;
         Ok(Self::new(new_df))
+    }
+
+    // TODO: handle multiple exprs
+    fn select(&self, expr: RExpr) -> savvy::Result<Self> {
+        let new_df = self
+            .df
+            .as_ref()
+            .clone()
+            .select(vec![expr.0])
+            .map_err(|e| <savvy::Error>::from(e.to_string()))?;
+        Ok(Self::new(new_df))
+    }
+}
+
+#[savvy]
+struct RExpr(Expr);
+
+#[savvy]
+impl RExpr {
+    fn print(&self) -> savvy::Result<()> {
+        r_println!("{}", self.0.to_string());
+        Ok(())
+    }
+
+    fn col(x: &str) -> savvy::Result<Self> {
+        Ok(Self(col(x)))
+    }
+
+    fn add(self, rhs: RExpr) -> savvy::Result<Self> {
+        Ok(Self(self.0 + rhs.0))
+    }
+
+    fn sub(self, rhs: RExpr) -> savvy::Result<Self> {
+        Ok(Self(self.0 - rhs.0))
+    }
+
+    fn mul(self, rhs: RExpr) -> savvy::Result<Self> {
+        Ok(Self(self.0 * rhs.0))
+    }
+
+    fn div(self, rhs: RExpr) -> savvy::Result<Self> {
+        Ok(Self(self.0 / rhs.0))
+    }
+
+    fn alias(self, name: &str) -> savvy::Result<Self> {
+        Ok(Self(self.0.alias(name)))
     }
 }

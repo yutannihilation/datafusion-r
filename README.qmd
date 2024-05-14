@@ -49,3 +49,8 @@ d |>
 d |>
   datafusion_select_columns("cyl", "mpg")
 ```
+```{r}
+d |> 
+  datafusion_select(col("mpg") / col("cyl"))
+```
+
