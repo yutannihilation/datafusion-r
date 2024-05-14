@@ -26,6 +26,16 @@ impl RDataFrame {
 }
 
 #[savvy]
+struct RawArrayStream(FFI_ArrowArrayStream);
+
+#[savvy]
+impl RawArrayStream {
+    fn new_without_init() -> savvy::Result<Self> {
+        Ok(Self(FFI_ArrowArrayStream::empty()))
+    }
+}
+
+#[savvy]
 struct RSessionContext {
     pub ctx: SessionContext,
 }
@@ -38,10 +48,12 @@ impl RSessionContext {
         })
     }
 
-    fn create_data_frame(&mut self, input: Sexp, table_name: &str) -> savvy::Result<RDataFrame> {
-        let input_ptr = ExternalPointerSexp::try_from(input)?;
-        let raw_stream = unsafe { input_ptr.cast_mut_unchecked::<FFI_ArrowArrayStream>() };
-        let stream_reader = unsafe { ArrowArrayStreamReader::from_raw(raw_stream) }
+    fn create_data_frame(
+        &mut self,
+        mut raw_stream: RawArrayStream,
+        table_name: &str,
+    ) -> savvy::Result<RDataFrame> {
+        let stream_reader = unsafe { ArrowArrayStreamReader::from_raw(&mut raw_stream.0) }
             .map_err(|e| savvy::Error::from(e.to_string()))?;
         let schema = stream_reader.schema();
         let batches: Vec<RecordBatch> = stream_reader

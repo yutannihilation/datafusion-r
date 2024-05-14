@@ -32,7 +32,7 @@ RDataFrame_print <- function(self) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
     e$print <- RDataFrame_print(ptr)
-
+  
   class(e) <- "RDataFrame"
   e
 }
@@ -48,9 +48,9 @@ RDataFrame <- new.env(parent = emptyenv())
 ### wrapper functions for RSessionContext
 
 RSessionContext_create_data_frame <- function(self) {
-  function(batch, table_name) {
-  #batch <- .savvy_extract_ptr(batch, "RRecordBatch")
-  .savvy_wrap_RDataFrame(.Call(savvy_RSessionContext_create_data_frame__impl, self, batch, table_name))
+  function(raw_stream, table_name) {
+    raw_stream <- .savvy_extract_ptr(raw_stream, "RawArrayStream")
+  .savvy_wrap_RDataFrame(.Call(savvy_RSessionContext_create_data_frame__impl, self, raw_stream, table_name))
   }
 }
 
@@ -58,7 +58,7 @@ RSessionContext_create_data_frame <- function(self) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
     e$create_data_frame <- RSessionContext_create_data_frame(ptr)
-
+  
   class(e) <- "RSessionContext"
   e
 }
@@ -71,6 +71,29 @@ RSessionContext <- new.env(parent = emptyenv())
 
 RSessionContext$new <- function() {
   .savvy_wrap_RSessionContext(.Call(savvy_RSessionContext_new__impl))
+}
+
+
+### wrapper functions for RawArrayStream
+
+
+.savvy_wrap_RawArrayStream <- function(ptr) {
+  e <- new.env(parent = emptyenv())
+  e$.ptr <- ptr
+  
+  
+  class(e) <- "RawArrayStream"
+  e
+}
+
+
+
+RawArrayStream <- new.env(parent = emptyenv())
+
+### associated functions for RawArrayStream
+
+RawArrayStream$new_without_init <- function() {
+  .savvy_wrap_RawArrayStream(.Call(savvy_RawArrayStream_new_without_init__impl))
 }
 
 

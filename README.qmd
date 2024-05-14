@@ -30,12 +30,8 @@ library(datafusionr)
 
 x <- arrow::as_record_batch(mtcars)
 
-# TODO: currently, this relies on nanoarrow to export the data as Arrow C Stream interface
-x <- nanoarrow::as_nanoarrow_array_stream(x)
-
 ctx <- session_context()
-df <- ctx$create_data_frame(x, table_name = "mtcars")
-
-df$print()
+df <- ctx$create_data_frame(as_array_stream(x), table_name = "mtcars")
+df
 ```
 
