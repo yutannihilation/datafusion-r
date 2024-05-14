@@ -9,10 +9,18 @@ SEXP savvy_RDataFrame_select__ffi(SEXP self__, SEXP exprs);
 // methods and associated functions for RExpr
 SEXP savvy_RExpr_print__ffi(SEXP self__);
 SEXP savvy_RExpr_col__ffi(SEXP x);
+SEXP savvy_RExpr_lit__ffi(SEXP x);
 SEXP savvy_RExpr_add__ffi(SEXP self__, SEXP rhs);
 SEXP savvy_RExpr_sub__ffi(SEXP self__, SEXP rhs);
 SEXP savvy_RExpr_mul__ffi(SEXP self__, SEXP rhs);
 SEXP savvy_RExpr_div__ffi(SEXP self__, SEXP rhs);
+SEXP savvy_RExpr_modulo__ffi(SEXP self__, SEXP rhs);
+SEXP savvy_RExpr_lt__ffi(SEXP self__, SEXP rhs);
+SEXP savvy_RExpr_lt_eq__ffi(SEXP self__, SEXP rhs);
+SEXP savvy_RExpr_gt__ffi(SEXP self__, SEXP rhs);
+SEXP savvy_RExpr_gt_eq__ffi(SEXP self__, SEXP rhs);
+SEXP savvy_RExpr_eq__ffi(SEXP self__, SEXP rhs);
+SEXP savvy_RExpr_not_eq__ffi(SEXP self__, SEXP rhs);
 SEXP savvy_RExpr_alias__ffi(SEXP self__, SEXP name);
 
 // methods and associated functions for RExprs

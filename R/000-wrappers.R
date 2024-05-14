@@ -103,6 +103,55 @@ RExpr_div <- function(self) {
   }
 }
 
+RExpr_modulo <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_modulo__impl, self, rhs))
+  }
+}
+
+RExpr_lt <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_lt__impl, self, rhs))
+  }
+}
+
+RExpr_lt_eq <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_lt_eq__impl, self, rhs))
+  }
+}
+
+RExpr_gt <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_gt__impl, self, rhs))
+  }
+}
+
+RExpr_gt_eq <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_gt_eq__impl, self, rhs))
+  }
+}
+
+RExpr_eq <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_eq__impl, self, rhs))
+  }
+}
+
+RExpr_not_eq <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_not_eq__impl, self, rhs))
+  }
+}
+
 RExpr_alias <- function(self) {
   function(name) {
     .savvy_wrap_RExpr(.Call(savvy_RExpr_alias__impl, self, name))
@@ -117,6 +166,13 @@ RExpr_alias <- function(self) {
   e$sub <- RExpr_sub(ptr)
   e$mul <- RExpr_mul(ptr)
   e$div <- RExpr_div(ptr)
+  e$modulo <- RExpr_modulo(ptr)
+  e$lt <- RExpr_lt(ptr)
+  e$lt_eq <- RExpr_lt_eq(ptr)
+  e$gt <- RExpr_gt(ptr)
+  e$gt_eq <- RExpr_gt_eq(ptr)
+  e$eq <- RExpr_eq(ptr)
+  e$not_eq <- RExpr_not_eq(ptr)
   e$alias <- RExpr_alias(ptr)
   
   class(e) <- "RExpr"
@@ -131,6 +187,10 @@ RExpr <- new.env(parent = emptyenv())
 
 RExpr$col <- function(x) {
   .savvy_wrap_RExpr(.Call(savvy_RExpr_col__impl, x))
+}
+
+RExpr$lit <- function(x) {
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_lit__impl, x))
 }
 
 

@@ -9,6 +9,8 @@ print.RExpr <- function(x, ...) x$print()
 `*.RExpr` <- function(x, y) x$mul(y)
 #' @export
 `/.RExpr` <- function(x, y) x$div(y)
+#' @export
+`%.RExpr` <- function(x, y) x$modulo(y)
 
 datafusion_exprs <- function(...) {
   expr_list <- rlang::exprs(...)
