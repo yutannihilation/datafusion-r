@@ -28,10 +28,24 @@ RDataFrame_print <- function(self) {
   }
 }
 
+RDataFrame_limit <- function(self) {
+  function(n, offset) {
+    .savvy_wrap_RDataFrame(.Call(savvy_RDataFrame_limit__impl, self, n, offset))
+  }
+}
+
+RDataFrame_select_columns <- function(self) {
+  function(columns) {
+    .savvy_wrap_RDataFrame(.Call(savvy_RDataFrame_select_columns__impl, self, columns))
+  }
+}
+
 .savvy_wrap_RDataFrame <- function(ptr) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
     e$print <- RDataFrame_print(ptr)
+  e$limit <- RDataFrame_limit(ptr)
+  e$select_columns <- RDataFrame_select_columns(ptr)
   
   class(e) <- "RDataFrame"
   e

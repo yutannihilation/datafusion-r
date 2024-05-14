@@ -12,7 +12,7 @@ use datafusion::{
     execution::context::SessionContext,
 };
 use pollster::block_on;
-use savvy::{r_eprintln, r_println, savvy, ExternalPointerSexp, Sexp};
+use savvy::{r_eprintln, r_println, savvy, StringSexp};
 
 #[savvy]
 struct RDataFrame {
@@ -87,5 +87,26 @@ impl RDataFrame {
         };
 
         Ok(())
+    }
+
+    fn limit(&self, n: usize, offset: usize) -> savvy::Result<Self> {
+        let new_df = self
+            .df
+            .as_ref()
+            .clone()
+            .limit(offset, Some(n))
+            .map_err(|e| <savvy::Error>::from(e.to_string()))?;
+        Ok(Self::new(new_df))
+    }
+
+    fn select_columns(&self, columns: StringSexp) -> savvy::Result<Self> {
+        let columns = columns.to_vec();
+        let new_df = self
+            .df
+            .as_ref()
+            .clone()
+            .select_columns(&columns)
+            .map_err(|e| <savvy::Error>::from(e.to_string()))?;
+        Ok(Self::new(new_df))
     }
 }

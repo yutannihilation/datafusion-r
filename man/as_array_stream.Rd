@@ -4,7 +4,7 @@
 \alias{as_array_stream}
 \title{Convert To 'Arrow C Stream Interface'.}
 \usage{
-as_array_stream(x, ..)
+as_array_stream(x, ...)
 }
 \arguments{
 \item{x}{An R object to convert to an Arrow C stream interface.}

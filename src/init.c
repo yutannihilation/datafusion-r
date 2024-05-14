@@ -40,6 +40,16 @@ SEXP savvy_RDataFrame_print__impl(SEXP self__) {
     return handle_result(res);
 }
 
+SEXP savvy_RDataFrame_limit__impl(SEXP self__, SEXP n, SEXP offset) {
+    SEXP res = savvy_RDataFrame_limit__ffi(self__, n, offset);
+    return handle_result(res);
+}
+
+SEXP savvy_RDataFrame_select_columns__impl(SEXP self__, SEXP columns) {
+    SEXP res = savvy_RDataFrame_select_columns__ffi(self__, columns);
+    return handle_result(res);
+}
+
 SEXP savvy_RSessionContext_new__impl(void) {
     SEXP res = savvy_RSessionContext_new__ffi();
     return handle_result(res);
@@ -59,6 +69,8 @@ SEXP savvy_RawArrayStream_new_without_init__impl(void) {
 static const R_CallMethodDef CallEntries[] = {
 
     {"savvy_RDataFrame_print__impl", (DL_FUNC) &savvy_RDataFrame_print__impl, 1},
+    {"savvy_RDataFrame_limit__impl", (DL_FUNC) &savvy_RDataFrame_limit__impl, 3},
+    {"savvy_RDataFrame_select_columns__impl", (DL_FUNC) &savvy_RDataFrame_select_columns__impl, 2},
     {"savvy_RSessionContext_new__impl", (DL_FUNC) &savvy_RSessionContext_new__impl, 0},
     {"savvy_RSessionContext_create_data_frame__impl", (DL_FUNC) &savvy_RSessionContext_create_data_frame__impl, 3},
     {"savvy_RawArrayStream_new_without_init__impl", (DL_FUNC) &savvy_RawArrayStream_new_without_init__impl, 0},

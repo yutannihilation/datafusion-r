@@ -20,18 +20,32 @@ DataFusion Python API: https://arrow.apache.org/datafusion-python/
 
 The main purpose of this repo is to see if [the savvy framework](https://github.com/yutannihilation/savvy) has enough features for mildly complex usages. Especially,
 
-* to check if savvy can convert an external pointer or ALTREP that an other package defines. e.g. <https://arrow.apache.org/datafusion-python/>
-* to figure out what async support is supposed to be e.g. <https://github.com/yutannihilation/savvy-async-poc?
+-   to check if savvy can convert an external pointer or ALTREP that an other package defines. e.g. <https://arrow.apache.org/datafusion-python/>
+-   to figure out what async support is supposed to be e.g. \<https://github.com/yutannihilation/savvy-async-poc?
 
-## Code
+## Usages
 
 ```{r}
 library(datafusionr)
 
-x <- arrow::as_record_batch(mtcars)
+x <- arrow::as_record_batch(head(mtcars))
 
-ctx <- session_context()
-df <- ctx$create_data_frame(as_array_stream(x), table_name = "mtcars")
-df
+ctx <- datafusion_session_context()
+d <- ctx$create_data_frame(as_array_stream(x), table_name = "mtcars")
+d
 ```
 
+### `limit()`
+
+```{r}
+d |> 
+  datafusion_limit(2)
+```
+
+
+### `select_columns()`
+
+```{r}
+d |>
+  datafusion_select_columns("cyl", "mpg")
+```
