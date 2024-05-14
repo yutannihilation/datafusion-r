@@ -41,9 +41,9 @@ RDataFrame_select_columns <- function(self) {
 }
 
 RDataFrame_select <- function(self) {
-  function(expr) {
-    expr <- .savvy_extract_ptr(expr, "RExpr")
-  .savvy_wrap_RDataFrame(.Call(savvy_RDataFrame_select__impl, self, expr))
+  function(exprs) {
+    exprs <- .savvy_extract_ptr(exprs, "RExprs")
+  .savvy_wrap_RDataFrame(.Call(savvy_RDataFrame_select__impl, self, exprs))
   }
 }
 
@@ -131,6 +131,35 @@ RExpr <- new.env(parent = emptyenv())
 
 RExpr$col <- function(x) {
   .savvy_wrap_RExpr(.Call(savvy_RExpr_col__impl, x))
+}
+
+
+### wrapper functions for RExprs
+
+RExprs_add_expr <- function(self) {
+  function(expr) {
+    expr <- .savvy_extract_ptr(expr, "RExpr")
+invisible(.Call(savvy_RExprs_add_expr__impl, self, expr))
+  }
+}
+
+.savvy_wrap_RExprs <- function(ptr) {
+  e <- new.env(parent = emptyenv())
+  e$.ptr <- ptr
+    e$add_expr <- RExprs_add_expr(ptr)
+  
+  class(e) <- "RExprs"
+  e
+}
+
+
+
+RExprs <- new.env(parent = emptyenv())
+
+### associated functions for RExprs
+
+RExprs$new <- function(capacity) {
+  .savvy_wrap_RExprs(.Call(savvy_RExprs_new__impl, capacity))
 }
 
 

@@ -112,12 +112,12 @@ impl RDataFrame {
     }
 
     // TODO: handle multiple exprs
-    fn select(&self, expr: RExpr) -> savvy::Result<Self> {
+    fn select(&self, exprs: RExprs) -> savvy::Result<Self> {
         let new_df = self
             .df
             .as_ref()
             .clone()
-            .select(vec![expr.0])
+            .select(exprs.0)
             .map_err(|e| <savvy::Error>::from(e.to_string()))?;
         Ok(Self::new(new_df))
     }
@@ -155,5 +155,20 @@ impl RExpr {
 
     fn alias(self, name: &str) -> savvy::Result<Self> {
         Ok(Self(self.0.alias(name)))
+    }
+}
+
+#[savvy]
+struct RExprs(Vec<Expr>);
+
+#[savvy]
+impl RExprs {
+    fn new(capacity: usize) -> savvy::Result<Self> {
+        Ok(Self(Vec::with_capacity(capacity)))
+    }
+
+    fn add_expr(&mut self, expr: RExpr) -> savvy::Result<()> {
+        self.0.push(expr.0);
+        Ok(())
     }
 }

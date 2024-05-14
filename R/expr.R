@@ -10,8 +10,12 @@ print.RExpr <- function(x, ...) x$print()
 #' @export
 `/.RExpr` <- function(x, y) x$div(y)
 
-datafusion_expr <- function(...) {
+datafusion_exprs <- function(...) {
   expr_list <- rlang::exprs(...)
   e <- rlang::env_clone(RExpr, parent.frame(2L))
-  lapply(expr_list, \(x) rlang::eval_bare(x, e))
+  out <- RExprs$new(length(expr_list))
+  for (expr in expr_list) {
+    out$add_expr(rlang::eval_bare(expr, e))
+  }
+  out
 }

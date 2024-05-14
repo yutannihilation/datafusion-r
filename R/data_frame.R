@@ -16,6 +16,6 @@ datafusion_limit <- function(x, n, offset = 0L) {
 
 #' @export
 datafusion_select <- function(x, ...) {
-  expr_list <- datafusion_expr(...)
-  Reduce(\(df, expr) df$select(expr), expr_list, init = x)
+  expr_list <- datafusion_exprs(...)
+  x$select(expr_list)
 }

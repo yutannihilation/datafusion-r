@@ -54,7 +54,8 @@ d |>
 ```{r}
 d |> 
   datafusion_select(
-    (col("mpg") / col("cyl"))$alias("foo")
+    col("mpg")$alias("MPG"),
+    (col("mpg") / col("cyl"))
   )
 ```
 
