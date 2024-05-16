@@ -152,9 +152,164 @@ RExpr_not_eq <- function(self) {
   }
 }
 
+RExpr_and <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_and__impl, self, rhs))
+  }
+}
+
+RExpr_or <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_or__impl, self, rhs))
+  }
+}
+
+RExpr_bitand <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_bitand__impl, self, rhs))
+  }
+}
+
+RExpr_bitor <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_bitor__impl, self, rhs))
+  }
+}
+
+RExpr_bitxor <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_bitxor__impl, self, rhs))
+  }
+}
+
+RExpr_field <- function(self) {
+  function(name) {
+    .savvy_wrap_RExpr(.Call(savvy_RExpr_field__impl, self, name))
+  }
+}
+
+RExpr_index <- function(self) {
+  function(key) {
+    key <- .savvy_extract_ptr(key, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_index__impl, self, key))
+  }
+}
+
+RExpr_range <- function(self) {
+  function(start, stop) {
+    start <- .savvy_extract_ptr(start, "RExpr")
+  stop <- .savvy_extract_ptr(stop, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_range__impl, self, start, stop))
+  }
+}
+
+RExpr_like <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_like__impl, self, rhs))
+  }
+}
+
+RExpr_not_like <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_not_like__impl, self, rhs))
+  }
+}
+
+RExpr_ilike <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_ilike__impl, self, rhs))
+  }
+}
+
+RExpr_not_ilike <- function(self) {
+  function(rhs) {
+    rhs <- .savvy_extract_ptr(rhs, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_not_ilike__impl, self, rhs))
+  }
+}
+
+RExpr_between <- function(self) {
+  function(low, high) {
+    low <- .savvy_extract_ptr(low, "RExpr")
+  high <- .savvy_extract_ptr(high, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_between__impl, self, low, high))
+  }
+}
+
+RExpr_not_between <- function(self) {
+  function(low, high) {
+    low <- .savvy_extract_ptr(low, "RExpr")
+  high <- .savvy_extract_ptr(high, "RExpr")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_not_between__impl, self, low, high))
+  }
+}
+
 RExpr_alias <- function(self) {
   function(name) {
     .savvy_wrap_RExpr(.Call(savvy_RExpr_alias__impl, self, name))
+  }
+}
+
+RExpr_in_list <- function(self) {
+  function(list, negated) {
+    list <- .savvy_extract_ptr(list, "RExprs")
+  .savvy_wrap_RExpr(.Call(savvy_RExpr_in_list__impl, self, list, negated))
+  }
+}
+
+RExpr_neg <- function(self) {
+  function() {
+    .savvy_wrap_RExpr(.Call(savvy_RExpr_neg__impl, self))
+  }
+}
+
+RExpr_not <- function(self) {
+  function() {
+    .savvy_wrap_RExpr(.Call(savvy_RExpr_not__impl, self))
+  }
+}
+
+RExpr_is_null <- function(self) {
+  function() {
+    .savvy_wrap_RExpr(.Call(savvy_RExpr_is_null__impl, self))
+  }
+}
+
+RExpr_is_not_null <- function(self) {
+  function() {
+    .savvy_wrap_RExpr(.Call(savvy_RExpr_is_not_null__impl, self))
+  }
+}
+
+RExpr_is_true <- function(self) {
+  function() {
+    .savvy_wrap_RExpr(.Call(savvy_RExpr_is_true__impl, self))
+  }
+}
+
+RExpr_is_not_true <- function(self) {
+  function() {
+    .savvy_wrap_RExpr(.Call(savvy_RExpr_is_not_true__impl, self))
+  }
+}
+
+RExpr_is_false <- function(self) {
+  function() {
+    .savvy_wrap_RExpr(.Call(savvy_RExpr_is_false__impl, self))
+  }
+}
+
+RExpr_is_not_false <- function(self) {
+  function() {
+    .savvy_wrap_RExpr(.Call(savvy_RExpr_is_not_false__impl, self))
   }
 }
 
@@ -173,7 +328,30 @@ RExpr_alias <- function(self) {
   e$gt_eq <- RExpr_gt_eq(ptr)
   e$eq <- RExpr_eq(ptr)
   e$not_eq <- RExpr_not_eq(ptr)
+  e$and <- RExpr_and(ptr)
+  e$or <- RExpr_or(ptr)
+  e$bitand <- RExpr_bitand(ptr)
+  e$bitor <- RExpr_bitor(ptr)
+  e$bitxor <- RExpr_bitxor(ptr)
+  e$field <- RExpr_field(ptr)
+  e$index <- RExpr_index(ptr)
+  e$range <- RExpr_range(ptr)
+  e$like <- RExpr_like(ptr)
+  e$not_like <- RExpr_not_like(ptr)
+  e$ilike <- RExpr_ilike(ptr)
+  e$not_ilike <- RExpr_not_ilike(ptr)
+  e$between <- RExpr_between(ptr)
+  e$not_between <- RExpr_not_between(ptr)
   e$alias <- RExpr_alias(ptr)
+  e$in_list <- RExpr_in_list(ptr)
+  e$neg <- RExpr_neg(ptr)
+  e$not <- RExpr_not(ptr)
+  e$is_null <- RExpr_is_null(ptr)
+  e$is_not_null <- RExpr_is_not_null(ptr)
+  e$is_true <- RExpr_is_true(ptr)
+  e$is_not_true <- RExpr_is_not_true(ptr)
+  e$is_false <- RExpr_is_false(ptr)
+  e$is_not_false <- RExpr_is_not_false(ptr)
   
   class(e) <- "RExpr"
   e
@@ -203,10 +381,17 @@ invisible(.Call(savvy_RExprs_add_expr__impl, self, expr))
   }
 }
 
+RExprs_print <- function(self) {
+  function() {
+  invisible(.Call(savvy_RExprs_print__impl, self))
+  }
+}
+
 .savvy_wrap_RExprs <- function(ptr) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
     e$add_expr <- RExprs_add_expr(ptr)
+  e$print <- RExprs_print(ptr)
   
   class(e) <- "RExprs"
   e

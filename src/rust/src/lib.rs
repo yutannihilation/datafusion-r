@@ -12,11 +12,10 @@ use datafusion::{
     dataframe::DataFrame,
     datasource::MemTable,
     execution::context::SessionContext,
-    logical_expr::{col, lit, Expr},
 };
 use expr::RExprs;
 use pollster::block_on;
-use savvy::{r_eprintln, r_println, savvy, Sexp, StringSexp, TypedSexp};
+use savvy::{r_eprintln, r_println, savvy, StringSexp};
 
 #[savvy]
 struct RDataFrame {

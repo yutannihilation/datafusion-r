@@ -125,8 +125,123 @@ SEXP savvy_RExpr_not_eq__impl(SEXP self__, SEXP rhs) {
     return handle_result(res);
 }
 
+SEXP savvy_RExpr_and__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_RExpr_and__ffi(self__, rhs);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_or__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_RExpr_or__ffi(self__, rhs);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_bitand__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_RExpr_bitand__ffi(self__, rhs);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_bitor__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_RExpr_bitor__ffi(self__, rhs);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_bitxor__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_RExpr_bitxor__ffi(self__, rhs);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_field__impl(SEXP self__, SEXP name) {
+    SEXP res = savvy_RExpr_field__ffi(self__, name);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_index__impl(SEXP self__, SEXP key) {
+    SEXP res = savvy_RExpr_index__ffi(self__, key);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_range__impl(SEXP self__, SEXP start, SEXP stop) {
+    SEXP res = savvy_RExpr_range__ffi(self__, start, stop);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_like__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_RExpr_like__ffi(self__, rhs);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_not_like__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_RExpr_not_like__ffi(self__, rhs);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_ilike__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_RExpr_ilike__ffi(self__, rhs);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_not_ilike__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_RExpr_not_ilike__ffi(self__, rhs);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_between__impl(SEXP self__, SEXP low, SEXP high) {
+    SEXP res = savvy_RExpr_between__ffi(self__, low, high);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_not_between__impl(SEXP self__, SEXP low, SEXP high) {
+    SEXP res = savvy_RExpr_not_between__ffi(self__, low, high);
+    return handle_result(res);
+}
+
 SEXP savvy_RExpr_alias__impl(SEXP self__, SEXP name) {
     SEXP res = savvy_RExpr_alias__ffi(self__, name);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_in_list__impl(SEXP self__, SEXP list, SEXP negated) {
+    SEXP res = savvy_RExpr_in_list__ffi(self__, list, negated);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_neg__impl(SEXP self__) {
+    SEXP res = savvy_RExpr_neg__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_not__impl(SEXP self__) {
+    SEXP res = savvy_RExpr_not__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_is_null__impl(SEXP self__) {
+    SEXP res = savvy_RExpr_is_null__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_is_not_null__impl(SEXP self__) {
+    SEXP res = savvy_RExpr_is_not_null__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_is_true__impl(SEXP self__) {
+    SEXP res = savvy_RExpr_is_true__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_is_not_true__impl(SEXP self__) {
+    SEXP res = savvy_RExpr_is_not_true__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_is_false__impl(SEXP self__) {
+    SEXP res = savvy_RExpr_is_false__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_RExpr_is_not_false__impl(SEXP self__) {
+    SEXP res = savvy_RExpr_is_not_false__ffi(self__);
     return handle_result(res);
 }
 
@@ -137,6 +252,11 @@ SEXP savvy_RExprs_new__impl(SEXP capacity) {
 
 SEXP savvy_RExprs_add_expr__impl(SEXP self__, SEXP expr) {
     SEXP res = savvy_RExprs_add_expr__ffi(self__, expr);
+    return handle_result(res);
+}
+
+SEXP savvy_RExprs_print__impl(SEXP self__) {
+    SEXP res = savvy_RExprs_print__ffi(self__);
     return handle_result(res);
 }
 
@@ -176,9 +296,33 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_RExpr_gt_eq__impl", (DL_FUNC) &savvy_RExpr_gt_eq__impl, 2},
     {"savvy_RExpr_eq__impl", (DL_FUNC) &savvy_RExpr_eq__impl, 2},
     {"savvy_RExpr_not_eq__impl", (DL_FUNC) &savvy_RExpr_not_eq__impl, 2},
+    {"savvy_RExpr_and__impl", (DL_FUNC) &savvy_RExpr_and__impl, 2},
+    {"savvy_RExpr_or__impl", (DL_FUNC) &savvy_RExpr_or__impl, 2},
+    {"savvy_RExpr_bitand__impl", (DL_FUNC) &savvy_RExpr_bitand__impl, 2},
+    {"savvy_RExpr_bitor__impl", (DL_FUNC) &savvy_RExpr_bitor__impl, 2},
+    {"savvy_RExpr_bitxor__impl", (DL_FUNC) &savvy_RExpr_bitxor__impl, 2},
+    {"savvy_RExpr_field__impl", (DL_FUNC) &savvy_RExpr_field__impl, 2},
+    {"savvy_RExpr_index__impl", (DL_FUNC) &savvy_RExpr_index__impl, 2},
+    {"savvy_RExpr_range__impl", (DL_FUNC) &savvy_RExpr_range__impl, 3},
+    {"savvy_RExpr_like__impl", (DL_FUNC) &savvy_RExpr_like__impl, 2},
+    {"savvy_RExpr_not_like__impl", (DL_FUNC) &savvy_RExpr_not_like__impl, 2},
+    {"savvy_RExpr_ilike__impl", (DL_FUNC) &savvy_RExpr_ilike__impl, 2},
+    {"savvy_RExpr_not_ilike__impl", (DL_FUNC) &savvy_RExpr_not_ilike__impl, 2},
+    {"savvy_RExpr_between__impl", (DL_FUNC) &savvy_RExpr_between__impl, 3},
+    {"savvy_RExpr_not_between__impl", (DL_FUNC) &savvy_RExpr_not_between__impl, 3},
     {"savvy_RExpr_alias__impl", (DL_FUNC) &savvy_RExpr_alias__impl, 2},
+    {"savvy_RExpr_in_list__impl", (DL_FUNC) &savvy_RExpr_in_list__impl, 3},
+    {"savvy_RExpr_neg__impl", (DL_FUNC) &savvy_RExpr_neg__impl, 1},
+    {"savvy_RExpr_not__impl", (DL_FUNC) &savvy_RExpr_not__impl, 1},
+    {"savvy_RExpr_is_null__impl", (DL_FUNC) &savvy_RExpr_is_null__impl, 1},
+    {"savvy_RExpr_is_not_null__impl", (DL_FUNC) &savvy_RExpr_is_not_null__impl, 1},
+    {"savvy_RExpr_is_true__impl", (DL_FUNC) &savvy_RExpr_is_true__impl, 1},
+    {"savvy_RExpr_is_not_true__impl", (DL_FUNC) &savvy_RExpr_is_not_true__impl, 1},
+    {"savvy_RExpr_is_false__impl", (DL_FUNC) &savvy_RExpr_is_false__impl, 1},
+    {"savvy_RExpr_is_not_false__impl", (DL_FUNC) &savvy_RExpr_is_not_false__impl, 1},
     {"savvy_RExprs_new__impl", (DL_FUNC) &savvy_RExprs_new__impl, 1},
     {"savvy_RExprs_add_expr__impl", (DL_FUNC) &savvy_RExprs_add_expr__impl, 2},
+    {"savvy_RExprs_print__impl", (DL_FUNC) &savvy_RExprs_print__impl, 1},
     {"savvy_RSessionContext_new__impl", (DL_FUNC) &savvy_RSessionContext_new__impl, 0},
     {"savvy_RSessionContext_create_data_frame__impl", (DL_FUNC) &savvy_RSessionContext_create_data_frame__impl, 3},
     {"savvy_RawArrayStream_new_without_init__impl", (DL_FUNC) &savvy_RawArrayStream_new_without_init__impl, 0},
