@@ -13,16 +13,16 @@ use datafusion::{
     datasource::MemTable,
     execution::context::SessionContext,
 };
-use expr::RExprs;
+use expr::RSessionContextRExprs;
 use pollster::block_on;
 use savvy::{r_eprintln, r_println, savvy, StringSexp};
 
 #[savvy]
-struct RDataFrame {
+struct DataFusionRDataFrame {
     df: Arc<DataFrame>,
 }
 
-impl RDataFrame {
+impl DataFusionRDataFrame {
     fn new(df: DataFrame) -> Self {
         Self { df: Arc::new(df) }
     }
@@ -39,12 +39,12 @@ impl RawArrayStream {
 }
 
 #[savvy]
-struct RSessionContext {
+struct DataFusionRSessionContext {
     pub ctx: SessionContext,
 }
 
 #[savvy]
-impl RSessionContext {
+impl DataFusionRSessionContext {
     fn new() -> savvy::Result<Self> {
         Ok(Self {
             ctx: SessionContext::new(),
@@ -55,7 +55,7 @@ impl RSessionContext {
         &mut self,
         mut raw_stream: RawArrayStream,
         table_name: &str,
-    ) -> savvy::Result<RDataFrame> {
+    ) -> savvy::Result<DataFusionRDataFrame> {
         let stream_reader = unsafe { ArrowArrayStreamReader::from_raw(&mut raw_stream.0) }
             .map_err(|e| savvy::Error::from(e.to_string()))?;
         let schema = stream_reader.schema();
@@ -73,12 +73,12 @@ impl RSessionContext {
         let df = block_on(self.ctx.table(table_name))
             .map_err(|e| <savvy::Error>::from(e.to_string()))?;
 
-        Ok(RDataFrame::new(df))
+        Ok(DataFusionRDataFrame::new(df))
     }
 }
 
 #[savvy]
-impl RDataFrame {
+impl DataFusionRDataFrame {
     fn print(&self) -> savvy::Result<()> {
         let df = self.df.as_ref().clone();
         let batches = block_on(df.collect()).expect("Must not fail"); // TODO: handle async properly
@@ -114,7 +114,7 @@ impl RDataFrame {
     }
 
     // TODO: handle multiple exprs
-    fn select(&self, exprs: RExprs) -> savvy::Result<Self> {
+    fn select(&self, exprs: RSessionContextRExprs) -> savvy::Result<Self> {
         let new_df = self
             .df
             .as_ref()

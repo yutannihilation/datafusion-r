@@ -2,10 +2,10 @@ use datafusion::logical_expr::{col, lit, Expr};
 use savvy::{r_println, savvy, Sexp, TypedSexp};
 
 #[savvy]
-struct RExpr(pub(crate) Expr);
+struct RSessionContextRExpr(pub(crate) Expr);
 
 #[savvy]
-impl RExpr {
+impl RSessionContextRExpr {
     fn print(&self) -> savvy::Result<()> {
         r_println!("{}", self.0.to_string());
         Ok(())
@@ -26,67 +26,67 @@ impl RExpr {
         Ok(Self(lit))
     }
 
-    fn add(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn add(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0 + rhs.0))
     }
 
-    fn sub(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn sub(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0 - rhs.0))
     }
 
-    fn mul(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn mul(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0 * rhs.0))
     }
 
-    fn div(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn div(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0 / rhs.0))
     }
 
-    fn modulo(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn modulo(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0 % rhs.0))
     }
 
-    fn lt(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn lt(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.lt(rhs.0)))
     }
 
-    fn lt_eq(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn lt_eq(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.lt_eq(rhs.0)))
     }
 
-    fn gt(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn gt(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.gt(rhs.0)))
     }
 
-    fn gt_eq(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn gt_eq(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.gt_eq(rhs.0)))
     }
 
-    fn eq(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn eq(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.eq(rhs.0)))
     }
 
-    fn not_eq(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn not_eq(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.not_eq(rhs.0)))
     }
 
-    fn and(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn and(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.and(rhs.0)))
     }
 
-    fn or(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn or(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.or(rhs.0)))
     }
 
-    fn bitand(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn bitand(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0 & rhs.0))
     }
 
-    fn bitor(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn bitor(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0 | rhs.0))
     }
 
-    fn bitxor(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn bitxor(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0 ^ rhs.0))
     }
 
@@ -94,35 +94,39 @@ impl RExpr {
         Ok(Self(self.0.field(name)))
     }
 
-    fn index(self, key: RExpr) -> savvy::Result<Self> {
+    fn index(self, key: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.index(key.0)))
     }
 
-    fn range(self, start: RExpr, stop: RExpr) -> savvy::Result<Self> {
+    fn range(self, start: RSessionContextRExpr, stop: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.range(start.0, stop.0)))
     }
 
-    fn like(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn like(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.like(rhs.0)))
     }
 
-    fn not_like(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn not_like(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.not_like(rhs.0)))
     }
 
-    fn ilike(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn ilike(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.ilike(rhs.0)))
     }
 
-    fn not_ilike(self, rhs: RExpr) -> savvy::Result<Self> {
+    fn not_ilike(self, rhs: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.not_ilike(rhs.0)))
     }
 
-    fn between(self, low: RExpr, high: RExpr) -> savvy::Result<Self> {
+    fn between(self, low: RSessionContextRExpr, high: RSessionContextRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0.between(low.0, high.0)))
     }
 
-    fn not_between(self, low: RExpr, high: RExpr) -> savvy::Result<Self> {
+    fn not_between(
+        self,
+        low: RSessionContextRExpr,
+        high: RSessionContextRExpr,
+    ) -> savvy::Result<Self> {
         Ok(Self(self.0.not_between(low.0, high.0)))
     }
 
@@ -130,7 +134,7 @@ impl RExpr {
         Ok(Self(self.0.alias(name)))
     }
 
-    fn in_list(self, list: RExprs, negated: bool) -> savvy::Result<Self> {
+    fn in_list(self, list: RSessionContextRExprs, negated: bool) -> savvy::Result<Self> {
         Ok(Self(self.0.in_list(list.0, negated)))
     }
 
@@ -170,15 +174,15 @@ impl RExpr {
 }
 
 #[savvy]
-pub(crate) struct RExprs(pub(crate) Vec<Expr>);
+pub(crate) struct RSessionContextRExprs(pub(crate) Vec<Expr>);
 
 #[savvy]
-impl RExprs {
+impl RSessionContextRExprs {
     fn new(capacity: usize) -> savvy::Result<Self> {
         Ok(Self(Vec::with_capacity(capacity)))
     }
 
-    fn add_expr(&mut self, expr: RExpr) -> savvy::Result<()> {
+    fn add_expr(&mut self, expr: RSessionContextRExpr) -> savvy::Result<()> {
         self.0.push(expr.0);
         Ok(())
     }

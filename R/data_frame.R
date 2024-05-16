@@ -1,5 +1,5 @@
 #' @export
-print.RDataFrame <- function(x, ...) x$print()
+print.DataFusionRDataFrame <- function(x, ...) x$print()
 
 #' @export
 datafusion_select_columns <- function(x, ...) {
