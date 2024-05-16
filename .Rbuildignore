@@ -5,3 +5,4 @@
 ^src/rust/target$
 ^README\.Rmd$
 ^README\.qmd$
+^\.github$

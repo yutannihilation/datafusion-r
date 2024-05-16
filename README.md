@@ -1,7 +1,10 @@
 # 🚧 WIP 🚧
 
 
-DataFusion Python API: https://arrow.apache.org/datafusion-python/
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/yutannihilation/datafusionr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/yutannihilation/datafusionr/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
 
 ## What’s this?
 
