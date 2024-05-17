@@ -13,7 +13,7 @@ use datafusion::{
     datasource::MemTable,
     execution::context::SessionContext,
 };
-use expr::RSessionContextRExprs;
+use expr::DataFusionRExprs;
 use pollster::block_on;
 use savvy::{r_eprintln, r_println, savvy, StringSexp};
 
@@ -114,7 +114,7 @@ impl DataFusionRDataFrame {
     }
 
     // TODO: handle multiple exprs
-    fn select(&self, exprs: RSessionContextRExprs) -> savvy::Result<Self> {
+    fn select(&self, exprs: DataFusionRExprs) -> savvy::Result<Self> {
         let new_df = self
             .df
             .as_ref()
