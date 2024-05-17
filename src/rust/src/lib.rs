@@ -15,7 +15,7 @@ use datafusion::{
 };
 use expr::DataFusionRExprs;
 use pollster::block_on;
-use savvy::{r_eprintln, r_println, savvy, StringSexp};
+use savvy::{r_eprintln, r_println, savvy, OwnedIntegerSexp, OwnedStringSexp, Sexp, StringSexp};
 
 #[savvy]
 struct DataFusionRDataFrame {
@@ -122,5 +122,24 @@ impl DataFusionRDataFrame {
             .select(exprs.0)
             .map_err(|e| <savvy::Error>::from(e.to_string()))?;
         Ok(Self::new(new_df))
+    }
+
+    fn dim(&self) -> savvy::Result<Sexp> {
+        let mut out = OwnedIntegerSexp::new(2)?;
+
+        // nrow
+        out[0] = pollster::block_on((*self.df).clone().count())
+            .map_err(|e| <savvy::Error>::from(e.to_string()))? as _;
+
+        // ncol
+        out[1] = self.df.schema().fields().len() as _;
+
+        out.into()
+    }
+
+    fn names(&self) -> savvy::Result<Sexp> {
+        let iter = self.df.schema().fields().iter().map(|x| x.name());
+        let out = OwnedStringSexp::try_from_iter(iter)?;
+        out.into()
     }
 }

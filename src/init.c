@@ -55,6 +55,16 @@ SEXP savvy_DataFusionRDataFrame_select__impl(SEXP self__, SEXP exprs) {
     return handle_result(res);
 }
 
+SEXP savvy_DataFusionRDataFrame_dim__impl(SEXP self__) {
+    SEXP res = savvy_DataFusionRDataFrame_dim__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRDataFrame_names__impl(SEXP self__) {
+    SEXP res = savvy_DataFusionRDataFrame_names__ffi(self__);
+    return handle_result(res);
+}
+
 SEXP savvy_DataFusionRExpr_print__impl(SEXP self__) {
     SEXP res = savvy_DataFusionRExpr_print__ffi(self__);
     return handle_result(res);
@@ -282,6 +292,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRDataFrame_limit__impl", (DL_FUNC) &savvy_DataFusionRDataFrame_limit__impl, 3},
     {"savvy_DataFusionRDataFrame_select_columns__impl", (DL_FUNC) &savvy_DataFusionRDataFrame_select_columns__impl, 2},
     {"savvy_DataFusionRDataFrame_select__impl", (DL_FUNC) &savvy_DataFusionRDataFrame_select__impl, 2},
+    {"savvy_DataFusionRDataFrame_dim__impl", (DL_FUNC) &savvy_DataFusionRDataFrame_dim__impl, 1},
+    {"savvy_DataFusionRDataFrame_names__impl", (DL_FUNC) &savvy_DataFusionRDataFrame_names__impl, 1},
     {"savvy_DataFusionRExpr_print__impl", (DL_FUNC) &savvy_DataFusionRExpr_print__impl, 1},
     {"savvy_DataFusionRExpr_col__impl", (DL_FUNC) &savvy_DataFusionRExpr_col__impl, 1},
     {"savvy_DataFusionRExpr_lit__impl", (DL_FUNC) &savvy_DataFusionRExpr_lit__impl, 1},

@@ -2,6 +2,12 @@
 print.DataFusionRDataFrame <- function(x, ...) x$print()
 
 #' @export
+dim.DataFusionRDataFrame <- function(x, ...) x$dim()
+
+#' @export
+names.DataFusionRDataFrame <- function(x, ...) x$names()
+
+#' @export
 datafusion_select_columns <- function(x, ...) {
   x$select_columns(c(...))
 }

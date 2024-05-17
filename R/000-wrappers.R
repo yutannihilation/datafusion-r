@@ -47,6 +47,18 @@ DataFusionRDataFrame_select <- function(self) {
   }
 }
 
+DataFusionRDataFrame_dim <- function(self) {
+  function() {
+  .Call(savvy_DataFusionRDataFrame_dim__impl, self)
+  }
+}
+
+DataFusionRDataFrame_names <- function(self) {
+  function() {
+  .Call(savvy_DataFusionRDataFrame_names__impl, self)
+  }
+}
+
 .savvy_wrap_DataFusionRDataFrame <- function(ptr) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
@@ -54,6 +66,8 @@ DataFusionRDataFrame_select <- function(self) {
   e$limit <- DataFusionRDataFrame_limit(ptr)
   e$select_columns <- DataFusionRDataFrame_select_columns(ptr)
   e$select <- DataFusionRDataFrame_select(ptr)
+  e$dim <- DataFusionRDataFrame_dim(ptr)
+  e$names <- DataFusionRDataFrame_names(ptr)
   
   class(e) <- "DataFusionRDataFrame"
   e
