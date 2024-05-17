@@ -25,7 +25,7 @@ print.RSessionContextRExprs <- function(x, ...) x$print()
 #' @export
 `/.RSessionContextRExpr` <- function(x, y) x$div(y)
 #' @export
-`%.RSessionContextRExpr` <- function(x, y) x$modulo(y)
+`%%.RSessionContextRExpr` <- function(x, y) x$modulo(y)
 #' @export
 `&.RSessionContextRExpr` <- function(x, y) x$bitand(y)
 #' @export
@@ -36,8 +36,8 @@ print.RSessionContextRExprs <- function(x, ...) x$print()
 `[.RSessionContextRExpr` <- function(x, y, ...) {
   y_expr <- rlang::enexpr(y)
   if (y_expr[[1L]] == as.name(":")) {
-    start <- RSessionContextRExpr$lit(y_expr[[2L]])
-    stop  <- RSessionContextRExpr$lit(y_expr[[3L]])
+    start <- RSessionContextRExpr$lit(as.integer(y_expr[[2L]]))
+    stop  <- RSessionContextRExpr$lit(as.integer(y_expr[[3L]]))
     x$range(start, stop)
   } else {
     x$index(y)
@@ -58,6 +58,7 @@ RSessionContextRExpr$`==` <- function(x, y) x$eq(y)
 RSessionContextRExpr$`!=` <- function(x, y) x$not_eq(y)
 RSessionContextRExpr$`!`  <- function(x)    x$not()
 
+# TODO: can I always overwrite `c`?
 RSessionContextRExpr$`%in%` <- function(x, y) {
   y_expr <- rlang::enexpr(y)
 
