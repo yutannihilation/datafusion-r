@@ -1,6 +1,7 @@
 #' Convert To 'Arrow C Stream Interface'.
 #'
 #' @param x An R object to convert to an Arrow C stream interface.
+#' @param ... Additional arguments passed to [`arrow::as_record_batch_reader()`].
 #' @seealso <https://arrow.apache.org/docs/format/CStreamInterface.html>
 #'
 #' @export

@@ -8,6 +8,8 @@ as_array_stream(x, ...)
 }
 \arguments{
 \item{x}{An R object to convert to an Arrow C stream interface.}
+
+\item{...}{Additional arguments passed to \code{\link[arrow:as_record_batch_reader]{arrow::as_record_batch_reader()}}.}
 }
 \description{
 Convert To 'Arrow C Stream Interface'.
