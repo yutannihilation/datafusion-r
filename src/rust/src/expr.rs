@@ -7,7 +7,7 @@ struct DataFusionRExpr(pub(crate) Expr);
 #[savvy]
 impl DataFusionRExpr {
     fn print(&self) -> savvy::Result<()> {
-        r_println!("{}", self.0.to_string());
+        r_println!("{}", self.0);
         Ok(())
     }
 
@@ -42,7 +42,7 @@ impl DataFusionRExpr {
         Ok(Self(self.0 / rhs.0))
     }
 
-    fn modulo(self, rhs: DataFusionRExpr) -> savvy::Result<Self> {
+    fn reminder(self, rhs: DataFusionRExpr) -> savvy::Result<Self> {
         Ok(Self(self.0 % rhs.0))
     }
 

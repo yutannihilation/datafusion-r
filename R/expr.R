@@ -25,7 +25,7 @@ print.DataFusionRExprs <- function(x, ...) x$print()
 #' @export
 `/.DataFusionRExpr` <- function(x, y) x$div(y)
 #' @export
-`%%.DataFusionRExpr` <- function(x, y) x$modulo(y)
+`%%.DataFusionRExpr` <- function(x, y) x$reminder(y)
 #' @export
 `&.DataFusionRExpr` <- function(x, y) x$bitand(y)
 #' @export

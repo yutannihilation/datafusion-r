@@ -14,7 +14,7 @@ SEXP savvy_DataFusionRExpr_add__ffi(SEXP self__, SEXP rhs);
 SEXP savvy_DataFusionRExpr_sub__ffi(SEXP self__, SEXP rhs);
 SEXP savvy_DataFusionRExpr_mul__ffi(SEXP self__, SEXP rhs);
 SEXP savvy_DataFusionRExpr_div__ffi(SEXP self__, SEXP rhs);
-SEXP savvy_DataFusionRExpr_modulo__ffi(SEXP self__, SEXP rhs);
+SEXP savvy_DataFusionRExpr_reminder__ffi(SEXP self__, SEXP rhs);
 SEXP savvy_DataFusionRExpr_lt__ffi(SEXP self__, SEXP rhs);
 SEXP savvy_DataFusionRExpr_lt_eq__ffi(SEXP self__, SEXP rhs);
 SEXP savvy_DataFusionRExpr_gt__ffi(SEXP self__, SEXP rhs);

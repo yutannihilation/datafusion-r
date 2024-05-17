@@ -26,7 +26,7 @@ test_that("expressions", {
   expect_equal(e(col("foo") *  col("bar")), "foo * bar" )
   expect_equal(e(col("foo") /  col("bar")), "foo / bar" )
   # TODO
-  # expect_equal(e(col("foo") %% col("bar")), "foo % bar" )
+  expect_equal(e(col("foo") %% col("bar")), "foo % bar" )
   expect_equal(e(col("foo") == col("bar")), "foo = bar" )
   expect_equal(e(col("foo") != col("bar")), "foo != bar")
   expect_equal(e(col("foo") <  col("bar")), "foo < bar" )
@@ -44,10 +44,10 @@ test_that("expressions", {
   expect_equal(e(col("foo")[1:3]), '(foo)[Int32(1):Int32(3):Int64(1)]') # range
 
   # % needs to be escaped
-  expect_equal(e(col("foo")$like(lit("prefix_%%"))),      'foo LIKE Utf8("prefix_%")')
-  expect_equal(e(col("foo")$not_like(lit("prefix_%%"))),  'foo NOT LIKE Utf8("prefix_%")')
-  expect_equal(e(col("foo")$ilike(lit("prefix_%%"))),     'foo ILIKE Utf8("prefix_%")')
-  expect_equal(e(col("foo")$not_ilike(lit("prefix_%%"))), 'foo NOT ILIKE Utf8("prefix_%")')
+  expect_equal(e(col("foo")$like(lit("prefix_%"))),      'foo LIKE Utf8("prefix_%")')
+  expect_equal(e(col("foo")$not_like(lit("prefix_%"))),  'foo NOT LIKE Utf8("prefix_%")')
+  expect_equal(e(col("foo")$ilike(lit("prefix_%"))),     'foo ILIKE Utf8("prefix_%")')
+  expect_equal(e(col("foo")$not_ilike(lit("prefix_%"))), 'foo NOT ILIKE Utf8("prefix_%")')
 
   expect_equal(e(col("foo")$between(lit(0), lit(100))),     'foo BETWEEN Float64(0) AND Float64(100)')
   expect_equal(e(col("foo")$not_between(lit(0), lit(100))), 'foo NOT BETWEEN Float64(0) AND Float64(100)')

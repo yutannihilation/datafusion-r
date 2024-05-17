@@ -90,8 +90,8 @@ SEXP savvy_DataFusionRExpr_div__impl(SEXP self__, SEXP rhs) {
     return handle_result(res);
 }
 
-SEXP savvy_DataFusionRExpr_modulo__impl(SEXP self__, SEXP rhs) {
-    SEXP res = savvy_DataFusionRExpr_modulo__ffi(self__, rhs);
+SEXP savvy_DataFusionRExpr_reminder__impl(SEXP self__, SEXP rhs) {
+    SEXP res = savvy_DataFusionRExpr_reminder__ffi(self__, rhs);
     return handle_result(res);
 }
 
@@ -289,7 +289,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRExpr_sub__impl", (DL_FUNC) &savvy_DataFusionRExpr_sub__impl, 2},
     {"savvy_DataFusionRExpr_mul__impl", (DL_FUNC) &savvy_DataFusionRExpr_mul__impl, 2},
     {"savvy_DataFusionRExpr_div__impl", (DL_FUNC) &savvy_DataFusionRExpr_div__impl, 2},
-    {"savvy_DataFusionRExpr_modulo__impl", (DL_FUNC) &savvy_DataFusionRExpr_modulo__impl, 2},
+    {"savvy_DataFusionRExpr_reminder__impl", (DL_FUNC) &savvy_DataFusionRExpr_reminder__impl, 2},
     {"savvy_DataFusionRExpr_lt__impl", (DL_FUNC) &savvy_DataFusionRExpr_lt__impl, 2},
     {"savvy_DataFusionRExpr_lt_eq__impl", (DL_FUNC) &savvy_DataFusionRExpr_lt_eq__impl, 2},
     {"savvy_DataFusionRExpr_gt__impl", (DL_FUNC) &savvy_DataFusionRExpr_gt__impl, 2},

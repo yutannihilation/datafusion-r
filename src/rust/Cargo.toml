@@ -10,7 +10,7 @@ crate-type = ["staticlib", "lib"]
 arrow = { version = "51.0.0", features = ["ffi"] }
 datafusion = "38.0.0"
 pollster = "0.3.0"
-savvy = "*"
+savvy = { git = "https://github.com/yutannihilation/savvy" }
 
 [profile.release]
 # By default, on release build, savvy terminates the R session when a panic

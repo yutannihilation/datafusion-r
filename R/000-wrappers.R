@@ -103,10 +103,10 @@ DataFusionRExpr_div <- function(self) {
   }
 }
 
-DataFusionRExpr_modulo <- function(self) {
+DataFusionRExpr_reminder <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_modulo__impl, self, rhs))
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_reminder__impl, self, rhs))
   }
 }
 
@@ -321,7 +321,7 @@ DataFusionRExpr_is_not_false <- function(self) {
   e$sub <- DataFusionRExpr_sub(ptr)
   e$mul <- DataFusionRExpr_mul(ptr)
   e$div <- DataFusionRExpr_div(ptr)
-  e$modulo <- DataFusionRExpr_modulo(ptr)
+  e$reminder <- DataFusionRExpr_reminder(ptr)
   e$lt <- DataFusionRExpr_lt(ptr)
   e$lt_eq <- DataFusionRExpr_lt_eq(ptr)
   e$gt <- DataFusionRExpr_gt(ptr)
