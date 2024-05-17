@@ -6,3 +6,4 @@
 ^README\.Rmd$
 ^README\.qmd$
 ^\.github$
+^LICENSE\.md$
