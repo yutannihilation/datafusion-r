@@ -11,6 +11,8 @@ as_array_stream <- function(x, ...) {
 
 #' @export
 as_array_stream.default <- function(x, ...) {
+  rlang::check_installed("arrow")
+
   x_reader <- arrow::as_record_batch_reader(x, ...)
   as_array_stream.RecordBatchReader(x_reader)
 }
