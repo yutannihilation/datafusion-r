@@ -2,13 +2,9 @@ Package: datafusionr
 Title: 'DataFusion' in R
 Version: 0.0.0
 Authors@R: 
-    c(
-      person(given = "Hiroaki",
-             family = "Yutani",
-             role = c("aut", "cre"),
-             email = "yutani.ini@gmail.com",
-             comment = c(ORCID = "0000-0002-3385-7233")),
-    )
+    person("Hiroaki", "Yutani", role = c("aut", "cre"),
+           email = "yutani.ini@gmail.com",
+           comment = c(ORCID = "0000-0002-3385-7233"))
 Description: An R bindings to Apache DataFusion query engine.
 License: MIT + file LICENSE
 Encoding: UTF-8
