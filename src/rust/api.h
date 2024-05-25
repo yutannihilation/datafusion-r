@@ -2,6 +2,7 @@
 
 // methods and associated functions for DataFusionRDataFrame
 SEXP savvy_DataFusionRDataFrame_print__ffi(SEXP self__);
+SEXP savvy_DataFusionRDataFrame_collect__ffi(SEXP self__);
 SEXP savvy_DataFusionRDataFrame_limit__ffi(SEXP self__, SEXP n, SEXP offset);
 SEXP savvy_DataFusionRDataFrame_select_columns__ffi(SEXP self__, SEXP columns);
 SEXP savvy_DataFusionRDataFrame_select__ffi(SEXP self__, SEXP exprs);

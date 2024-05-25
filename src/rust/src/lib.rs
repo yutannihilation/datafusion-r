@@ -5,6 +5,7 @@ mod expr;
 use std::sync::Arc;
 
 use arrow::{
+    array::RecordBatchIterator,
     error::ArrowError,
     ffi_stream::{ArrowArrayStreamReader, FFI_ArrowArrayStream},
     record_batch::RecordBatchReader,
@@ -12,10 +13,7 @@ use arrow::{
 use datafusion::{
     arrow::{array::RecordBatch, util::pretty},
     dataframe::DataFrame,
-    datasource::{
-        file_format::file_compression_type::{self, FileCompressionType},
-        MemTable,
-    },
+    datasource::MemTable,
     execution::{
         context::SessionContext,
         options::{CsvReadOptions, ParquetReadOptions},
@@ -199,6 +197,18 @@ impl DataFusionRDataFrame {
         };
 
         Ok(())
+    }
+
+    fn collect(&self) -> savvy::Result<RawArrayStream> {
+        let record_batches = pollster::block_on(self.df.as_ref().clone().collect())
+            .map_err(|e| savvy::Error::from(e.to_string()))?;
+
+        let schema = self.df.as_ref().schema().as_arrow();
+        let iter =
+            RecordBatchIterator::new(record_batches.into_iter().map(Ok), Arc::new(schema.clone()));
+
+        let array_stream = FFI_ArrowArrayStream::new(Box::new(iter));
+        Ok(RawArrayStream(array_stream))
     }
 
     fn limit(&self, n: usize, offset: usize) -> savvy::Result<Self> {

@@ -39,6 +39,14 @@ d <- ctx$create_data_frame(as_array_stream(x), table_name = "mtcars")
 d
 ```
 
+`datafusion_collect()` can convert the object into a bare `data.frame`.
+
+```{r}
+d |> 
+  datafusion_collect()
+```
+
+
 #### `limit()`
 
 ```{r}

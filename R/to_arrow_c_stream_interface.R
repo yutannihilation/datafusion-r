@@ -23,3 +23,17 @@ as_array_stream.RecordBatchReader <- function(x, ...) {
   x$export_to_c(out$.ptr)
   out
 }
+
+# TODO
+DataFusionRDataFrame_collect <- function(self) {
+  function() {
+    x <- .Call(savvy_DataFusionRDataFrame_collect__impl, self)
+    class(x) <- "nanoarrow_array_stream"
+    nanoarrow:::as.data.frame.nanoarrow_array_stream(x)
+  }
+}
+
+#' @export
+datafusion_collect <- function(x) {
+  x$collect()
+}

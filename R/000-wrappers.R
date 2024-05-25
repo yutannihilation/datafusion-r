@@ -32,6 +32,12 @@ DataFusionRDataFrame_print <- function(self) {
   }
 }
 
+DataFusionRDataFrame_collect <- function(self) {
+  function() {
+    .savvy_wrap_RawArrayStream(.Call(savvy_DataFusionRDataFrame_collect__impl, self))
+  }
+}
+
 DataFusionRDataFrame_limit <- function(self) {
   function(n, offset) {
     .savvy_wrap_DataFusionRDataFrame(.Call(savvy_DataFusionRDataFrame_limit__impl, self, n, offset))
@@ -67,6 +73,7 @@ DataFusionRDataFrame_names <- function(self) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
     e$print <- DataFusionRDataFrame_print(ptr)
+  e$collect <- DataFusionRDataFrame_collect(ptr)
   e$limit <- DataFusionRDataFrame_limit(ptr)
   e$select_columns <- DataFusionRDataFrame_select_columns(ptr)
   e$select <- DataFusionRDataFrame_select(ptr)
