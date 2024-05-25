@@ -75,3 +75,14 @@ d <- ctx_parquet$sql("select cyl, mpg from mtcars limit 5")
 d
 ```
 
+### CSV file
+
+```{r}
+ctx_csv <- datafusion_session_context()
+
+csv_file <- system.file("extdata/mtcars.csv", package = "datafusionr")
+ctx_csv$register_csv("mtcars", csv_file)
+
+d <- ctx_csv$sql("select cyl, mpg from mtcars limit 5")
+d
+```

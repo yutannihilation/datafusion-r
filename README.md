@@ -117,3 +117,25 @@ d
 #> | 8.0 | 18.7 |
 #> +-----+------+
 ```
+
+### CSV file
+
+``` r
+ctx_csv <- datafusion_session_context()
+
+csv_file <- system.file("extdata/mtcars.csv", package = "datafusionr")
+ctx_csv$register_csv("mtcars", csv_file)
+
+d <- ctx_csv$sql("select cyl, mpg from mtcars limit 5")
+d
+#> DataFrame()
+#> +-----+------+
+#> | cyl | mpg  |
+#> +-----+------+
+#> | 6   | 21.0 |
+#> | 6   | 21.0 |
+#> | 4   | 22.8 |
+#> | 6   | 21.4 |
+#> | 8   | 18.7 |
+#> +-----+------+
+```

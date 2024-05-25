@@ -285,8 +285,13 @@ SEXP savvy_DataFusionRSessionContext_sql__impl(SEXP self__, SEXP sql) {
     return handle_result(res);
 }
 
-SEXP savvy_DataFusionRSessionContext_register_parquet__impl(SEXP self__, SEXP name, SEXP path, SEXP parquet_pruning, SEXP file_extension, SEXP skip_metadata) {
-    SEXP res = savvy_DataFusionRSessionContext_register_parquet__ffi(self__, name, path, parquet_pruning, file_extension, skip_metadata);
+SEXP savvy_DataFusionRSessionContext_register_parquet__impl(SEXP self__, SEXP name, SEXP path, SEXP file_extension, SEXP parquet_pruning, SEXP skip_metadata) {
+    SEXP res = savvy_DataFusionRSessionContext_register_parquet__ffi(self__, name, path, file_extension, parquet_pruning, skip_metadata);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRSessionContext_register_csv__impl(SEXP self__, SEXP name, SEXP path, SEXP has_header, SEXP delimiter, SEXP quote, SEXP escape, SEXP schema_infer_max_records, SEXP file_extension) {
+    SEXP res = savvy_DataFusionRSessionContext_register_csv__ffi(self__, name, path, has_header, delimiter, quote, escape, schema_infer_max_records, file_extension);
     return handle_result(res);
 }
 
@@ -349,6 +354,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRSessionContext_create_data_frame__impl", (DL_FUNC) &savvy_DataFusionRSessionContext_create_data_frame__impl, 3},
     {"savvy_DataFusionRSessionContext_sql__impl", (DL_FUNC) &savvy_DataFusionRSessionContext_sql__impl, 2},
     {"savvy_DataFusionRSessionContext_register_parquet__impl", (DL_FUNC) &savvy_DataFusionRSessionContext_register_parquet__impl, 6},
+    {"savvy_DataFusionRSessionContext_register_csv__impl", (DL_FUNC) &savvy_DataFusionRSessionContext_register_csv__impl, 9},
     {"savvy_RawArrayStream_new_without_init__impl", (DL_FUNC) &savvy_RawArrayStream_new_without_init__impl, 0},
     {NULL, NULL, 0}
 };

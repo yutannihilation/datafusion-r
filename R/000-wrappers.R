@@ -442,8 +442,14 @@ DataFusionRSessionContext_sql <- function(self) {
 }
 
 DataFusionRSessionContext_register_parquet <- function(self) {
-  function(name, path, parquet_pruning = NULL, file_extension = NULL, skip_metadata = NULL) {
-  invisible(.Call(savvy_DataFusionRSessionContext_register_parquet__impl, self, name, path, parquet_pruning, file_extension, skip_metadata))
+  function(name, path, file_extension = NULL, parquet_pruning = NULL, skip_metadata = NULL) {
+  invisible(.Call(savvy_DataFusionRSessionContext_register_parquet__impl, self, name, path, file_extension, parquet_pruning, skip_metadata))
+  }
+}
+
+DataFusionRSessionContext_register_csv <- function(self) {
+  function(name, path, has_header = NULL, delimiter = NULL, quote = NULL, escape = NULL, schema_infer_max_records = NULL, file_extension = NULL) {
+  invisible(.Call(savvy_DataFusionRSessionContext_register_csv__impl, self, name, path, has_header, delimiter, quote, escape, schema_infer_max_records, file_extension))
   }
 }
 
@@ -453,6 +459,7 @@ DataFusionRSessionContext_register_parquet <- function(self) {
     e$create_data_frame <- DataFusionRSessionContext_create_data_frame(ptr)
   e$sql <- DataFusionRSessionContext_sql(ptr)
   e$register_parquet <- DataFusionRSessionContext_register_parquet(ptr)
+  e$register_csv <- DataFusionRSessionContext_register_csv(ptr)
   
   class(e) <- "DataFusionRSessionContext"
   e

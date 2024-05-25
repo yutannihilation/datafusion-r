@@ -1,3 +1,5 @@
+#![allow(clippy::too_many_arguments)]
+
 mod expr;
 
 use std::sync::Arc;
@@ -10,8 +12,14 @@ use arrow::{
 use datafusion::{
     arrow::{array::RecordBatch, util::pretty},
     dataframe::DataFrame,
-    datasource::MemTable,
-    execution::{context::SessionContext, options::ParquetReadOptions},
+    datasource::{
+        file_format::file_compression_type::{self, FileCompressionType},
+        MemTable,
+    },
+    execution::{
+        context::SessionContext,
+        options::{CsvReadOptions, ParquetReadOptions},
+    },
 };
 use expr::DataFusionRExprs;
 use pollster::block_on;
@@ -94,13 +102,13 @@ impl DataFusionRSessionContext {
         // schema: Option<PyArrowType<Schema>>,
         // file_sort_order: Option<Vec<Vec<PyExpr>>>,
     ) -> savvy::Result<()> {
-        let file_extension = file_extension.unwrap_or(".parquet");
+        let default = ParquetReadOptions::default();
 
         let options = ParquetReadOptions {
-            file_extension,
+            file_extension: file_extension.unwrap_or(default.file_extension),
             parquet_pruning,
             skip_metadata,
-            ..Default::default()
+            ..default
         };
 
         // TODO
@@ -110,6 +118,68 @@ impl DataFusionRSessionContext {
         // options.file_sort_order =
 
         pollster::block_on(self.ctx.register_parquet(name, path, options))
+            .map_err(|e| savvy::Error::from(e.to_string()))?;
+
+        Ok(())
+    }
+
+    fn register_csv(
+        &mut self,
+        name: &str,
+        path: &str,
+        has_header: Option<bool>,
+        delimiter: Option<&str>,
+        quote: Option<&str>,
+        escape: Option<&str>,
+        // schema:
+        schema_infer_max_records: Option<usize>,
+        file_extension: Option<&str>,
+        // table_partition_cols: Vec<(String, String)>,
+        // file_compression_type: Option<FileCompressionType>
+        // file_sort_order: Option<Vec<Vec<PyExpr>>>,
+    ) -> savvy::Result<()> {
+        let default = CsvReadOptions::default();
+
+        #[inline]
+        fn str_to_u8(x: &str) -> savvy::Result<u8> {
+            let x = x.as_bytes();
+            if x.len() == 1 {
+                Ok(x[0])
+            } else {
+                Err("Must be a character".into())
+            }
+        }
+
+        let delimiter = if let Some(x) = delimiter {
+            str_to_u8(x)?
+        } else {
+            default.delimiter
+        };
+
+        let quote = if let Some(x) = quote {
+            str_to_u8(x)?
+        } else {
+            default.quote
+        };
+
+        let escape = if let Some(x) = escape {
+            Some(str_to_u8(x)?)
+        } else {
+            None
+        };
+
+        let options = CsvReadOptions {
+            has_header: has_header.unwrap_or(default.has_header),
+            delimiter,
+            quote,
+            escape,
+            schema_infer_max_records: schema_infer_max_records
+                .unwrap_or(default.schema_infer_max_records),
+            file_extension: file_extension.unwrap_or(default.file_extension),
+            ..default
+        };
+
+        pollster::block_on(self.ctx.register_csv(name, path, options))
             .map_err(|e| savvy::Error::from(e.to_string()))?;
 
         Ok(())
