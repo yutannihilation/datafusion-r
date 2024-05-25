@@ -280,6 +280,16 @@ SEXP savvy_DataFusionRSessionContext_create_data_frame__impl(SEXP self__, SEXP r
     return handle_result(res);
 }
 
+SEXP savvy_DataFusionRSessionContext_sql__impl(SEXP self__, SEXP sql) {
+    SEXP res = savvy_DataFusionRSessionContext_sql__ffi(self__, sql);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRSessionContext_register_parquet__impl(SEXP self__, SEXP name, SEXP path, SEXP parquet_pruning, SEXP file_extension, SEXP skip_metadata) {
+    SEXP res = savvy_DataFusionRSessionContext_register_parquet__ffi(self__, name, path, parquet_pruning, file_extension, skip_metadata);
+    return handle_result(res);
+}
+
 SEXP savvy_RawArrayStream_new_without_init__impl(void) {
     SEXP res = savvy_RawArrayStream_new_without_init__ffi();
     return handle_result(res);
@@ -337,6 +347,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRExprs_print__impl", (DL_FUNC) &savvy_DataFusionRExprs_print__impl, 1},
     {"savvy_DataFusionRSessionContext_new__impl", (DL_FUNC) &savvy_DataFusionRSessionContext_new__impl, 0},
     {"savvy_DataFusionRSessionContext_create_data_frame__impl", (DL_FUNC) &savvy_DataFusionRSessionContext_create_data_frame__impl, 3},
+    {"savvy_DataFusionRSessionContext_sql__impl", (DL_FUNC) &savvy_DataFusionRSessionContext_sql__impl, 2},
+    {"savvy_DataFusionRSessionContext_register_parquet__impl", (DL_FUNC) &savvy_DataFusionRSessionContext_register_parquet__impl, 6},
     {"savvy_RawArrayStream_new_without_init__impl", (DL_FUNC) &savvy_RawArrayStream_new_without_init__impl, 0},
     {NULL, NULL, 0}
 };

@@ -20,6 +20,8 @@ for mildly complex usages. Especially,
 
 ## Usages
 
+### DataFrame
+
 ``` r
 library(datafusionr)
 
@@ -41,7 +43,7 @@ d
 #> +------+-----+-------+-------+------+-------+-------+-----+-----+------+------+
 ```
 
-### `limit()`
+#### `limit()`
 
 ``` r
 d |> 
@@ -55,7 +57,7 @@ d |>
 #> +------+-----+-------+-------+------+-------+-------+-----+-----+------+------+
 ```
 
-### `select_columns()`
+#### `select_columns()`
 
 ``` r
 d |>
@@ -73,7 +75,7 @@ d |>
 #> +-----+------+
 ```
 
-### `select()`
+#### `select()`
 
 ``` r
 d |> 
@@ -92,4 +94,26 @@ d |>
 #> | 18.7 | 9.35                    |
 #> | 18.1 | 9.05                    |
 #> +------+-------------------------+
+```
+
+### Parquet file
+
+``` r
+ctx_parquet <- datafusion_session_context()
+
+parquet_file <- system.file("extdata/mtcars.parquet", package = "datafusionr")
+ctx_parquet$register_parquet("mtcars", parquet_file)
+
+d <- ctx_parquet$sql("select cyl, mpg from mtcars limit 5")
+d
+#> DataFrame()
+#> +-----+------+
+#> | cyl | mpg  |
+#> +-----+------+
+#> | 6.0 | 21.0 |
+#> | 6.0 | 21.0 |
+#> | 4.0 | 22.8 |
+#> | 6.0 | 21.4 |
+#> | 8.0 | 18.7 |
+#> +-----+------+
 ```

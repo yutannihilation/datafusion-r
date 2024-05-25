@@ -11,7 +11,7 @@ use datafusion::{
     arrow::{array::RecordBatch, util::pretty},
     dataframe::DataFrame,
     datasource::MemTable,
-    execution::context::SessionContext,
+    execution::{context::SessionContext, options::ParquetReadOptions},
 };
 use expr::DataFusionRExprs;
 use pollster::block_on;
@@ -74,6 +74,45 @@ impl DataFusionRSessionContext {
             .map_err(|e| <savvy::Error>::from(e.to_string()))?;
 
         Ok(DataFusionRDataFrame::new(df))
+    }
+
+    fn sql(&mut self, sql: &str) -> savvy::Result<DataFusionRDataFrame> {
+        match pollster::block_on(self.ctx.sql(sql)) {
+            Ok(df) => Ok(DataFusionRDataFrame::new(df)),
+            Err(e) => Err(e.to_string().into()),
+        }
+    }
+
+    fn register_parquet(
+        &mut self,
+        name: &str,
+        path: &str,
+        file_extension: Option<&str>,
+        // table_partition_cols: Vec<(String, String)>,
+        parquet_pruning: Option<bool>,
+        skip_metadata: Option<bool>,
+        // schema: Option<PyArrowType<Schema>>,
+        // file_sort_order: Option<Vec<Vec<PyExpr>>>,
+    ) -> savvy::Result<()> {
+        let file_extension = file_extension.unwrap_or(".parquet");
+
+        let options = ParquetReadOptions {
+            file_extension,
+            parquet_pruning,
+            skip_metadata,
+            ..Default::default()
+        };
+
+        // TODO
+        // options.schema =
+
+        // TODO
+        // options.file_sort_order =
+
+        pollster::block_on(self.ctx.register_parquet(name, path, options))
+            .map_err(|e| savvy::Error::from(e.to_string()))?;
+
+        Ok(())
     }
 }
 

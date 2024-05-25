@@ -27,6 +27,8 @@ The main purpose of this repo is to see if [the savvy framework](https://github.
 
 ## Usages
 
+### DataFrame
+
 ```{r}
 library(datafusionr)
 
@@ -37,7 +39,7 @@ d <- ctx$create_data_frame(as_array_stream(x), table_name = "mtcars")
 d
 ```
 
-### `limit()`
+#### `limit()`
 
 ```{r}
 d |> 
@@ -45,13 +47,13 @@ d |>
 ```
 
 
-### `select_columns()`
+#### `select_columns()`
 
 ```{r}
 d |>
   datafusion_select_columns("cyl", "mpg")
 ```
-### `select()`
+#### `select()`
 
 ```{r}
 d |> 
@@ -59,5 +61,17 @@ d |>
     col("mpg")$alias("MPG"),   # rename
     (col("mpg") / lit(2))      # arbitrary expression
   )
+```
+
+### Parquet file
+
+```{r}
+ctx_parquet <- datafusion_session_context()
+
+parquet_file <- system.file("extdata/mtcars.parquet", package = "datafusionr")
+ctx_parquet$register_parquet("mtcars", parquet_file)
+
+d <- ctx_parquet$sql("select cyl, mpg from mtcars limit 5")
+d
 ```
 

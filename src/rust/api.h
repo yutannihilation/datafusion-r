@@ -56,6 +56,8 @@ SEXP savvy_DataFusionRExprs_print__ffi(SEXP self__);
 // methods and associated functions for DataFusionRSessionContext
 SEXP savvy_DataFusionRSessionContext_new__ffi(void);
 SEXP savvy_DataFusionRSessionContext_create_data_frame__ffi(SEXP self__, SEXP raw_stream, SEXP table_name);
+SEXP savvy_DataFusionRSessionContext_sql__ffi(SEXP self__, SEXP sql);
+SEXP savvy_DataFusionRSessionContext_register_parquet__ffi(SEXP self__, SEXP name, SEXP path, SEXP parquet_pruning, SEXP file_extension, SEXP skip_metadata);
 
 // methods and associated functions for RawArrayStream
 SEXP savvy_RawArrayStream_new_without_init__ffi(void);

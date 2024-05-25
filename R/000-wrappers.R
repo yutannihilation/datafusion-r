@@ -435,10 +435,24 @@ DataFusionRSessionContext_create_data_frame <- function(self) {
   }
 }
 
+DataFusionRSessionContext_sql <- function(self) {
+  function(sql) {
+    .savvy_wrap_DataFusionRDataFrame(.Call(savvy_DataFusionRSessionContext_sql__impl, self, sql))
+  }
+}
+
+DataFusionRSessionContext_register_parquet <- function(self) {
+  function(name, path, parquet_pruning = NULL, file_extension = NULL, skip_metadata = NULL) {
+  invisible(.Call(savvy_DataFusionRSessionContext_register_parquet__impl, self, name, path, parquet_pruning, file_extension, skip_metadata))
+  }
+}
+
 .savvy_wrap_DataFusionRSessionContext <- function(ptr) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
     e$create_data_frame <- DataFusionRSessionContext_create_data_frame(ptr)
+  e$sql <- DataFusionRSessionContext_sql(ptr)
+  e$register_parquet <- DataFusionRSessionContext_register_parquet(ptr)
   
   class(e) <- "DataFusionRSessionContext"
   e
