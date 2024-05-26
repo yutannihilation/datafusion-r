@@ -330,6 +330,86 @@ SEXP savvy_DataFusionRExprFunctions_sha512__impl(SEXP arg) {
     return handle_result(res);
 }
 
+SEXP savvy_DataFusionRExprFunctions_current_date__impl(void) {
+    SEXP res = savvy_DataFusionRExprFunctions_current_date__ffi();
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_current_time__impl(void) {
+    SEXP res = savvy_DataFusionRExprFunctions_current_time__ffi();
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_date_bin__impl(SEXP stride, SEXP source, SEXP origin) {
+    SEXP res = savvy_DataFusionRExprFunctions_date_bin__ffi(stride, source, origin);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_date_part__impl(SEXP part, SEXP date) {
+    SEXP res = savvy_DataFusionRExprFunctions_date_part__ffi(part, date);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_date_trunc__impl(SEXP part, SEXP date) {
+    SEXP res = savvy_DataFusionRExprFunctions_date_trunc__ffi(part, date);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_from_unixtime__impl(SEXP unixtime) {
+    SEXP res = savvy_DataFusionRExprFunctions_from_unixtime__ffi(unixtime);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_make_date__impl(SEXP year, SEXP month, SEXP day) {
+    SEXP res = savvy_DataFusionRExprFunctions_make_date__ffi(year, month, day);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_now__impl(void) {
+    SEXP res = savvy_DataFusionRExprFunctions_now__ffi();
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_to_char__impl(SEXP datetime, SEXP format) {
+    SEXP res = savvy_DataFusionRExprFunctions_to_char__ffi(datetime, format);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_to_date__impl(SEXP args) {
+    SEXP res = savvy_DataFusionRExprFunctions_to_date__ffi(args);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_to_timestamp__impl(SEXP args) {
+    SEXP res = savvy_DataFusionRExprFunctions_to_timestamp__ffi(args);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_to_timestamp_micros__impl(SEXP args) {
+    SEXP res = savvy_DataFusionRExprFunctions_to_timestamp_micros__ffi(args);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_to_timestamp_millis__impl(SEXP args) {
+    SEXP res = savvy_DataFusionRExprFunctions_to_timestamp_millis__ffi(args);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_to_timestamp_nanos__impl(SEXP args) {
+    SEXP res = savvy_DataFusionRExprFunctions_to_timestamp_nanos__ffi(args);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_to_timestamp_seconds__impl(SEXP args) {
+    SEXP res = savvy_DataFusionRExprFunctions_to_timestamp_seconds__ffi(args);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_to_unixtime__impl(SEXP args) {
+    SEXP res = savvy_DataFusionRExprFunctions_to_unixtime__ffi(args);
+    return handle_result(res);
+}
+
 SEXP savvy_DataFusionRExprFunctions_abs__impl(SEXP num) {
     SEXP res = savvy_DataFusionRExprFunctions_abs__ffi(num);
     return handle_result(res);
@@ -642,6 +722,22 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRExprFunctions_sha256__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_sha256__impl, 1},
     {"savvy_DataFusionRExprFunctions_sha384__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_sha384__impl, 1},
     {"savvy_DataFusionRExprFunctions_sha512__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_sha512__impl, 1},
+    {"savvy_DataFusionRExprFunctions_current_date__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_current_date__impl, 0},
+    {"savvy_DataFusionRExprFunctions_current_time__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_current_time__impl, 0},
+    {"savvy_DataFusionRExprFunctions_date_bin__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_date_bin__impl, 3},
+    {"savvy_DataFusionRExprFunctions_date_part__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_date_part__impl, 2},
+    {"savvy_DataFusionRExprFunctions_date_trunc__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_date_trunc__impl, 2},
+    {"savvy_DataFusionRExprFunctions_from_unixtime__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_from_unixtime__impl, 1},
+    {"savvy_DataFusionRExprFunctions_make_date__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_make_date__impl, 3},
+    {"savvy_DataFusionRExprFunctions_now__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_now__impl, 0},
+    {"savvy_DataFusionRExprFunctions_to_char__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_to_char__impl, 2},
+    {"savvy_DataFusionRExprFunctions_to_date__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_to_date__impl, 1},
+    {"savvy_DataFusionRExprFunctions_to_timestamp__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_to_timestamp__impl, 1},
+    {"savvy_DataFusionRExprFunctions_to_timestamp_micros__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_to_timestamp_micros__impl, 1},
+    {"savvy_DataFusionRExprFunctions_to_timestamp_millis__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_to_timestamp_millis__impl, 1},
+    {"savvy_DataFusionRExprFunctions_to_timestamp_nanos__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_to_timestamp_nanos__impl, 1},
+    {"savvy_DataFusionRExprFunctions_to_timestamp_seconds__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_to_timestamp_seconds__impl, 1},
+    {"savvy_DataFusionRExprFunctions_to_unixtime__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_to_unixtime__impl, 1},
     {"savvy_DataFusionRExprFunctions_abs__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_abs__impl, 1},
     {"savvy_DataFusionRExprFunctions_acos__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_acos__impl, 1},
     {"savvy_DataFusionRExprFunctions_acosh__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_acosh__impl, 1},

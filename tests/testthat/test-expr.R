@@ -77,6 +77,27 @@ test_that("function expressions", {
   expect_equal(e(sha384(col("foo"))),                "sha384(foo)")
   expect_equal(e(sha512(col("foo"))),                "sha512(foo)")
 
+  #datetime
+  expect_equal(e(current_date()),                                 "current_date()")
+  expect_equal(e(current_time()),                                 "current_time()")
+  expect_equal(e(date_bin(col("foo"), col("bar"), col("baz"))),   "date_bin(foo, bar, baz)")
+  expect_equal(e(date_part(col("foo"), col("bar"))),              "date_part(foo, bar)")
+  expect_equal(e(date_trunc(lit("week"), col("bar"))),            'date_trunc(Utf8("week"), bar)')
+  expect_equal(e(from_unixtime(col("foo"))),                      "from_unixtime(foo)")
+  expect_equal(e(make_date(col("foo"), col("bar"), col("baz"))),  "make_date(foo, bar, baz)")
+  expect_equal(e(now()),                                          "now()")
+  expect_equal(e(to_char(col("bar"), lit("%Y%m"))),               'to_char(bar, Utf8("%Y%m"))')
+
+  expect_equal(e(to_date(col("bar"))),                                        'to_date(bar)')
+  expect_equal(e(to_date(col("bar"), lit("%Y%m"))),                           'to_date(bar, Utf8("%Y%m"))')
+  expect_equal(e(to_date(col("bar"), lit("%Y%m"),lit("%Y-%m"))),              'to_date(bar, Utf8("%Y%m"), Utf8("%Y-%m"))')
+  expect_equal(e(to_timestamp(col("bar"), lit("%Y%m"),lit("%Y-%m"))),         'to_timestamp(bar, Utf8("%Y%m"), Utf8("%Y-%m"))')
+  expect_equal(e(to_timestamp_micros(col("bar"), lit("%Y%m"),lit("%Y-%m"))),  'to_timestamp_micros(bar, Utf8("%Y%m"), Utf8("%Y-%m"))')
+  expect_equal(e(to_timestamp_millis(col("bar"), lit("%Y%m"),lit("%Y-%m"))),  'to_timestamp_millis(bar, Utf8("%Y%m"), Utf8("%Y-%m"))')
+  expect_equal(e(to_timestamp_nanos(col("bar"), lit("%Y%m"),lit("%Y-%m"))),   'to_timestamp_nanos(bar, Utf8("%Y%m"), Utf8("%Y-%m"))')
+  expect_equal(e(to_timestamp_seconds(col("bar"), lit("%Y%m"),lit("%Y-%m"))), 'to_timestamp_seconds(bar, Utf8("%Y%m"), Utf8("%Y-%m"))')
+  expect_equal(e(to_unixtime(col("bar"), lit("%Y%m"),lit("%Y-%m"))),          'to_unixtime(bar, Utf8("%Y%m"), Utf8("%Y-%m"))')
+
   # math
   expect_equal(e(abs(col("foo"))),                   "abs(foo)")
   expect_equal(e(acos(col("foo"))),                  "acos(foo)")

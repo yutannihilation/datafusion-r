@@ -1,6 +1,6 @@
 // https://docs.rs/datafusion-functions/latest/datafusion_functions/expr_fn/index.html
 
-use datafusion::functions::{core, crypto, math, regex};
+use datafusion::functions::{core, crypto, datetime, math, regex};
 use savvy::savvy;
 
 use crate::expr::{DataFusionRExpr, DataFusionRExprs};
@@ -75,6 +75,103 @@ impl DataFusionRExprFunctions {
 
     fn sha512(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(crypto::expr_fn::sha512(arg.0)))
+    }
+
+    // date functions ---------------------------------------------------
+
+    fn current_date() -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::current_date()))
+    }
+
+    fn current_time() -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::current_time()))
+    }
+
+    fn date_bin(
+        stride: DataFusionRExpr,
+        source: DataFusionRExpr,
+        origin: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::date_bin(
+            stride.0, source.0, origin.0,
+        )))
+    }
+
+    fn date_part(part: DataFusionRExpr, date: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::date_part(
+            part.0, date.0,
+        )))
+    }
+
+    fn date_trunc(part: DataFusionRExpr, date: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::date_trunc(
+            part.0, date.0,
+        )))
+    }
+
+    fn from_unixtime(unixtime: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::from_unixtime(
+            unixtime.0,
+        )))
+    }
+
+    fn make_date(
+        year: DataFusionRExpr,
+        month: DataFusionRExpr,
+        day: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::make_date(
+            year.0, month.0, day.0,
+        )))
+    }
+
+    fn now() -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::now()))
+    }
+
+    fn to_char(
+        datetime: DataFusionRExpr,
+        format: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::to_char(
+            datetime.0, format.0,
+        )))
+    }
+
+    fn to_date(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::to_date(args.0)))
+    }
+
+    fn to_timestamp(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::to_timestamp(args.0)))
+    }
+
+    fn to_timestamp_micros(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::to_timestamp_micros(
+            args.0,
+        )))
+    }
+
+    fn to_timestamp_millis(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::to_timestamp_millis(
+            args.0,
+        )))
+    }
+
+    fn to_timestamp_nanos(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::to_timestamp_nanos(
+            args.0,
+        )))
+    }
+
+    fn to_timestamp_seconds(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::to_timestamp_seconds(
+            args.0,
+        )))
+    }
+
+    fn to_unixtime(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(datetime::expr_fn::to_unixtime(args.0)))
     }
 
     // math functions ---------------------------------------------------

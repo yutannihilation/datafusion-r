@@ -81,9 +81,17 @@ print.DataFusionRExprs <- function(x, ...) x$print()
   function(...) f(datafusion_exprs(...))
 }
 
-.datafusion_env_for_eval$coalesce <- .wrap_dots(.datafusion_env_for_eval$coalesce)
+.datafusion_env_for_eval$coalesce     <- .wrap_dots(.datafusion_env_for_eval$coalesce)
 .datafusion_env_for_eval$named_struct <- .wrap_dots(.datafusion_env_for_eval$named_struct)
 
+
+.datafusion_env_for_eval$to_date              <- .wrap_dots(.datafusion_env_for_eval$to_date)
+.datafusion_env_for_eval$to_timestamp         <- .wrap_dots(.datafusion_env_for_eval$to_timestamp)
+.datafusion_env_for_eval$to_timestamp_micros  <- .wrap_dots(.datafusion_env_for_eval$to_timestamp_micros)
+.datafusion_env_for_eval$to_timestamp_millis  <- .wrap_dots(.datafusion_env_for_eval$to_timestamp_millis)
+.datafusion_env_for_eval$to_timestamp_nanos   <- .wrap_dots(.datafusion_env_for_eval$to_timestamp_nanos)
+.datafusion_env_for_eval$to_timestamp_seconds <- .wrap_dots(.datafusion_env_for_eval$to_timestamp_seconds)
+.datafusion_env_for_eval$to_unixtime          <- .wrap_dots(.datafusion_env_for_eval$to_unixtime)
 
 datafusion_exprs <- function(...) {
   expr_list <- rlang::exprs(...)

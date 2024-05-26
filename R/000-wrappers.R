@@ -492,6 +492,90 @@ DataFusionRExprFunctions$sha512 <- function(arg) {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_sha512__impl, arg))
 }
 
+DataFusionRExprFunctions$current_date <- function() {
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_current_date__impl))
+}
+
+DataFusionRExprFunctions$current_time <- function() {
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_current_time__impl))
+}
+
+DataFusionRExprFunctions$date_bin <- function(stride, source, origin) {
+  stride <- .savvy_extract_ptr(stride, "DataFusionRExpr")
+  source <- .savvy_extract_ptr(source, "DataFusionRExpr")
+  origin <- .savvy_extract_ptr(origin, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_date_bin__impl, stride, source, origin))
+}
+
+DataFusionRExprFunctions$date_part <- function(part, date) {
+  part <- .savvy_extract_ptr(part, "DataFusionRExpr")
+  date <- .savvy_extract_ptr(date, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_date_part__impl, part, date))
+}
+
+DataFusionRExprFunctions$date_trunc <- function(part, date) {
+  part <- .savvy_extract_ptr(part, "DataFusionRExpr")
+  date <- .savvy_extract_ptr(date, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_date_trunc__impl, part, date))
+}
+
+DataFusionRExprFunctions$from_unixtime <- function(unixtime) {
+  unixtime <- .savvy_extract_ptr(unixtime, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_from_unixtime__impl, unixtime))
+}
+
+DataFusionRExprFunctions$make_date <- function(year, month, day) {
+  year <- .savvy_extract_ptr(year, "DataFusionRExpr")
+  month <- .savvy_extract_ptr(month, "DataFusionRExpr")
+  day <- .savvy_extract_ptr(day, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_make_date__impl, year, month, day))
+}
+
+DataFusionRExprFunctions$now <- function() {
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_now__impl))
+}
+
+DataFusionRExprFunctions$to_char <- function(datetime, format) {
+  datetime <- .savvy_extract_ptr(datetime, "DataFusionRExpr")
+  format <- .savvy_extract_ptr(format, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_char__impl, datetime, format))
+}
+
+DataFusionRExprFunctions$to_date <- function(args) {
+  args <- .savvy_extract_ptr(args, "DataFusionRExprs")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_date__impl, args))
+}
+
+DataFusionRExprFunctions$to_timestamp <- function(args) {
+  args <- .savvy_extract_ptr(args, "DataFusionRExprs")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_timestamp__impl, args))
+}
+
+DataFusionRExprFunctions$to_timestamp_micros <- function(args) {
+  args <- .savvy_extract_ptr(args, "DataFusionRExprs")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_timestamp_micros__impl, args))
+}
+
+DataFusionRExprFunctions$to_timestamp_millis <- function(args) {
+  args <- .savvy_extract_ptr(args, "DataFusionRExprs")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_timestamp_millis__impl, args))
+}
+
+DataFusionRExprFunctions$to_timestamp_nanos <- function(args) {
+  args <- .savvy_extract_ptr(args, "DataFusionRExprs")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_timestamp_nanos__impl, args))
+}
+
+DataFusionRExprFunctions$to_timestamp_seconds <- function(args) {
+  args <- .savvy_extract_ptr(args, "DataFusionRExprs")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_timestamp_seconds__impl, args))
+}
+
+DataFusionRExprFunctions$to_unixtime <- function(args) {
+  args <- .savvy_extract_ptr(args, "DataFusionRExprs")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_unixtime__impl, args))
+}
+
 DataFusionRExprFunctions$abs <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_abs__impl, num))
