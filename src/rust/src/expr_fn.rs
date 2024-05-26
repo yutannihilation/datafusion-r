@@ -1,6 +1,6 @@
 // https://docs.rs/datafusion-functions/latest/datafusion_functions/expr_fn/index.html
 
-use datafusion::functions::{core, math};
+use datafusion::functions::{core, crypto, math};
 use savvy::savvy;
 
 use crate::expr::{DataFusionRExpr, DataFusionRExprs};
@@ -49,6 +49,32 @@ impl DataFusionRExprFunctions {
         arg3: DataFusionRExpr,
     ) -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(core::expr_fn::nvl2(arg1.0, arg2.0, arg3.0)))
+    }
+
+    // crypto functions -------------------------------------------------
+
+    fn digest(arg1: DataFusionRExpr, arg2: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(crypto::expr_fn::digest(arg1.0, arg2.0)))
+    }
+
+    fn md5(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(crypto::expr_fn::md5(arg.0)))
+    }
+
+    fn sha224(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(crypto::expr_fn::sha224(arg.0)))
+    }
+
+    fn sha256(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(crypto::expr_fn::sha256(arg.0)))
+    }
+
+    fn sha384(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(crypto::expr_fn::sha384(arg.0)))
+    }
+
+    fn sha512(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(crypto::expr_fn::sha512(arg.0)))
     }
 
     // math functions ---------------------------------------------------

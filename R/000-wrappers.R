@@ -461,6 +461,37 @@ DataFusionRExprFunctions$nvl2 <- function(arg1, arg2, arg3) {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_nvl2__impl, arg1, arg2, arg3))
 }
 
+DataFusionRExprFunctions$digest <- function(arg1, arg2) {
+  arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
+  arg2 <- .savvy_extract_ptr(arg2, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_digest__impl, arg1, arg2))
+}
+
+DataFusionRExprFunctions$md5 <- function(arg) {
+  arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_md5__impl, arg))
+}
+
+DataFusionRExprFunctions$sha224 <- function(arg) {
+  arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_sha224__impl, arg))
+}
+
+DataFusionRExprFunctions$sha256 <- function(arg) {
+  arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_sha256__impl, arg))
+}
+
+DataFusionRExprFunctions$sha384 <- function(arg) {
+  arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_sha384__impl, arg))
+}
+
+DataFusionRExprFunctions$sha512 <- function(arg) {
+  arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_sha512__impl, arg))
+}
+
 DataFusionRExprFunctions$abs <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_abs__impl, num))

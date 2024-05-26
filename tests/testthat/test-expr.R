@@ -69,6 +69,14 @@ test_that("function expressions", {
   expect_equal(e(nvl(col("foo"), lit("default"))),                      'nvl(foo, Utf8("default"))')
   expect_equal(e(nvl2(col("foo"), col("bar"), lit("default"))),         'nvl2(foo, bar, Utf8("default"))')
 
+  # crypto
+  expect_equal(e(digest(col("foo"), lit("bar"))),    'digest(foo, Utf8("bar"))')
+  expect_equal(e(md5(col("foo"))),                   "md5(foo)")
+  expect_equal(e(sha224(col("foo"))),                "sha224(foo)")
+  expect_equal(e(sha256(col("foo"))),                "sha256(foo)")
+  expect_equal(e(sha384(col("foo"))),                "sha384(foo)")
+  expect_equal(e(sha512(col("foo"))),                "sha512(foo)")
+
   # math
   expect_equal(e(abs(col("foo"))),                   "abs(foo)")
   expect_equal(e(acos(col("foo"))),                  "acos(foo)")

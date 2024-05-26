@@ -300,6 +300,36 @@ SEXP savvy_DataFusionRExprFunctions_nvl2__impl(SEXP arg1, SEXP arg2, SEXP arg3) 
     return handle_result(res);
 }
 
+SEXP savvy_DataFusionRExprFunctions_digest__impl(SEXP arg1, SEXP arg2) {
+    SEXP res = savvy_DataFusionRExprFunctions_digest__ffi(arg1, arg2);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_md5__impl(SEXP arg) {
+    SEXP res = savvy_DataFusionRExprFunctions_md5__ffi(arg);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_sha224__impl(SEXP arg) {
+    SEXP res = savvy_DataFusionRExprFunctions_sha224__ffi(arg);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_sha256__impl(SEXP arg) {
+    SEXP res = savvy_DataFusionRExprFunctions_sha256__ffi(arg);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_sha384__impl(SEXP arg) {
+    SEXP res = savvy_DataFusionRExprFunctions_sha384__ffi(arg);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_sha512__impl(SEXP arg) {
+    SEXP res = savvy_DataFusionRExprFunctions_sha512__ffi(arg);
+    return handle_result(res);
+}
+
 SEXP savvy_DataFusionRExprFunctions_abs__impl(SEXP num) {
     SEXP res = savvy_DataFusionRExprFunctions_abs__ffi(num);
     return handle_result(res);
@@ -591,6 +621,12 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRExprFunctions_nullif__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_nullif__impl, 2},
     {"savvy_DataFusionRExprFunctions_nvl__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_nvl__impl, 2},
     {"savvy_DataFusionRExprFunctions_nvl2__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_nvl2__impl, 3},
+    {"savvy_DataFusionRExprFunctions_digest__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_digest__impl, 2},
+    {"savvy_DataFusionRExprFunctions_md5__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_md5__impl, 1},
+    {"savvy_DataFusionRExprFunctions_sha224__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_sha224__impl, 1},
+    {"savvy_DataFusionRExprFunctions_sha256__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_sha256__impl, 1},
+    {"savvy_DataFusionRExprFunctions_sha384__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_sha384__impl, 1},
+    {"savvy_DataFusionRExprFunctions_sha512__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_sha512__impl, 1},
     {"savvy_DataFusionRExprFunctions_abs__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_abs__impl, 1},
     {"savvy_DataFusionRExprFunctions_acos__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_acos__impl, 1},
     {"savvy_DataFusionRExprFunctions_acosh__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_acosh__impl, 1},
