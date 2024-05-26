@@ -66,8 +66,8 @@ d |>
 ```{r}
 d |> 
   datafusion_select(
-    col("mpg")$alias("MPG"),   # rename
-    (col("mpg") / lit(2))      # arbitrary expression
+    col("mpg")$alias("MPG"),  # rename
+    sqrt(col("mpg") / lit(2)) # arbitrary expression
   )
 ```
 
