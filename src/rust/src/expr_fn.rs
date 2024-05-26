@@ -1,6 +1,6 @@
 // https://docs.rs/datafusion-functions/latest/datafusion_functions/expr_fn/index.html
 
-use datafusion::functions::{core, crypto, math};
+use datafusion::functions::{core, crypto, math, regex};
 use savvy::savvy;
 
 use crate::expr::{DataFusionRExpr, DataFusionRExprs};
@@ -245,5 +245,44 @@ impl DataFusionRExprFunctions {
             vec![num.0]
         };
         Ok(DataFusionRExpr(math::expr_fn::trunc(args)))
+    }
+
+    // regex functions ----------------------------------------------
+
+    fn regexp_like(
+        string: DataFusionRExpr,
+        pattern: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(regex::expr_fn::regexp_like(
+            string.0, pattern.0,
+        )))
+    }
+
+    fn regexp_match(
+        string: DataFusionRExpr,
+        pattern: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(regex::expr_fn::regexp_match(
+            string.0, pattern.0,
+        )))
+    }
+
+    fn regexp_replace(
+        string: DataFusionRExpr,
+        pattern: DataFusionRExpr,
+        replacement: DataFusionRExpr,
+        flags: Option<DataFusionRExpr>,
+    ) -> savvy::Result<DataFusionRExpr> {
+        let flags = match flags {
+            Some(flags) => flags.0,
+            None => datafusion::logical_expr::lit("g"),
+        };
+
+        Ok(DataFusionRExpr(regex::expr_fn::regexp_replace(
+            string.0,
+            pattern.0,
+            replacement.0,
+            flags,
+        )))
     }
 }

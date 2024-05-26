@@ -688,6 +688,26 @@ DataFusionRExprFunctions$trunc <- function(num, decimal_place = NULL) {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_trunc__impl, num, decimal_place))
 }
 
+DataFusionRExprFunctions$regexp_like <- function(string, pattern) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  pattern <- .savvy_extract_ptr(pattern, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_regexp_like__impl, string, pattern))
+}
+
+DataFusionRExprFunctions$regexp_match <- function(string, pattern) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  pattern <- .savvy_extract_ptr(pattern, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_regexp_match__impl, string, pattern))
+}
+
+DataFusionRExprFunctions$regexp_replace <- function(string, pattern, replacement, flags = NULL) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  pattern <- .savvy_extract_ptr(pattern, "DataFusionRExpr")
+  replacement <- .savvy_extract_ptr(replacement, "DataFusionRExpr")
+  flags <- .savvy_extract_ptr(flags, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_regexp_replace__impl, string, pattern, replacement, flags))
+}
+
 
 ### wrapper functions for DataFusionRExprs
 

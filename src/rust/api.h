@@ -102,6 +102,9 @@ SEXP savvy_DataFusionRExprFunctions_sqrt__ffi(SEXP num);
 SEXP savvy_DataFusionRExprFunctions_tan__ffi(SEXP num);
 SEXP savvy_DataFusionRExprFunctions_tanh__ffi(SEXP num);
 SEXP savvy_DataFusionRExprFunctions_trunc__ffi(SEXP num, SEXP decimal_place);
+SEXP savvy_DataFusionRExprFunctions_regexp_like__ffi(SEXP string, SEXP pattern);
+SEXP savvy_DataFusionRExprFunctions_regexp_match__ffi(SEXP string, SEXP pattern);
+SEXP savvy_DataFusionRExprFunctions_regexp_replace__ffi(SEXP string, SEXP pattern, SEXP replacement, SEXP flags);
 
 // methods and associated functions for DataFusionRExprs
 SEXP savvy_DataFusionRExprs_new__ffi(SEXP capacity);

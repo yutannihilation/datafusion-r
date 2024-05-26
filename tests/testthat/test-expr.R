@@ -118,4 +118,12 @@ test_that("function expressions", {
   expect_equal(e(tanh(col("foo"))),                  "tanh(foo)")
   expect_equal(e(trunc(col("foo"))),                 "trunc(foo)")
   expect_equal(e(trunc(col("foo"), lit(2L))),        "trunc(foo, Int32(2))")
+
+  # regex
+  expect_equal(e(regexp_like(col("foo"), lit("prefix_%"))),      'regexp_like(foo, Utf8("prefix_%"))')
+  expect_equal(e(regexp_match(col("foo"), lit("prefix_.*"))),    'regexp_match(foo, Utf8("prefix_.*"))')
+  expect_equal(e(regexp_replace(col("foo"), lit("prefix_(.*)"), lit("\\1"))),
+               'regexp_replace(foo, Utf8("prefix_(.*)"), Utf8("\\1"), Utf8("g"))')
+  expect_equal(e(regexp_replace(col("foo"), lit("prefix_(.*)"), lit("\\1"), lit("gi"))),
+               'regexp_replace(foo, Utf8("prefix_(.*)"), Utf8("\\1"), Utf8("gi"))')
 })

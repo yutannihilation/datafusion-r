@@ -520,6 +520,21 @@ SEXP savvy_DataFusionRExprFunctions_trunc__impl(SEXP num, SEXP decimal_place) {
     return handle_result(res);
 }
 
+SEXP savvy_DataFusionRExprFunctions_regexp_like__impl(SEXP string, SEXP pattern) {
+    SEXP res = savvy_DataFusionRExprFunctions_regexp_like__ffi(string, pattern);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_regexp_match__impl(SEXP string, SEXP pattern) {
+    SEXP res = savvy_DataFusionRExprFunctions_regexp_match__ffi(string, pattern);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_regexp_replace__impl(SEXP string, SEXP pattern, SEXP replacement, SEXP flags) {
+    SEXP res = savvy_DataFusionRExprFunctions_regexp_replace__ffi(string, pattern, replacement, flags);
+    return handle_result(res);
+}
+
 SEXP savvy_DataFusionRExprs_new__impl(SEXP capacity) {
     SEXP res = savvy_DataFusionRExprs_new__ffi(capacity);
     return handle_result(res);
@@ -665,6 +680,9 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRExprFunctions_tan__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_tan__impl, 1},
     {"savvy_DataFusionRExprFunctions_tanh__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_tanh__impl, 1},
     {"savvy_DataFusionRExprFunctions_trunc__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_trunc__impl, 2},
+    {"savvy_DataFusionRExprFunctions_regexp_like__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_regexp_like__impl, 2},
+    {"savvy_DataFusionRExprFunctions_regexp_match__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_regexp_match__impl, 2},
+    {"savvy_DataFusionRExprFunctions_regexp_replace__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_regexp_replace__impl, 4},
     {"savvy_DataFusionRExprs_new__impl", (DL_FUNC) &savvy_DataFusionRExprs_new__impl, 1},
     {"savvy_DataFusionRExprs_add_expr__impl", (DL_FUNC) &savvy_DataFusionRExprs_add_expr__impl, 2},
     {"savvy_DataFusionRExprs_print__impl", (DL_FUNC) &savvy_DataFusionRExprs_print__impl, 1},
