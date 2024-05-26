@@ -25,7 +25,6 @@ test_that("expressions", {
   expect_equal(e(col("foo") -  col("bar")), "foo - bar" )
   expect_equal(e(col("foo") *  col("bar")), "foo * bar" )
   expect_equal(e(col("foo") /  col("bar")), "foo / bar" )
-  # TODO
   expect_equal(e(col("foo") %% col("bar")), "foo % bar" )
   expect_equal(e(col("foo") == col("bar")), "foo = bar" )
   expect_equal(e(col("foo") != col("bar")), "foo != bar")
