@@ -49,6 +49,46 @@ SEXP savvy_DataFusionRExpr_is_not_true__ffi(SEXP self__);
 SEXP savvy_DataFusionRExpr_is_false__ffi(SEXP self__);
 SEXP savvy_DataFusionRExpr_is_not_false__ffi(SEXP self__);
 
+// methods and associated functions for DataFusionRExprFunctions
+SEXP savvy_DataFusionRExprFunctions_abs__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_acos__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_acosh__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_asin__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_asinh__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_atan__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_atan2__ffi(SEXP x, SEXP y);
+SEXP savvy_DataFusionRExprFunctions_atanh__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_cbrt__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_ceil__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_cos__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_cosh__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_cot__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_degrees__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_exp__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_factorial__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_floor__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_gcd__ffi(SEXP x, SEXP y);
+SEXP savvy_DataFusionRExprFunctions_isnan__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_iszero__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_lcm__ffi(SEXP x, SEXP y);
+SEXP savvy_DataFusionRExprFunctions_ln__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_log__ffi(SEXP base, SEXP num);
+SEXP savvy_DataFusionRExprFunctions_log2__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_log10__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_nanvl__ffi(SEXP x, SEXP y);
+SEXP savvy_DataFusionRExprFunctions_pi__ffi(void);
+SEXP savvy_DataFusionRExprFunctions_power__ffi(SEXP base, SEXP exponent);
+SEXP savvy_DataFusionRExprFunctions_radians__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_random__ffi(void);
+SEXP savvy_DataFusionRExprFunctions_round__ffi(SEXP num, SEXP decimal_place);
+SEXP savvy_DataFusionRExprFunctions_signum__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_sin__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_sinh__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_sqrt__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_tan__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_tanh__ffi(SEXP num);
+SEXP savvy_DataFusionRExprFunctions_trunc__ffi(SEXP num, SEXP decimal_place);
+
 // methods and associated functions for DataFusionRExprs
 SEXP savvy_DataFusionRExprs_new__ffi(SEXP capacity);
 SEXP savvy_DataFusionRExprs_add_expr__ffi(SEXP self__, SEXP expr);

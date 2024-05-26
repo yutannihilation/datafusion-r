@@ -48,32 +48,38 @@ print.DataFusionRExprs <- function(x, ...) x$print()
   x$field(y)
 }
 
-DataFusionRExpr$`&&` <- function(x, y) x$and(y)
-DataFusionRExpr$`||` <- function(x, y) x$or(y)
-DataFusionRExpr$`<`  <- function(x, y) x$lt(y)
-DataFusionRExpr$`<=` <- function(x, y) x$lt_eq(y)
-DataFusionRExpr$`>`  <- function(x, y) x$gt(y)
-DataFusionRExpr$`>=` <- function(x, y) x$gt_eq(y)
-DataFusionRExpr$`==` <- function(x, y) x$eq(y)
-DataFusionRExpr$`!=` <- function(x, y) x$not_eq(y)
-DataFusionRExpr$`!`  <- function(x)    x$not()
+.datafusion_env_for_eval <- rlang::env(
+  col  = DataFusionRExpr$col,
+  lit  = DataFusionRExpr$lit,
+  `&&` = function(x, y) x$and(y),
+  `||` = function(x, y) x$or(y),
+  `<`  = function(x, y) x$lt(y),
+  `<=` = function(x, y) x$lt_eq(y),
+  `>`  = function(x, y) x$gt(y),
+  `>=` = function(x, y) x$gt_eq(y),
+  `==` = function(x, y) x$eq(y),
+  `!=` = function(x, y) x$not_eq(y),
+  `!`  = function(x)    x$not(),
+  # TODO: can I always overwrite `c`?
+  `%in%` = function(x, y) {
+    y_expr <- rlang::enexpr(y)
 
-# TODO: can I always overwrite `c`?
-DataFusionRExpr$`%in%` <- function(x, y) {
-  y_expr <- rlang::enexpr(y)
+    # convert an expression like `c(lit("a"), ...)` to DataFusionRExprs
+    if (y_expr[[1L]] == as.name("c")) {
+      y_expr[[1]] <- as.name("datafusion_exprs")
+      y <- rlang::eval_bare(y_expr)
+    }
 
-  # convert an expression like `c(lit("a"), ...)` to DataFusionRExprs
-  if (y_expr[[1L]] == as.name("c")) {
-    y_expr[[1]] <- as.name("datafusion_exprs")
-    y <- rlang::eval_bare(y_expr)
-  }
+    x$in_list(y, FALSE)
+  },
 
-  x$in_list(y, FALSE)
-}
+  !!!as.list(DataFusionRExprFunctions)
+)
+
 
 datafusion_exprs <- function(...) {
   expr_list <- rlang::exprs(...)
-  e <- rlang::env_clone(DataFusionRExpr, parent.frame(2L))
+  e <- rlang::env_clone(.datafusion_env_for_eval, parent.frame(2L))
   out <- DataFusionRExprs$new(length(expr_list))
   for (expr in expr_list) {
     out$add_expr(rlang::eval_bare(expr, e))

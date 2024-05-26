@@ -1,6 +1,7 @@
 #![allow(clippy::too_many_arguments)]
 
 mod expr;
+mod expr_fn;
 
 use std::sync::Arc;
 

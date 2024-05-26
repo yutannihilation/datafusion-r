@@ -260,6 +260,196 @@ SEXP savvy_DataFusionRExpr_is_not_false__impl(SEXP self__) {
     return handle_result(res);
 }
 
+SEXP savvy_DataFusionRExprFunctions_abs__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_abs__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_acos__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_acos__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_acosh__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_acosh__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_asin__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_asin__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_asinh__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_asinh__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_atan__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_atan__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_atan2__impl(SEXP x, SEXP y) {
+    SEXP res = savvy_DataFusionRExprFunctions_atan2__ffi(x, y);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_atanh__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_atanh__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_cbrt__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_cbrt__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_ceil__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_ceil__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_cos__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_cos__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_cosh__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_cosh__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_cot__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_cot__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_degrees__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_degrees__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_exp__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_exp__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_factorial__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_factorial__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_floor__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_floor__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_gcd__impl(SEXP x, SEXP y) {
+    SEXP res = savvy_DataFusionRExprFunctions_gcd__ffi(x, y);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_isnan__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_isnan__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_iszero__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_iszero__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_lcm__impl(SEXP x, SEXP y) {
+    SEXP res = savvy_DataFusionRExprFunctions_lcm__ffi(x, y);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_ln__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_ln__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_log__impl(SEXP base, SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_log__ffi(base, num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_log2__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_log2__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_log10__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_log10__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_nanvl__impl(SEXP x, SEXP y) {
+    SEXP res = savvy_DataFusionRExprFunctions_nanvl__ffi(x, y);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_pi__impl(void) {
+    SEXP res = savvy_DataFusionRExprFunctions_pi__ffi();
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_power__impl(SEXP base, SEXP exponent) {
+    SEXP res = savvy_DataFusionRExprFunctions_power__ffi(base, exponent);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_radians__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_radians__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_random__impl(void) {
+    SEXP res = savvy_DataFusionRExprFunctions_random__ffi();
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_round__impl(SEXP num, SEXP decimal_place) {
+    SEXP res = savvy_DataFusionRExprFunctions_round__ffi(num, decimal_place);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_signum__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_signum__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_sin__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_sin__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_sinh__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_sinh__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_sqrt__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_sqrt__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_tan__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_tan__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_tanh__impl(SEXP num) {
+    SEXP res = savvy_DataFusionRExprFunctions_tanh__ffi(num);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_trunc__impl(SEXP num, SEXP decimal_place) {
+    SEXP res = savvy_DataFusionRExprFunctions_trunc__ffi(num, decimal_place);
+    return handle_result(res);
+}
+
 SEXP savvy_DataFusionRExprs_new__impl(SEXP capacity) {
     SEXP res = savvy_DataFusionRExprs_new__ffi(capacity);
     return handle_result(res);
@@ -353,6 +543,44 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRExpr_is_not_true__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_not_true__impl, 1},
     {"savvy_DataFusionRExpr_is_false__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_false__impl, 1},
     {"savvy_DataFusionRExpr_is_not_false__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_not_false__impl, 1},
+    {"savvy_DataFusionRExprFunctions_abs__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_abs__impl, 1},
+    {"savvy_DataFusionRExprFunctions_acos__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_acos__impl, 1},
+    {"savvy_DataFusionRExprFunctions_acosh__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_acosh__impl, 1},
+    {"savvy_DataFusionRExprFunctions_asin__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_asin__impl, 1},
+    {"savvy_DataFusionRExprFunctions_asinh__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_asinh__impl, 1},
+    {"savvy_DataFusionRExprFunctions_atan__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_atan__impl, 1},
+    {"savvy_DataFusionRExprFunctions_atan2__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_atan2__impl, 2},
+    {"savvy_DataFusionRExprFunctions_atanh__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_atanh__impl, 1},
+    {"savvy_DataFusionRExprFunctions_cbrt__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_cbrt__impl, 1},
+    {"savvy_DataFusionRExprFunctions_ceil__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_ceil__impl, 1},
+    {"savvy_DataFusionRExprFunctions_cos__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_cos__impl, 1},
+    {"savvy_DataFusionRExprFunctions_cosh__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_cosh__impl, 1},
+    {"savvy_DataFusionRExprFunctions_cot__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_cot__impl, 1},
+    {"savvy_DataFusionRExprFunctions_degrees__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_degrees__impl, 1},
+    {"savvy_DataFusionRExprFunctions_exp__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_exp__impl, 1},
+    {"savvy_DataFusionRExprFunctions_factorial__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_factorial__impl, 1},
+    {"savvy_DataFusionRExprFunctions_floor__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_floor__impl, 1},
+    {"savvy_DataFusionRExprFunctions_gcd__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_gcd__impl, 2},
+    {"savvy_DataFusionRExprFunctions_isnan__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_isnan__impl, 1},
+    {"savvy_DataFusionRExprFunctions_iszero__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_iszero__impl, 1},
+    {"savvy_DataFusionRExprFunctions_lcm__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_lcm__impl, 2},
+    {"savvy_DataFusionRExprFunctions_ln__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_ln__impl, 1},
+    {"savvy_DataFusionRExprFunctions_log__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_log__impl, 2},
+    {"savvy_DataFusionRExprFunctions_log2__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_log2__impl, 1},
+    {"savvy_DataFusionRExprFunctions_log10__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_log10__impl, 1},
+    {"savvy_DataFusionRExprFunctions_nanvl__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_nanvl__impl, 2},
+    {"savvy_DataFusionRExprFunctions_pi__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_pi__impl, 0},
+    {"savvy_DataFusionRExprFunctions_power__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_power__impl, 2},
+    {"savvy_DataFusionRExprFunctions_radians__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_radians__impl, 1},
+    {"savvy_DataFusionRExprFunctions_random__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_random__impl, 0},
+    {"savvy_DataFusionRExprFunctions_round__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_round__impl, 2},
+    {"savvy_DataFusionRExprFunctions_signum__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_signum__impl, 1},
+    {"savvy_DataFusionRExprFunctions_sin__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_sin__impl, 1},
+    {"savvy_DataFusionRExprFunctions_sinh__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_sinh__impl, 1},
+    {"savvy_DataFusionRExprFunctions_sqrt__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_sqrt__impl, 1},
+    {"savvy_DataFusionRExprFunctions_tan__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_tan__impl, 1},
+    {"savvy_DataFusionRExprFunctions_tanh__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_tanh__impl, 1},
+    {"savvy_DataFusionRExprFunctions_trunc__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_trunc__impl, 2},
     {"savvy_DataFusionRExprs_new__impl", (DL_FUNC) &savvy_DataFusionRExprs_new__impl, 1},
     {"savvy_DataFusionRExprs_add_expr__impl", (DL_FUNC) &savvy_DataFusionRExprs_add_expr__impl, 2},
     {"savvy_DataFusionRExprs_print__impl", (DL_FUNC) &savvy_DataFusionRExprs_print__impl, 1},
