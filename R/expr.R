@@ -80,10 +80,15 @@ print.DataFusionRExprs <- function(x, ...) x$print()
   f <- force(f)
   function(...) f(datafusion_exprs(...))
 }
+.wrap_dots2 <- function(f) {
+  f <- force(f)
+  function(x, ...) {
+    f(x, datafusion_exprs(...))
+  }
+}
 
 .datafusion_env_for_eval$coalesce     <- .wrap_dots(.datafusion_env_for_eval$coalesce)
 .datafusion_env_for_eval$named_struct <- .wrap_dots(.datafusion_env_for_eval$named_struct)
-
 
 .datafusion_env_for_eval$to_date              <- .wrap_dots(.datafusion_env_for_eval$to_date)
 .datafusion_env_for_eval$to_timestamp         <- .wrap_dots(.datafusion_env_for_eval$to_timestamp)
@@ -92,6 +97,10 @@ print.DataFusionRExprs <- function(x, ...) x$print()
 .datafusion_env_for_eval$to_timestamp_nanos   <- .wrap_dots(.datafusion_env_for_eval$to_timestamp_nanos)
 .datafusion_env_for_eval$to_timestamp_seconds <- .wrap_dots(.datafusion_env_for_eval$to_timestamp_seconds)
 .datafusion_env_for_eval$to_unixtime          <- .wrap_dots(.datafusion_env_for_eval$to_unixtime)
+
+.datafusion_env_for_eval$concat <- .wrap_dots(.datafusion_env_for_eval$concat)
+
+.datafusion_env_for_eval$concat_ws <- .wrap_dots2(.datafusion_env_for_eval$concat_ws)
 
 datafusion_exprs <- function(...) {
   expr_list <- rlang::exprs(...)

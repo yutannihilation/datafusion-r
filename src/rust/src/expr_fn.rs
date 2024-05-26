@@ -1,6 +1,6 @@
 // https://docs.rs/datafusion-functions/latest/datafusion_functions/expr_fn/index.html
 
-use datafusion::functions::{core, crypto, datetime, math, regex};
+use datafusion::functions::{core, crypto, datetime, math, regex, string};
 use savvy::savvy;
 
 use crate::expr::{DataFusionRExpr, DataFusionRExprs};
@@ -381,5 +381,166 @@ impl DataFusionRExprFunctions {
             replacement.0,
             flags,
         )))
+    }
+
+    // string functions -------------------------------------------
+
+    fn ascii(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::ascii(arg.0)))
+    }
+
+    fn bit_length(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::bit_length(arg.0)))
+    }
+
+    fn btrim(
+        string: DataFusionRExpr,
+        trim_str: Option<DataFusionRExpr>,
+    ) -> savvy::Result<DataFusionRExpr> {
+        let args = if let Some(s) = trim_str {
+            vec![string.0, s.0]
+        } else {
+            vec![string.0]
+        };
+        Ok(DataFusionRExpr(string::expr_fn::btrim(args)))
+    }
+
+    fn chr(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::chr(arg.0)))
+    }
+
+    fn concat(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::concat(args.0)))
+    }
+
+    fn concat_ws(
+        delimiter: DataFusionRExpr,
+        args: DataFusionRExprs,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::concat_ws(
+            delimiter.0,
+            args.0,
+        )))
+    }
+
+    fn ends_with(
+        string: DataFusionRExpr,
+        suffix: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::ends_with(
+            string.0, suffix.0,
+        )))
+    }
+
+    fn initcap(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::initcap(arg.0)))
+    }
+
+    fn levenshtein(arg1: DataFusionRExpr, arg2: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::levenshtein(
+            arg1.0, arg2.0,
+        )))
+    }
+
+    fn lower(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::lower(arg.0)))
+    }
+
+    fn ltrim(
+        string: DataFusionRExpr,
+        trim_str: Option<DataFusionRExpr>,
+    ) -> savvy::Result<DataFusionRExpr> {
+        let args = if let Some(s) = trim_str {
+            vec![string.0, s.0]
+        } else {
+            vec![string.0]
+        };
+        Ok(DataFusionRExpr(string::expr_fn::ltrim(args)))
+    }
+
+    fn octet_length(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::octet_length(vec![arg.0])))
+    }
+
+    fn overlay(
+        string: DataFusionRExpr,
+        replacement: DataFusionRExpr,
+        pos: DataFusionRExpr,
+        count: Option<DataFusionRExpr>,
+    ) -> savvy::Result<DataFusionRExpr> {
+        let args = if let Some(c) = count {
+            vec![string.0, replacement.0, pos.0, c.0]
+        } else {
+            vec![string.0, replacement.0, pos.0]
+        };
+        Ok(DataFusionRExpr(string::expr_fn::overlay(args)))
+    }
+
+    // TODO: repeat is a syntax in R
+    fn str_repeat(string: DataFusionRExpr, n: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::repeat(string.0, n.0)))
+    }
+
+    fn replace(
+        string: DataFusionRExpr,
+        from: DataFusionRExpr,
+        to: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::replace(
+            string.0, from.0, to.0,
+        )))
+    }
+
+    fn rtrim(
+        string: DataFusionRExpr,
+        trim_str: Option<DataFusionRExpr>,
+    ) -> savvy::Result<DataFusionRExpr> {
+        let args = if let Some(s) = trim_str {
+            vec![string.0, s.0]
+        } else {
+            vec![string.0]
+        };
+        Ok(DataFusionRExpr(string::expr_fn::rtrim(args)))
+    }
+
+    fn split_part(
+        string: DataFusionRExpr,
+        delimiter: DataFusionRExpr,
+        index: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::split_part(
+            string.0,
+            delimiter.0,
+            index.0,
+        )))
+    }
+
+    fn starts_with(
+        string: DataFusionRExpr,
+        prefix: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::starts_with(
+            string.0, prefix.0,
+        )))
+    }
+
+    fn to_hex(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::to_hex(arg.0)))
+    }
+
+    fn trim(
+        string: DataFusionRExpr,
+        trim_str: Option<DataFusionRExpr>,
+    ) -> savvy::Result<DataFusionRExpr> {
+        // trim() is an alias of btrim()
+        Self::btrim(string, trim_str)
+    }
+
+    fn upper(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::upper(arg.0)))
+    }
+
+    fn uuid() -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(string::expr_fn::uuid()))
     }
 }

@@ -121,6 +121,28 @@ SEXP savvy_DataFusionRExprFunctions_trunc__ffi(SEXP num, SEXP decimal_place);
 SEXP savvy_DataFusionRExprFunctions_regexp_like__ffi(SEXP string, SEXP pattern);
 SEXP savvy_DataFusionRExprFunctions_regexp_match__ffi(SEXP string, SEXP pattern);
 SEXP savvy_DataFusionRExprFunctions_regexp_replace__ffi(SEXP string, SEXP pattern, SEXP replacement, SEXP flags);
+SEXP savvy_DataFusionRExprFunctions_ascii__ffi(SEXP arg);
+SEXP savvy_DataFusionRExprFunctions_bit_length__ffi(SEXP arg);
+SEXP savvy_DataFusionRExprFunctions_btrim__ffi(SEXP string, SEXP trim_str);
+SEXP savvy_DataFusionRExprFunctions_chr__ffi(SEXP arg);
+SEXP savvy_DataFusionRExprFunctions_concat__ffi(SEXP args);
+SEXP savvy_DataFusionRExprFunctions_concat_ws__ffi(SEXP delimiter, SEXP args);
+SEXP savvy_DataFusionRExprFunctions_ends_with__ffi(SEXP string, SEXP suffix);
+SEXP savvy_DataFusionRExprFunctions_initcap__ffi(SEXP arg);
+SEXP savvy_DataFusionRExprFunctions_levenshtein__ffi(SEXP arg1, SEXP arg2);
+SEXP savvy_DataFusionRExprFunctions_lower__ffi(SEXP arg);
+SEXP savvy_DataFusionRExprFunctions_ltrim__ffi(SEXP string, SEXP trim_str);
+SEXP savvy_DataFusionRExprFunctions_octet_length__ffi(SEXP arg);
+SEXP savvy_DataFusionRExprFunctions_overlay__ffi(SEXP string, SEXP replacement, SEXP pos, SEXP count);
+SEXP savvy_DataFusionRExprFunctions_str_repeat__ffi(SEXP string, SEXP n);
+SEXP savvy_DataFusionRExprFunctions_replace__ffi(SEXP string, SEXP from, SEXP to);
+SEXP savvy_DataFusionRExprFunctions_rtrim__ffi(SEXP string, SEXP trim_str);
+SEXP savvy_DataFusionRExprFunctions_split_part__ffi(SEXP string, SEXP delimiter, SEXP index);
+SEXP savvy_DataFusionRExprFunctions_starts_with__ffi(SEXP string, SEXP prefix);
+SEXP savvy_DataFusionRExprFunctions_to_hex__ffi(SEXP arg);
+SEXP savvy_DataFusionRExprFunctions_trim__ffi(SEXP string, SEXP trim_str);
+SEXP savvy_DataFusionRExprFunctions_upper__ffi(SEXP arg);
+SEXP savvy_DataFusionRExprFunctions_uuid__ffi(void);
 
 // methods and associated functions for DataFusionRExprs
 SEXP savvy_DataFusionRExprs_new__ffi(SEXP capacity);
