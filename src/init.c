@@ -725,6 +725,86 @@ SEXP savvy_DataFusionRExprFunctions_uuid__impl(void) {
     return handle_result(res);
 }
 
+SEXP savvy_DataFusionRExprFunctions_char_length__impl(SEXP arg) {
+    SEXP res = savvy_DataFusionRExprFunctions_char_length__ffi(arg);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_character_length__impl(SEXP arg) {
+    SEXP res = savvy_DataFusionRExprFunctions_character_length__ffi(arg);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_find_in_set__impl(SEXP string, SEXP strlist) {
+    SEXP res = savvy_DataFusionRExprFunctions_find_in_set__ffi(string, strlist);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_instr__impl(SEXP string, SEXP substring) {
+    SEXP res = savvy_DataFusionRExprFunctions_instr__ffi(string, substring);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_left__impl(SEXP string, SEXP n) {
+    SEXP res = savvy_DataFusionRExprFunctions_left__ffi(string, n);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_length__impl(SEXP arg) {
+    SEXP res = savvy_DataFusionRExprFunctions_length__ffi(arg);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_lpad__impl(SEXP string, SEXP padding_str) {
+    SEXP res = savvy_DataFusionRExprFunctions_lpad__ffi(string, padding_str);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_position__impl(SEXP string, SEXP substring) {
+    SEXP res = savvy_DataFusionRExprFunctions_position__ffi(string, substring);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_reverse__impl(SEXP arg) {
+    SEXP res = savvy_DataFusionRExprFunctions_reverse__ffi(arg);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_right__impl(SEXP string, SEXP n) {
+    SEXP res = savvy_DataFusionRExprFunctions_right__ffi(string, n);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_rpad__impl(SEXP string, SEXP padding_str) {
+    SEXP res = savvy_DataFusionRExprFunctions_rpad__ffi(string, padding_str);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_strpos__impl(SEXP string, SEXP substring) {
+    SEXP res = savvy_DataFusionRExprFunctions_strpos__ffi(string, substring);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_substr__impl(SEXP string, SEXP position) {
+    SEXP res = savvy_DataFusionRExprFunctions_substr__ffi(string, position);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_substr_index__impl(SEXP string, SEXP delimiter, SEXP count) {
+    SEXP res = savvy_DataFusionRExprFunctions_substr_index__ffi(string, delimiter, count);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_substring__impl(SEXP string, SEXP position, SEXP length) {
+    SEXP res = savvy_DataFusionRExprFunctions_substring__ffi(string, position, length);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_translate__impl(SEXP string, SEXP from, SEXP to) {
+    SEXP res = savvy_DataFusionRExprFunctions_translate__ffi(string, from, to);
+    return handle_result(res);
+}
+
 SEXP savvy_DataFusionRExprs_new__impl(SEXP capacity) {
     SEXP res = savvy_DataFusionRExprs_new__ffi(capacity);
     return handle_result(res);
@@ -911,6 +991,22 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRExprFunctions_trim__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_trim__impl, 2},
     {"savvy_DataFusionRExprFunctions_upper__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_upper__impl, 1},
     {"savvy_DataFusionRExprFunctions_uuid__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_uuid__impl, 0},
+    {"savvy_DataFusionRExprFunctions_char_length__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_char_length__impl, 1},
+    {"savvy_DataFusionRExprFunctions_character_length__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_character_length__impl, 1},
+    {"savvy_DataFusionRExprFunctions_find_in_set__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_find_in_set__impl, 2},
+    {"savvy_DataFusionRExprFunctions_instr__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_instr__impl, 2},
+    {"savvy_DataFusionRExprFunctions_left__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_left__impl, 2},
+    {"savvy_DataFusionRExprFunctions_length__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_length__impl, 1},
+    {"savvy_DataFusionRExprFunctions_lpad__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_lpad__impl, 2},
+    {"savvy_DataFusionRExprFunctions_position__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_position__impl, 2},
+    {"savvy_DataFusionRExprFunctions_reverse__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_reverse__impl, 1},
+    {"savvy_DataFusionRExprFunctions_right__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_right__impl, 2},
+    {"savvy_DataFusionRExprFunctions_rpad__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_rpad__impl, 2},
+    {"savvy_DataFusionRExprFunctions_strpos__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_strpos__impl, 2},
+    {"savvy_DataFusionRExprFunctions_substr__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_substr__impl, 2},
+    {"savvy_DataFusionRExprFunctions_substr_index__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_substr_index__impl, 3},
+    {"savvy_DataFusionRExprFunctions_substring__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_substring__impl, 3},
+    {"savvy_DataFusionRExprFunctions_translate__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_translate__impl, 3},
     {"savvy_DataFusionRExprs_new__impl", (DL_FUNC) &savvy_DataFusionRExprs_new__impl, 1},
     {"savvy_DataFusionRExprs_add_expr__impl", (DL_FUNC) &savvy_DataFusionRExprs_add_expr__impl, 2},
     {"savvy_DataFusionRExprs_print__impl", (DL_FUNC) &savvy_DataFusionRExprs_print__impl, 1},

@@ -143,6 +143,22 @@ SEXP savvy_DataFusionRExprFunctions_to_hex__ffi(SEXP arg);
 SEXP savvy_DataFusionRExprFunctions_trim__ffi(SEXP string, SEXP trim_str);
 SEXP savvy_DataFusionRExprFunctions_upper__ffi(SEXP arg);
 SEXP savvy_DataFusionRExprFunctions_uuid__ffi(void);
+SEXP savvy_DataFusionRExprFunctions_char_length__ffi(SEXP arg);
+SEXP savvy_DataFusionRExprFunctions_character_length__ffi(SEXP arg);
+SEXP savvy_DataFusionRExprFunctions_find_in_set__ffi(SEXP string, SEXP strlist);
+SEXP savvy_DataFusionRExprFunctions_instr__ffi(SEXP string, SEXP substring);
+SEXP savvy_DataFusionRExprFunctions_left__ffi(SEXP string, SEXP n);
+SEXP savvy_DataFusionRExprFunctions_length__ffi(SEXP arg);
+SEXP savvy_DataFusionRExprFunctions_lpad__ffi(SEXP string, SEXP padding_str);
+SEXP savvy_DataFusionRExprFunctions_position__ffi(SEXP string, SEXP substring);
+SEXP savvy_DataFusionRExprFunctions_reverse__ffi(SEXP arg);
+SEXP savvy_DataFusionRExprFunctions_right__ffi(SEXP string, SEXP n);
+SEXP savvy_DataFusionRExprFunctions_rpad__ffi(SEXP string, SEXP padding_str);
+SEXP savvy_DataFusionRExprFunctions_strpos__ffi(SEXP string, SEXP substring);
+SEXP savvy_DataFusionRExprFunctions_substr__ffi(SEXP string, SEXP position);
+SEXP savvy_DataFusionRExprFunctions_substr_index__ffi(SEXP string, SEXP delimiter, SEXP count);
+SEXP savvy_DataFusionRExprFunctions_substring__ffi(SEXP string, SEXP position, SEXP length);
+SEXP savvy_DataFusionRExprFunctions_translate__ffi(SEXP string, SEXP from, SEXP to);
 
 // methods and associated functions for DataFusionRExprs
 SEXP savvy_DataFusionRExprs_new__ffi(SEXP capacity);

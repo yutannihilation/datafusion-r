@@ -917,6 +917,101 @@ DataFusionRExprFunctions$uuid <- function() {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_uuid__impl))
 }
 
+DataFusionRExprFunctions$char_length <- function(arg) {
+  arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_char_length__impl, arg))
+}
+
+DataFusionRExprFunctions$character_length <- function(arg) {
+  arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_character_length__impl, arg))
+}
+
+DataFusionRExprFunctions$find_in_set <- function(string, strlist) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  strlist <- .savvy_extract_ptr(strlist, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_find_in_set__impl, string, strlist))
+}
+
+DataFusionRExprFunctions$instr <- function(string, substring) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  substring <- .savvy_extract_ptr(substring, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_instr__impl, string, substring))
+}
+
+DataFusionRExprFunctions$left <- function(string, n) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  n <- .savvy_extract_ptr(n, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_left__impl, string, n))
+}
+
+DataFusionRExprFunctions$length <- function(arg) {
+  arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_length__impl, arg))
+}
+
+DataFusionRExprFunctions$lpad <- function(string, padding_str = NULL) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  padding_str <- .savvy_extract_ptr(padding_str, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_lpad__impl, string, padding_str))
+}
+
+DataFusionRExprFunctions$position <- function(string, substring) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  substring <- .savvy_extract_ptr(substring, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_position__impl, string, substring))
+}
+
+DataFusionRExprFunctions$reverse <- function(arg) {
+  arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_reverse__impl, arg))
+}
+
+DataFusionRExprFunctions$right <- function(string, n) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  n <- .savvy_extract_ptr(n, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_right__impl, string, n))
+}
+
+DataFusionRExprFunctions$rpad <- function(string, padding_str = NULL) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  padding_str <- .savvy_extract_ptr(padding_str, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_rpad__impl, string, padding_str))
+}
+
+DataFusionRExprFunctions$strpos <- function(string, substring) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  substring <- .savvy_extract_ptr(substring, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_strpos__impl, string, substring))
+}
+
+DataFusionRExprFunctions$substr <- function(string, position) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  position <- .savvy_extract_ptr(position, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_substr__impl, string, position))
+}
+
+DataFusionRExprFunctions$substr_index <- function(string, delimiter, count) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  delimiter <- .savvy_extract_ptr(delimiter, "DataFusionRExpr")
+  count <- .savvy_extract_ptr(count, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_substr_index__impl, string, delimiter, count))
+}
+
+DataFusionRExprFunctions$substring <- function(string, position, length) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  position <- .savvy_extract_ptr(position, "DataFusionRExpr")
+  length <- .savvy_extract_ptr(length, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_substring__impl, string, position, length))
+}
+
+DataFusionRExprFunctions$translate <- function(string, from, to) {
+  string <- .savvy_extract_ptr(string, "DataFusionRExpr")
+  from <- .savvy_extract_ptr(from, "DataFusionRExpr")
+  to <- .savvy_extract_ptr(to, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_translate__impl, string, from, to))
+}
+
 
 ### wrapper functions for DataFusionRExprs
 

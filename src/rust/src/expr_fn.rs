@@ -1,6 +1,6 @@
 // https://docs.rs/datafusion-functions/latest/datafusion_functions/expr_fn/index.html
 
-use datafusion::functions::{core, crypto, datetime, math, regex, string};
+use datafusion::functions::{core, crypto, datetime, math, regex, string, unicode};
 use savvy::savvy;
 
 use crate::expr::{DataFusionRExpr, DataFusionRExprs};
@@ -542,5 +542,131 @@ impl DataFusionRExprFunctions {
 
     fn uuid() -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(string::expr_fn::uuid()))
+    }
+
+    // unicode functions --------------------------------------------------------
+
+    fn char_length(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Self::character_length(arg)
+    }
+
+    fn character_length(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(unicode::expr_fn::character_length(arg.0)))
+    }
+
+    fn find_in_set(
+        string: DataFusionRExpr,
+        strlist: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(unicode::expr_fn::find_in_set(
+            string.0, strlist.0,
+        )))
+    }
+
+    fn instr(
+        string: DataFusionRExpr,
+        substring: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Self::strpos(string, substring)
+    }
+
+    fn left(string: DataFusionRExpr, n: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(unicode::expr_fn::left(string.0, n.0)))
+    }
+
+    fn length(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Self::character_length(arg)
+    }
+
+    fn lpad(
+        string: DataFusionRExpr,
+        padding_str: Option<DataFusionRExpr>,
+    ) -> savvy::Result<DataFusionRExpr> {
+        let args = if let Some(p) = padding_str {
+            vec![string.0, p.0]
+        } else {
+            vec![string.0]
+        };
+
+        Ok(DataFusionRExpr(unicode::expr_fn::lpad(args)))
+    }
+
+    fn position(
+        string: DataFusionRExpr,
+        substring: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Self::strpos(string, substring)
+    }
+
+    fn reverse(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(unicode::expr_fn::reverse(arg.0)))
+    }
+
+    fn right(string: DataFusionRExpr, n: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(unicode::expr_fn::right(string.0, n.0)))
+    }
+
+    fn rpad(
+        string: DataFusionRExpr,
+        padding_str: Option<DataFusionRExpr>,
+    ) -> savvy::Result<DataFusionRExpr> {
+        let args = if let Some(p) = padding_str {
+            vec![string.0, p.0]
+        } else {
+            vec![string.0]
+        };
+
+        Ok(DataFusionRExpr(unicode::expr_fn::rpad(args)))
+    }
+
+    fn strpos(
+        string: DataFusionRExpr,
+        substring: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(unicode::expr_fn::strpos(
+            string.0,
+            substring.0,
+        )))
+    }
+
+    fn substr(
+        string: DataFusionRExpr,
+        position: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(unicode::expr_fn::substr(
+            string.0, position.0,
+        )))
+    }
+
+    fn substr_index(
+        string: DataFusionRExpr,
+        delimiter: DataFusionRExpr,
+        count: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(unicode::expr_fn::substr_index(
+            string.0,
+            delimiter.0,
+            count.0,
+        )))
+    }
+
+    fn substring(
+        string: DataFusionRExpr,
+        position: DataFusionRExpr,
+        length: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(unicode::expr_fn::substring(
+            string.0, position.0, length.0,
+        )))
+    }
+
+    fn translate(
+        string: DataFusionRExpr,
+        from: DataFusionRExpr,
+        to: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(unicode::expr_fn::translate(
+            string.0, from.0, to.0,
+        )))
     }
 }

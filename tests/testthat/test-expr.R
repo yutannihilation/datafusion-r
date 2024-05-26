@@ -176,4 +176,23 @@ test_that("function expressions", {
   expect_equal(e(trim(col("foo"), lit("f"))),                      'btrim(foo, Utf8("f"))')
   expect_equal(e(upper(col("foo"))),                               "upper(foo)")
   expect_equal(e(uuid()),                                          "uuid()")
+
+  # unicode
+  expect_equal(e(char_length(col("foo"))),                      "character_length(foo)")
+  expect_equal(e(character_length(col("foo"))),                 "character_length(foo)")
+  expect_equal(e(find_in_set(col("foo"), lit("x,y,z"))),        'find_in_set(foo, Utf8("x,y,z"))')
+  expect_equal(e(instr(col("foo"), lit("the"))),                'strpos(foo, Utf8("the"))')
+  expect_equal(e(left(col("foo"), lit(10L))),                   'left(foo, Int32(10))')
+  expect_equal(e(length(col("foo"))),                           "character_length(foo)")
+  expect_equal(e(lpad(col("foo"), lit("*"))),                   'lpad(foo, Utf8("*"))')
+  expect_equal(e(position(col("foo"), lit("the"))),             'strpos(foo, Utf8("the"))')
+  expect_equal(e(reverse(col("foo"))),                          "reverse(foo)")
+  expect_equal(e(right(col("foo"), lit(10L))),                  'right(foo, Int32(10))')
+  expect_equal(e(rpad(col("foo"), lit("*"))),                   'rpad(foo, Utf8("*"))')
+  expect_equal(e(strpos(col("foo"), lit("the"))),               'strpos(foo, Utf8("the"))')
+  expect_equal(e(substr(col("foo"), lit(10L))),                 'substr(foo, Int32(10))')
+  expect_equal(e(substr_index(col("foo"), lit(","), lit(10L))), 'substr_index(foo, Utf8(","), Int32(10))')
+  expect_equal(e(substring(col("foo"), lit(3L), lit(10L))),     'substr(foo, Int32(3), Int32(10))')
+  expect_equal(e(translate(col("a"), lit("bc"), lit("xx"))),    'translate(a, Utf8("bc"), Utf8("xx"))')
+
 })
