@@ -1,9 +1,9 @@
 // https://docs.rs/datafusion-functions/latest/datafusion_functions/expr_fn/index.html
 
-use datafusion::functions::math;
+use datafusion::functions::{core, math};
 use savvy::savvy;
 
-use crate::expr::DataFusionRExpr;
+use crate::expr::{DataFusionRExpr, DataFusionRExprs};
 
 // This is an dummy struct to bundle function expressions.
 #[savvy]
@@ -11,6 +11,48 @@ struct DataFusionRExprFunctions;
 
 #[savvy]
 impl DataFusionRExprFunctions {
+    // core functions ---------------------------------------------------
+
+    fn arrow_cast(arg1: DataFusionRExpr, arg2: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(core::expr_fn::arrow_cast(arg1.0, arg2.0)))
+    }
+
+    fn arrow_typeof(arg1: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(core::expr_fn::arrow_typeof(arg1.0)))
+    }
+
+    // Change to accept dots on R's side
+    fn coalesce(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(core::expr_fn::coalesce(args.0)))
+    }
+
+    fn get_field(arg1: DataFusionRExpr, arg2: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(core::expr_fn::get_field(arg1.0, arg2.0)))
+    }
+
+    // Change to accept dots on R's side
+    fn named_struct(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(core::expr_fn::named_struct(args.0)))
+    }
+
+    fn nullif(arg1: DataFusionRExpr, arg2: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(core::expr_fn::nullif(arg1.0, arg2.0)))
+    }
+
+    fn nvl(arg1: DataFusionRExpr, arg2: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(core::expr_fn::nvl(arg1.0, arg2.0)))
+    }
+
+    fn nvl2(
+        arg1: DataFusionRExpr,
+        arg2: DataFusionRExpr,
+        arg3: DataFusionRExpr,
+    ) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(core::expr_fn::nvl2(arg1.0, arg2.0, arg3.0)))
+    }
+
+    // math functions ---------------------------------------------------
+
     fn abs(num: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(math::expr_fn::abs(num.0)))
     }

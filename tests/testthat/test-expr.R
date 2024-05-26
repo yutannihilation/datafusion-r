@@ -59,6 +59,17 @@ test_that("function expressions", {
     capture.output(print(datafusion_exprs(...)))
   }
 
+  # core
+  expect_equal(e(arrow_cast(col("foo"), lit("Utf8"))),                  'arrow_cast(foo, Utf8("Utf8"))')
+  expect_equal(e(arrow_typeof(col("foo"))),                             "arrow_typeof(foo)")
+  expect_equal(e(coalesce(col("foo"), col("bar"), lit("default"))),     'coalesce(foo, bar, Utf8("default"))')
+  expect_equal(e(get_field(col("foo"), col("bar"))),                    "get_field(foo, bar)")
+  expect_equal(e(named_struct(lit("A"), col("a"), lit("B"), col("b"))), 'named_struct(Utf8("A"), a, Utf8("B"), b)')
+  expect_equal(e(nullif(col("foo"), lit("NULL"))),                      'nullif(foo, Utf8("NULL"))')
+  expect_equal(e(nvl(col("foo"), lit("default"))),                      'nvl(foo, Utf8("default"))')
+  expect_equal(e(nvl2(col("foo"), col("bar"), lit("default"))),         'nvl2(foo, bar, Utf8("default"))')
+
+  # math
   expect_equal(e(abs(col("foo"))),                   "abs(foo)")
   expect_equal(e(acos(col("foo"))),                  "acos(foo)")
   expect_equal(e(acosh(col("foo"))),                 "acosh(foo)")

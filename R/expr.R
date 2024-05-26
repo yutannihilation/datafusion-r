@@ -76,6 +76,14 @@ print.DataFusionRExprs <- function(x, ...) x$print()
   !!!as.list(DataFusionRExprFunctions)
 )
 
+.wrap_dots <- function(f) {
+  f <- force(f)
+  function(...) f(datafusion_exprs(...))
+}
+
+.datafusion_env_for_eval$coalesce <- .wrap_dots(.datafusion_env_for_eval$coalesce)
+.datafusion_env_for_eval$named_struct <- .wrap_dots(.datafusion_env_for_eval$named_struct)
+
 
 datafusion_exprs <- function(...) {
   expr_list <- rlang::exprs(...)

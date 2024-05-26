@@ -415,6 +415,52 @@ DataFusionRExprFunctions <- new.env(parent = emptyenv())
 
 ### associated functions for DataFusionRExprFunctions
 
+DataFusionRExprFunctions$arrow_cast <- function(arg1, arg2) {
+  arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
+  arg2 <- .savvy_extract_ptr(arg2, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_arrow_cast__impl, arg1, arg2))
+}
+
+DataFusionRExprFunctions$arrow_typeof <- function(arg1) {
+  arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_arrow_typeof__impl, arg1))
+}
+
+DataFusionRExprFunctions$coalesce <- function(args) {
+  args <- .savvy_extract_ptr(args, "DataFusionRExprs")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_coalesce__impl, args))
+}
+
+DataFusionRExprFunctions$get_field <- function(arg1, arg2) {
+  arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
+  arg2 <- .savvy_extract_ptr(arg2, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_get_field__impl, arg1, arg2))
+}
+
+DataFusionRExprFunctions$named_struct <- function(args) {
+  args <- .savvy_extract_ptr(args, "DataFusionRExprs")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_named_struct__impl, args))
+}
+
+DataFusionRExprFunctions$nullif <- function(arg1, arg2) {
+  arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
+  arg2 <- .savvy_extract_ptr(arg2, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_nullif__impl, arg1, arg2))
+}
+
+DataFusionRExprFunctions$nvl <- function(arg1, arg2) {
+  arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
+  arg2 <- .savvy_extract_ptr(arg2, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_nvl__impl, arg1, arg2))
+}
+
+DataFusionRExprFunctions$nvl2 <- function(arg1, arg2, arg3) {
+  arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
+  arg2 <- .savvy_extract_ptr(arg2, "DataFusionRExpr")
+  arg3 <- .savvy_extract_ptr(arg3, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_nvl2__impl, arg1, arg2, arg3))
+}
+
 DataFusionRExprFunctions$abs <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_abs__impl, num))

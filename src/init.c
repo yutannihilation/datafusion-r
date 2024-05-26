@@ -260,6 +260,46 @@ SEXP savvy_DataFusionRExpr_is_not_false__impl(SEXP self__) {
     return handle_result(res);
 }
 
+SEXP savvy_DataFusionRExprFunctions_arrow_cast__impl(SEXP arg1, SEXP arg2) {
+    SEXP res = savvy_DataFusionRExprFunctions_arrow_cast__ffi(arg1, arg2);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_arrow_typeof__impl(SEXP arg1) {
+    SEXP res = savvy_DataFusionRExprFunctions_arrow_typeof__ffi(arg1);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_coalesce__impl(SEXP args) {
+    SEXP res = savvy_DataFusionRExprFunctions_coalesce__ffi(args);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_get_field__impl(SEXP arg1, SEXP arg2) {
+    SEXP res = savvy_DataFusionRExprFunctions_get_field__ffi(arg1, arg2);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_named_struct__impl(SEXP args) {
+    SEXP res = savvy_DataFusionRExprFunctions_named_struct__ffi(args);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_nullif__impl(SEXP arg1, SEXP arg2) {
+    SEXP res = savvy_DataFusionRExprFunctions_nullif__ffi(arg1, arg2);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_nvl__impl(SEXP arg1, SEXP arg2) {
+    SEXP res = savvy_DataFusionRExprFunctions_nvl__ffi(arg1, arg2);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_nvl2__impl(SEXP arg1, SEXP arg2, SEXP arg3) {
+    SEXP res = savvy_DataFusionRExprFunctions_nvl2__ffi(arg1, arg2, arg3);
+    return handle_result(res);
+}
+
 SEXP savvy_DataFusionRExprFunctions_abs__impl(SEXP num) {
     SEXP res = savvy_DataFusionRExprFunctions_abs__ffi(num);
     return handle_result(res);
@@ -543,6 +583,14 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRExpr_is_not_true__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_not_true__impl, 1},
     {"savvy_DataFusionRExpr_is_false__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_false__impl, 1},
     {"savvy_DataFusionRExpr_is_not_false__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_not_false__impl, 1},
+    {"savvy_DataFusionRExprFunctions_arrow_cast__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_arrow_cast__impl, 2},
+    {"savvy_DataFusionRExprFunctions_arrow_typeof__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_arrow_typeof__impl, 1},
+    {"savvy_DataFusionRExprFunctions_coalesce__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_coalesce__impl, 1},
+    {"savvy_DataFusionRExprFunctions_get_field__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_get_field__impl, 2},
+    {"savvy_DataFusionRExprFunctions_named_struct__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_named_struct__impl, 1},
+    {"savvy_DataFusionRExprFunctions_nullif__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_nullif__impl, 2},
+    {"savvy_DataFusionRExprFunctions_nvl__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_nvl__impl, 2},
+    {"savvy_DataFusionRExprFunctions_nvl2__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_nvl2__impl, 3},
     {"savvy_DataFusionRExprFunctions_abs__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_abs__impl, 1},
     {"savvy_DataFusionRExprFunctions_acos__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_acos__impl, 1},
     {"savvy_DataFusionRExprFunctions_acosh__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_acosh__impl, 1},

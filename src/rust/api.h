@@ -50,6 +50,14 @@ SEXP savvy_DataFusionRExpr_is_false__ffi(SEXP self__);
 SEXP savvy_DataFusionRExpr_is_not_false__ffi(SEXP self__);
 
 // methods and associated functions for DataFusionRExprFunctions
+SEXP savvy_DataFusionRExprFunctions_arrow_cast__ffi(SEXP arg1, SEXP arg2);
+SEXP savvy_DataFusionRExprFunctions_arrow_typeof__ffi(SEXP arg1);
+SEXP savvy_DataFusionRExprFunctions_coalesce__ffi(SEXP args);
+SEXP savvy_DataFusionRExprFunctions_get_field__ffi(SEXP arg1, SEXP arg2);
+SEXP savvy_DataFusionRExprFunctions_named_struct__ffi(SEXP args);
+SEXP savvy_DataFusionRExprFunctions_nullif__ffi(SEXP arg1, SEXP arg2);
+SEXP savvy_DataFusionRExprFunctions_nvl__ffi(SEXP arg1, SEXP arg2);
+SEXP savvy_DataFusionRExprFunctions_nvl2__ffi(SEXP arg1, SEXP arg2, SEXP arg3);
 SEXP savvy_DataFusionRExprFunctions_abs__ffi(SEXP num);
 SEXP savvy_DataFusionRExprFunctions_acos__ffi(SEXP num);
 SEXP savvy_DataFusionRExprFunctions_acosh__ffi(SEXP num);
