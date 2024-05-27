@@ -576,6 +576,18 @@ DataFusionRExprFunctions$to_unixtime <- function(args) {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_unixtime__impl, args))
 }
 
+DataFusionRExprFunctions$decode <- function(input, encoding) {
+  input <- .savvy_extract_ptr(input, "DataFusionRExpr")
+  encoding <- .savvy_extract_ptr(encoding, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_decode__impl, input, encoding))
+}
+
+DataFusionRExprFunctions$encode <- function(input, encoding) {
+  input <- .savvy_extract_ptr(input, "DataFusionRExpr")
+  encoding <- .savvy_extract_ptr(encoding, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_encode__impl, input, encoding))
+}
+
 DataFusionRExprFunctions$abs <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_abs__impl, num))

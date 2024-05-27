@@ -80,6 +80,8 @@ SEXP savvy_DataFusionRExprFunctions_to_timestamp_millis__ffi(SEXP args);
 SEXP savvy_DataFusionRExprFunctions_to_timestamp_nanos__ffi(SEXP args);
 SEXP savvy_DataFusionRExprFunctions_to_timestamp_seconds__ffi(SEXP args);
 SEXP savvy_DataFusionRExprFunctions_to_unixtime__ffi(SEXP args);
+SEXP savvy_DataFusionRExprFunctions_decode__ffi(SEXP input, SEXP encoding);
+SEXP savvy_DataFusionRExprFunctions_encode__ffi(SEXP input, SEXP encoding);
 SEXP savvy_DataFusionRExprFunctions_abs__ffi(SEXP num);
 SEXP savvy_DataFusionRExprFunctions_acos__ffi(SEXP num);
 SEXP savvy_DataFusionRExprFunctions_acosh__ffi(SEXP num);

@@ -1,6 +1,6 @@
 // https://docs.rs/datafusion-functions/latest/datafusion_functions/expr_fn/index.html
 
-use datafusion::functions::{core, crypto, datetime, math, regex, string, unicode};
+use datafusion::functions::{core, crypto, datetime, encoding, math, regex, string, unicode};
 use savvy::savvy;
 
 use crate::expr::{DataFusionRExpr, DataFusionRExprs};
@@ -172,6 +172,20 @@ impl DataFusionRExprFunctions {
 
     fn to_unixtime(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(datetime::expr_fn::to_unixtime(args.0)))
+    }
+
+    // encoding functions -----------------------------------------------
+
+    fn decode(input: DataFusionRExpr, encoding: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(encoding::expr_fn::decode(
+            input.0, encoding.0,
+        )))
+    }
+
+    fn encode(input: DataFusionRExpr, encoding: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(encoding::expr_fn::encode(
+            input.0, encoding.0,
+        )))
     }
 
     // math functions ---------------------------------------------------

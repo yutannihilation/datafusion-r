@@ -410,6 +410,16 @@ SEXP savvy_DataFusionRExprFunctions_to_unixtime__impl(SEXP args) {
     return handle_result(res);
 }
 
+SEXP savvy_DataFusionRExprFunctions_decode__impl(SEXP input, SEXP encoding) {
+    SEXP res = savvy_DataFusionRExprFunctions_decode__ffi(input, encoding);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_encode__impl(SEXP input, SEXP encoding) {
+    SEXP res = savvy_DataFusionRExprFunctions_encode__ffi(input, encoding);
+    return handle_result(res);
+}
+
 SEXP savvy_DataFusionRExprFunctions_abs__impl(SEXP num) {
     SEXP res = savvy_DataFusionRExprFunctions_abs__ffi(num);
     return handle_result(res);
@@ -928,6 +938,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRExprFunctions_to_timestamp_nanos__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_to_timestamp_nanos__impl, 1},
     {"savvy_DataFusionRExprFunctions_to_timestamp_seconds__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_to_timestamp_seconds__impl, 1},
     {"savvy_DataFusionRExprFunctions_to_unixtime__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_to_unixtime__impl, 1},
+    {"savvy_DataFusionRExprFunctions_decode__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_decode__impl, 2},
+    {"savvy_DataFusionRExprFunctions_encode__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_encode__impl, 2},
     {"savvy_DataFusionRExprFunctions_abs__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_abs__impl, 1},
     {"savvy_DataFusionRExprFunctions_acos__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_acos__impl, 1},
     {"savvy_DataFusionRExprFunctions_acosh__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_acosh__impl, 1},

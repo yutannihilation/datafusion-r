@@ -98,6 +98,10 @@ test_that("function expressions", {
   expect_equal(e(to_timestamp_seconds(col("bar"), lit("%Y%m"),lit("%Y-%m"))), 'to_timestamp_seconds(bar, Utf8("%Y%m"), Utf8("%Y-%m"))')
   expect_equal(e(to_unixtime(col("bar"), lit("%Y%m"),lit("%Y-%m"))),          'to_unixtime(bar, Utf8("%Y%m"), Utf8("%Y-%m"))')
 
+  # encoding
+  expect_equal(e(decode(col("foo"), lit("base64"))), 'decode(foo, Utf8("base64"))')
+  expect_equal(e(encode(col("foo"), lit("base64"))), 'encode(foo, Utf8("base64"))')
+
   # math
   expect_equal(e(abs(col("foo"))),                   "abs(foo)")
   expect_equal(e(acos(col("foo"))),                  "acos(foo)")
