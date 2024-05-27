@@ -136,7 +136,7 @@ SEXP savvy_DataFusionRExprFunctions_lower__ffi(SEXP arg);
 SEXP savvy_DataFusionRExprFunctions_ltrim__ffi(SEXP string, SEXP trim_str);
 SEXP savvy_DataFusionRExprFunctions_octet_length__ffi(SEXP arg);
 SEXP savvy_DataFusionRExprFunctions_overlay__ffi(SEXP string, SEXP replacement, SEXP pos, SEXP count);
-SEXP savvy_DataFusionRExprFunctions_str_repeat__ffi(SEXP string, SEXP n);
+SEXP savvy_DataFusionRExprFunctions_repeat__ffi(SEXP string, SEXP n);
 SEXP savvy_DataFusionRExprFunctions_replace__ffi(SEXP string, SEXP from, SEXP to);
 SEXP savvy_DataFusionRExprFunctions_rtrim__ffi(SEXP string, SEXP trim_str);
 SEXP savvy_DataFusionRExprFunctions_split_part__ffi(SEXP string, SEXP delimiter, SEXP index);

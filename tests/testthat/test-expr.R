@@ -77,7 +77,7 @@ test_that("function expressions", {
   expect_equal(e(sha384(col("foo"))),                "sha384(foo)")
   expect_equal(e(sha512(col("foo"))),                "sha512(foo)")
 
-  #datetime
+  # datetime
   expect_equal(e(current_date()),                                 "current_date()")
   expect_equal(e(current_time()),                                 "current_time()")
   expect_equal(e(date_bin(col("foo"), col("bar"), col("baz"))),   "date_bin(foo, bar, baz)")
@@ -169,7 +169,7 @@ test_that("function expressions", {
   expect_equal(e(octet_length(col("foo"))),                        "octet_length(foo)")
   expect_equal(e(overlay(col("foo"), lit("x"), lit(2L))),          'overlay(foo, Utf8("x"), Int32(2))')
   expect_equal(e(overlay(col("foo"), lit("x"), lit(2L), lit(3L))), 'overlay(foo, Utf8("x"), Int32(2), Int32(3))')
-  expect_equal(e(str_repeat(col("foo"), lit(3L))),                 'repeat(foo, Int32(3))')
+  expect_equal(e(`repeat`(col("foo"), lit(3L))),                   'repeat(foo, Int32(3))')
   expect_equal(e(replace(col("foo"),  lit("x"),  lit("y"))),       'replace(foo, Utf8("x"), Utf8("y"))')
   expect_equal(e(rtrim(col("foo"))),                               "rtrim(foo)")
   expect_equal(e(rtrim(col("foo"), lit("f"))),                     'rtrim(foo, Utf8("f"))')

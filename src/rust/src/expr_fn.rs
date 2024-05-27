@@ -490,8 +490,7 @@ impl DataFusionRExprFunctions {
         Ok(DataFusionRExpr(string::expr_fn::overlay(args)))
     }
 
-    // TODO: repeat is a syntax in R
-    fn str_repeat(string: DataFusionRExpr, n: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
+    fn repeat(string: DataFusionRExpr, n: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(string::expr_fn::repeat(string.0, n.0)))
     }
 

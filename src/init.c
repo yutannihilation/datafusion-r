@@ -690,8 +690,8 @@ SEXP savvy_DataFusionRExprFunctions_overlay__impl(SEXP string, SEXP replacement,
     return handle_result(res);
 }
 
-SEXP savvy_DataFusionRExprFunctions_str_repeat__impl(SEXP string, SEXP n) {
-    SEXP res = savvy_DataFusionRExprFunctions_str_repeat__ffi(string, n);
+SEXP savvy_DataFusionRExprFunctions_repeat__impl(SEXP string, SEXP n) {
+    SEXP res = savvy_DataFusionRExprFunctions_repeat__ffi(string, n);
     return handle_result(res);
 }
 
@@ -994,7 +994,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRExprFunctions_ltrim__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_ltrim__impl, 2},
     {"savvy_DataFusionRExprFunctions_octet_length__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_octet_length__impl, 1},
     {"savvy_DataFusionRExprFunctions_overlay__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_overlay__impl, 4},
-    {"savvy_DataFusionRExprFunctions_str_repeat__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_str_repeat__impl, 2},
+    {"savvy_DataFusionRExprFunctions_repeat__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_repeat__impl, 2},
     {"savvy_DataFusionRExprFunctions_replace__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_replace__impl, 3},
     {"savvy_DataFusionRExprFunctions_rtrim__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_rtrim__impl, 2},
     {"savvy_DataFusionRExprFunctions_split_part__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_split_part__impl, 3},

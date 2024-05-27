@@ -388,11 +388,11 @@ DataFusionRExpr <- new.env(parent = emptyenv())
 
 ### associated functions for DataFusionRExpr
 
-DataFusionRExpr$col <- function(x) {
+DataFusionRExpr$`col` <- function(x) {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_col__impl, x))
 }
 
-DataFusionRExpr$lit <- function(x) {
+DataFusionRExpr$`lit` <- function(x) {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_lit__impl, x))
 }
 
@@ -415,388 +415,388 @@ DataFusionRExprFunctions <- new.env(parent = emptyenv())
 
 ### associated functions for DataFusionRExprFunctions
 
-DataFusionRExprFunctions$arrow_cast <- function(arg1, arg2) {
+DataFusionRExprFunctions$`arrow_cast` <- function(arg1, arg2) {
   arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
   arg2 <- .savvy_extract_ptr(arg2, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_arrow_cast__impl, arg1, arg2))
 }
 
-DataFusionRExprFunctions$arrow_typeof <- function(arg1) {
+DataFusionRExprFunctions$`arrow_typeof` <- function(arg1) {
   arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_arrow_typeof__impl, arg1))
 }
 
-DataFusionRExprFunctions$coalesce <- function(args) {
+DataFusionRExprFunctions$`coalesce` <- function(args) {
   args <- .savvy_extract_ptr(args, "DataFusionRExprs")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_coalesce__impl, args))
 }
 
-DataFusionRExprFunctions$get_field <- function(arg1, arg2) {
+DataFusionRExprFunctions$`get_field` <- function(arg1, arg2) {
   arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
   arg2 <- .savvy_extract_ptr(arg2, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_get_field__impl, arg1, arg2))
 }
 
-DataFusionRExprFunctions$named_struct <- function(args) {
+DataFusionRExprFunctions$`named_struct` <- function(args) {
   args <- .savvy_extract_ptr(args, "DataFusionRExprs")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_named_struct__impl, args))
 }
 
-DataFusionRExprFunctions$nullif <- function(arg1, arg2) {
+DataFusionRExprFunctions$`nullif` <- function(arg1, arg2) {
   arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
   arg2 <- .savvy_extract_ptr(arg2, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_nullif__impl, arg1, arg2))
 }
 
-DataFusionRExprFunctions$nvl <- function(arg1, arg2) {
+DataFusionRExprFunctions$`nvl` <- function(arg1, arg2) {
   arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
   arg2 <- .savvy_extract_ptr(arg2, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_nvl__impl, arg1, arg2))
 }
 
-DataFusionRExprFunctions$nvl2 <- function(arg1, arg2, arg3) {
+DataFusionRExprFunctions$`nvl2` <- function(arg1, arg2, arg3) {
   arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
   arg2 <- .savvy_extract_ptr(arg2, "DataFusionRExpr")
   arg3 <- .savvy_extract_ptr(arg3, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_nvl2__impl, arg1, arg2, arg3))
 }
 
-DataFusionRExprFunctions$digest <- function(arg1, arg2) {
+DataFusionRExprFunctions$`digest` <- function(arg1, arg2) {
   arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
   arg2 <- .savvy_extract_ptr(arg2, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_digest__impl, arg1, arg2))
 }
 
-DataFusionRExprFunctions$md5 <- function(arg) {
+DataFusionRExprFunctions$`md5` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_md5__impl, arg))
 }
 
-DataFusionRExprFunctions$sha224 <- function(arg) {
+DataFusionRExprFunctions$`sha224` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_sha224__impl, arg))
 }
 
-DataFusionRExprFunctions$sha256 <- function(arg) {
+DataFusionRExprFunctions$`sha256` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_sha256__impl, arg))
 }
 
-DataFusionRExprFunctions$sha384 <- function(arg) {
+DataFusionRExprFunctions$`sha384` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_sha384__impl, arg))
 }
 
-DataFusionRExprFunctions$sha512 <- function(arg) {
+DataFusionRExprFunctions$`sha512` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_sha512__impl, arg))
 }
 
-DataFusionRExprFunctions$current_date <- function() {
+DataFusionRExprFunctions$`current_date` <- function() {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_current_date__impl))
 }
 
-DataFusionRExprFunctions$current_time <- function() {
+DataFusionRExprFunctions$`current_time` <- function() {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_current_time__impl))
 }
 
-DataFusionRExprFunctions$date_bin <- function(stride, source, origin) {
+DataFusionRExprFunctions$`date_bin` <- function(stride, source, origin) {
   stride <- .savvy_extract_ptr(stride, "DataFusionRExpr")
   source <- .savvy_extract_ptr(source, "DataFusionRExpr")
   origin <- .savvy_extract_ptr(origin, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_date_bin__impl, stride, source, origin))
 }
 
-DataFusionRExprFunctions$date_part <- function(part, date) {
+DataFusionRExprFunctions$`date_part` <- function(part, date) {
   part <- .savvy_extract_ptr(part, "DataFusionRExpr")
   date <- .savvy_extract_ptr(date, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_date_part__impl, part, date))
 }
 
-DataFusionRExprFunctions$date_trunc <- function(part, date) {
+DataFusionRExprFunctions$`date_trunc` <- function(part, date) {
   part <- .savvy_extract_ptr(part, "DataFusionRExpr")
   date <- .savvy_extract_ptr(date, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_date_trunc__impl, part, date))
 }
 
-DataFusionRExprFunctions$from_unixtime <- function(unixtime) {
+DataFusionRExprFunctions$`from_unixtime` <- function(unixtime) {
   unixtime <- .savvy_extract_ptr(unixtime, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_from_unixtime__impl, unixtime))
 }
 
-DataFusionRExprFunctions$make_date <- function(year, month, day) {
+DataFusionRExprFunctions$`make_date` <- function(year, month, day) {
   year <- .savvy_extract_ptr(year, "DataFusionRExpr")
   month <- .savvy_extract_ptr(month, "DataFusionRExpr")
   day <- .savvy_extract_ptr(day, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_make_date__impl, year, month, day))
 }
 
-DataFusionRExprFunctions$now <- function() {
+DataFusionRExprFunctions$`now` <- function() {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_now__impl))
 }
 
-DataFusionRExprFunctions$to_char <- function(datetime, format) {
+DataFusionRExprFunctions$`to_char` <- function(datetime, format) {
   datetime <- .savvy_extract_ptr(datetime, "DataFusionRExpr")
   format <- .savvy_extract_ptr(format, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_char__impl, datetime, format))
 }
 
-DataFusionRExprFunctions$to_date <- function(args) {
+DataFusionRExprFunctions$`to_date` <- function(args) {
   args <- .savvy_extract_ptr(args, "DataFusionRExprs")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_date__impl, args))
 }
 
-DataFusionRExprFunctions$to_timestamp <- function(args) {
+DataFusionRExprFunctions$`to_timestamp` <- function(args) {
   args <- .savvy_extract_ptr(args, "DataFusionRExprs")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_timestamp__impl, args))
 }
 
-DataFusionRExprFunctions$to_timestamp_micros <- function(args) {
+DataFusionRExprFunctions$`to_timestamp_micros` <- function(args) {
   args <- .savvy_extract_ptr(args, "DataFusionRExprs")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_timestamp_micros__impl, args))
 }
 
-DataFusionRExprFunctions$to_timestamp_millis <- function(args) {
+DataFusionRExprFunctions$`to_timestamp_millis` <- function(args) {
   args <- .savvy_extract_ptr(args, "DataFusionRExprs")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_timestamp_millis__impl, args))
 }
 
-DataFusionRExprFunctions$to_timestamp_nanos <- function(args) {
+DataFusionRExprFunctions$`to_timestamp_nanos` <- function(args) {
   args <- .savvy_extract_ptr(args, "DataFusionRExprs")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_timestamp_nanos__impl, args))
 }
 
-DataFusionRExprFunctions$to_timestamp_seconds <- function(args) {
+DataFusionRExprFunctions$`to_timestamp_seconds` <- function(args) {
   args <- .savvy_extract_ptr(args, "DataFusionRExprs")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_timestamp_seconds__impl, args))
 }
 
-DataFusionRExprFunctions$to_unixtime <- function(args) {
+DataFusionRExprFunctions$`to_unixtime` <- function(args) {
   args <- .savvy_extract_ptr(args, "DataFusionRExprs")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_unixtime__impl, args))
 }
 
-DataFusionRExprFunctions$decode <- function(input, encoding) {
+DataFusionRExprFunctions$`decode` <- function(input, encoding) {
   input <- .savvy_extract_ptr(input, "DataFusionRExpr")
   encoding <- .savvy_extract_ptr(encoding, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_decode__impl, input, encoding))
 }
 
-DataFusionRExprFunctions$encode <- function(input, encoding) {
+DataFusionRExprFunctions$`encode` <- function(input, encoding) {
   input <- .savvy_extract_ptr(input, "DataFusionRExpr")
   encoding <- .savvy_extract_ptr(encoding, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_encode__impl, input, encoding))
 }
 
-DataFusionRExprFunctions$abs <- function(num) {
+DataFusionRExprFunctions$`abs` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_abs__impl, num))
 }
 
-DataFusionRExprFunctions$acos <- function(num) {
+DataFusionRExprFunctions$`acos` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_acos__impl, num))
 }
 
-DataFusionRExprFunctions$acosh <- function(num) {
+DataFusionRExprFunctions$`acosh` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_acosh__impl, num))
 }
 
-DataFusionRExprFunctions$asin <- function(num) {
+DataFusionRExprFunctions$`asin` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_asin__impl, num))
 }
 
-DataFusionRExprFunctions$asinh <- function(num) {
+DataFusionRExprFunctions$`asinh` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_asinh__impl, num))
 }
 
-DataFusionRExprFunctions$atan <- function(num) {
+DataFusionRExprFunctions$`atan` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_atan__impl, num))
 }
 
-DataFusionRExprFunctions$atan2 <- function(x, y) {
+DataFusionRExprFunctions$`atan2` <- function(x, y) {
   x <- .savvy_extract_ptr(x, "DataFusionRExpr")
   y <- .savvy_extract_ptr(y, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_atan2__impl, x, y))
 }
 
-DataFusionRExprFunctions$atanh <- function(num) {
+DataFusionRExprFunctions$`atanh` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_atanh__impl, num))
 }
 
-DataFusionRExprFunctions$cbrt <- function(num) {
+DataFusionRExprFunctions$`cbrt` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_cbrt__impl, num))
 }
 
-DataFusionRExprFunctions$ceil <- function(num) {
+DataFusionRExprFunctions$`ceil` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_ceil__impl, num))
 }
 
-DataFusionRExprFunctions$cos <- function(num) {
+DataFusionRExprFunctions$`cos` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_cos__impl, num))
 }
 
-DataFusionRExprFunctions$cosh <- function(num) {
+DataFusionRExprFunctions$`cosh` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_cosh__impl, num))
 }
 
-DataFusionRExprFunctions$cot <- function(num) {
+DataFusionRExprFunctions$`cot` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_cot__impl, num))
 }
 
-DataFusionRExprFunctions$degrees <- function(num) {
+DataFusionRExprFunctions$`degrees` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_degrees__impl, num))
 }
 
-DataFusionRExprFunctions$exp <- function(num) {
+DataFusionRExprFunctions$`exp` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_exp__impl, num))
 }
 
-DataFusionRExprFunctions$factorial <- function(num) {
+DataFusionRExprFunctions$`factorial` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_factorial__impl, num))
 }
 
-DataFusionRExprFunctions$floor <- function(num) {
+DataFusionRExprFunctions$`floor` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_floor__impl, num))
 }
 
-DataFusionRExprFunctions$gcd <- function(x, y) {
+DataFusionRExprFunctions$`gcd` <- function(x, y) {
   x <- .savvy_extract_ptr(x, "DataFusionRExpr")
   y <- .savvy_extract_ptr(y, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_gcd__impl, x, y))
 }
 
-DataFusionRExprFunctions$isnan <- function(num) {
+DataFusionRExprFunctions$`isnan` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_isnan__impl, num))
 }
 
-DataFusionRExprFunctions$iszero <- function(num) {
+DataFusionRExprFunctions$`iszero` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_iszero__impl, num))
 }
 
-DataFusionRExprFunctions$lcm <- function(x, y) {
+DataFusionRExprFunctions$`lcm` <- function(x, y) {
   x <- .savvy_extract_ptr(x, "DataFusionRExpr")
   y <- .savvy_extract_ptr(y, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_lcm__impl, x, y))
 }
 
-DataFusionRExprFunctions$ln <- function(num) {
+DataFusionRExprFunctions$`ln` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_ln__impl, num))
 }
 
-DataFusionRExprFunctions$log <- function(base, num) {
+DataFusionRExprFunctions$`log` <- function(base, num) {
   base <- .savvy_extract_ptr(base, "DataFusionRExpr")
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_log__impl, base, num))
 }
 
-DataFusionRExprFunctions$log2 <- function(num) {
+DataFusionRExprFunctions$`log2` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_log2__impl, num))
 }
 
-DataFusionRExprFunctions$log10 <- function(num) {
+DataFusionRExprFunctions$`log10` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_log10__impl, num))
 }
 
-DataFusionRExprFunctions$nanvl <- function(x, y) {
+DataFusionRExprFunctions$`nanvl` <- function(x, y) {
   x <- .savvy_extract_ptr(x, "DataFusionRExpr")
   y <- .savvy_extract_ptr(y, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_nanvl__impl, x, y))
 }
 
-DataFusionRExprFunctions$pi <- function() {
+DataFusionRExprFunctions$`pi` <- function() {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_pi__impl))
 }
 
-DataFusionRExprFunctions$power <- function(base, exponent) {
+DataFusionRExprFunctions$`power` <- function(base, exponent) {
   base <- .savvy_extract_ptr(base, "DataFusionRExpr")
   exponent <- .savvy_extract_ptr(exponent, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_power__impl, base, exponent))
 }
 
-DataFusionRExprFunctions$radians <- function(num) {
+DataFusionRExprFunctions$`radians` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_radians__impl, num))
 }
 
-DataFusionRExprFunctions$random <- function() {
+DataFusionRExprFunctions$`random` <- function() {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_random__impl))
 }
 
-DataFusionRExprFunctions$round <- function(num, decimal_place = NULL) {
+DataFusionRExprFunctions$`round` <- function(num, decimal_place = NULL) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   decimal_place <- .savvy_extract_ptr(decimal_place, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_round__impl, num, decimal_place))
 }
 
-DataFusionRExprFunctions$signum <- function(num) {
+DataFusionRExprFunctions$`signum` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_signum__impl, num))
 }
 
-DataFusionRExprFunctions$sin <- function(num) {
+DataFusionRExprFunctions$`sin` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_sin__impl, num))
 }
 
-DataFusionRExprFunctions$sinh <- function(num) {
+DataFusionRExprFunctions$`sinh` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_sinh__impl, num))
 }
 
-DataFusionRExprFunctions$sqrt <- function(num) {
+DataFusionRExprFunctions$`sqrt` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_sqrt__impl, num))
 }
 
-DataFusionRExprFunctions$tan <- function(num) {
+DataFusionRExprFunctions$`tan` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_tan__impl, num))
 }
 
-DataFusionRExprFunctions$tanh <- function(num) {
+DataFusionRExprFunctions$`tanh` <- function(num) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_tanh__impl, num))
 }
 
-DataFusionRExprFunctions$trunc <- function(num, decimal_place = NULL) {
+DataFusionRExprFunctions$`trunc` <- function(num, decimal_place = NULL) {
   num <- .savvy_extract_ptr(num, "DataFusionRExpr")
   decimal_place <- .savvy_extract_ptr(decimal_place, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_trunc__impl, num, decimal_place))
 }
 
-DataFusionRExprFunctions$regexp_like <- function(string, pattern) {
+DataFusionRExprFunctions$`regexp_like` <- function(string, pattern) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   pattern <- .savvy_extract_ptr(pattern, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_regexp_like__impl, string, pattern))
 }
 
-DataFusionRExprFunctions$regexp_match <- function(string, pattern) {
+DataFusionRExprFunctions$`regexp_match` <- function(string, pattern) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   pattern <- .savvy_extract_ptr(pattern, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_regexp_match__impl, string, pattern))
 }
 
-DataFusionRExprFunctions$regexp_replace <- function(string, pattern, replacement, flags = NULL) {
+DataFusionRExprFunctions$`regexp_replace` <- function(string, pattern, replacement, flags = NULL) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   pattern <- .savvy_extract_ptr(pattern, "DataFusionRExpr")
   replacement <- .savvy_extract_ptr(replacement, "DataFusionRExpr")
@@ -804,72 +804,72 @@ DataFusionRExprFunctions$regexp_replace <- function(string, pattern, replacement
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_regexp_replace__impl, string, pattern, replacement, flags))
 }
 
-DataFusionRExprFunctions$ascii <- function(arg) {
+DataFusionRExprFunctions$`ascii` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_ascii__impl, arg))
 }
 
-DataFusionRExprFunctions$bit_length <- function(arg) {
+DataFusionRExprFunctions$`bit_length` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_bit_length__impl, arg))
 }
 
-DataFusionRExprFunctions$btrim <- function(string, trim_str = NULL) {
+DataFusionRExprFunctions$`btrim` <- function(string, trim_str = NULL) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   trim_str <- .savvy_extract_ptr(trim_str, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_btrim__impl, string, trim_str))
 }
 
-DataFusionRExprFunctions$chr <- function(arg) {
+DataFusionRExprFunctions$`chr` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_chr__impl, arg))
 }
 
-DataFusionRExprFunctions$concat <- function(args) {
+DataFusionRExprFunctions$`concat` <- function(args) {
   args <- .savvy_extract_ptr(args, "DataFusionRExprs")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_concat__impl, args))
 }
 
-DataFusionRExprFunctions$concat_ws <- function(delimiter, args) {
+DataFusionRExprFunctions$`concat_ws` <- function(delimiter, args) {
   delimiter <- .savvy_extract_ptr(delimiter, "DataFusionRExpr")
   args <- .savvy_extract_ptr(args, "DataFusionRExprs")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_concat_ws__impl, delimiter, args))
 }
 
-DataFusionRExprFunctions$ends_with <- function(string, suffix) {
+DataFusionRExprFunctions$`ends_with` <- function(string, suffix) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   suffix <- .savvy_extract_ptr(suffix, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_ends_with__impl, string, suffix))
 }
 
-DataFusionRExprFunctions$initcap <- function(arg) {
+DataFusionRExprFunctions$`initcap` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_initcap__impl, arg))
 }
 
-DataFusionRExprFunctions$levenshtein <- function(arg1, arg2) {
+DataFusionRExprFunctions$`levenshtein` <- function(arg1, arg2) {
   arg1 <- .savvy_extract_ptr(arg1, "DataFusionRExpr")
   arg2 <- .savvy_extract_ptr(arg2, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_levenshtein__impl, arg1, arg2))
 }
 
-DataFusionRExprFunctions$lower <- function(arg) {
+DataFusionRExprFunctions$`lower` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_lower__impl, arg))
 }
 
-DataFusionRExprFunctions$ltrim <- function(string, trim_str = NULL) {
+DataFusionRExprFunctions$`ltrim` <- function(string, trim_str = NULL) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   trim_str <- .savvy_extract_ptr(trim_str, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_ltrim__impl, string, trim_str))
 }
 
-DataFusionRExprFunctions$octet_length <- function(arg) {
+DataFusionRExprFunctions$`octet_length` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_octet_length__impl, arg))
 }
 
-DataFusionRExprFunctions$overlay <- function(string, replacement, pos, count = NULL) {
+DataFusionRExprFunctions$`overlay` <- function(string, replacement, pos, count = NULL) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   replacement <- .savvy_extract_ptr(replacement, "DataFusionRExpr")
   pos <- .savvy_extract_ptr(pos, "DataFusionRExpr")
@@ -877,147 +877,147 @@ DataFusionRExprFunctions$overlay <- function(string, replacement, pos, count = N
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_overlay__impl, string, replacement, pos, count))
 }
 
-DataFusionRExprFunctions$str_repeat <- function(string, n) {
+DataFusionRExprFunctions$`repeat` <- function(string, n) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   n <- .savvy_extract_ptr(n, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_str_repeat__impl, string, n))
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_repeat__impl, string, n))
 }
 
-DataFusionRExprFunctions$replace <- function(string, from, to) {
+DataFusionRExprFunctions$`replace` <- function(string, from, to) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   from <- .savvy_extract_ptr(from, "DataFusionRExpr")
   to <- .savvy_extract_ptr(to, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_replace__impl, string, from, to))
 }
 
-DataFusionRExprFunctions$rtrim <- function(string, trim_str = NULL) {
+DataFusionRExprFunctions$`rtrim` <- function(string, trim_str = NULL) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   trim_str <- .savvy_extract_ptr(trim_str, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_rtrim__impl, string, trim_str))
 }
 
-DataFusionRExprFunctions$split_part <- function(string, delimiter, index) {
+DataFusionRExprFunctions$`split_part` <- function(string, delimiter, index) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   delimiter <- .savvy_extract_ptr(delimiter, "DataFusionRExpr")
   index <- .savvy_extract_ptr(index, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_split_part__impl, string, delimiter, index))
 }
 
-DataFusionRExprFunctions$starts_with <- function(string, prefix) {
+DataFusionRExprFunctions$`starts_with` <- function(string, prefix) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   prefix <- .savvy_extract_ptr(prefix, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_starts_with__impl, string, prefix))
 }
 
-DataFusionRExprFunctions$to_hex <- function(arg) {
+DataFusionRExprFunctions$`to_hex` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_to_hex__impl, arg))
 }
 
-DataFusionRExprFunctions$trim <- function(string, trim_str = NULL) {
+DataFusionRExprFunctions$`trim` <- function(string, trim_str = NULL) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   trim_str <- .savvy_extract_ptr(trim_str, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_trim__impl, string, trim_str))
 }
 
-DataFusionRExprFunctions$upper <- function(arg) {
+DataFusionRExprFunctions$`upper` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_upper__impl, arg))
 }
 
-DataFusionRExprFunctions$uuid <- function() {
+DataFusionRExprFunctions$`uuid` <- function() {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_uuid__impl))
 }
 
-DataFusionRExprFunctions$char_length <- function(arg) {
+DataFusionRExprFunctions$`char_length` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_char_length__impl, arg))
 }
 
-DataFusionRExprFunctions$character_length <- function(arg) {
+DataFusionRExprFunctions$`character_length` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_character_length__impl, arg))
 }
 
-DataFusionRExprFunctions$find_in_set <- function(string, strlist) {
+DataFusionRExprFunctions$`find_in_set` <- function(string, strlist) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   strlist <- .savvy_extract_ptr(strlist, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_find_in_set__impl, string, strlist))
 }
 
-DataFusionRExprFunctions$instr <- function(string, substring) {
+DataFusionRExprFunctions$`instr` <- function(string, substring) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   substring <- .savvy_extract_ptr(substring, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_instr__impl, string, substring))
 }
 
-DataFusionRExprFunctions$left <- function(string, n) {
+DataFusionRExprFunctions$`left` <- function(string, n) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   n <- .savvy_extract_ptr(n, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_left__impl, string, n))
 }
 
-DataFusionRExprFunctions$length <- function(arg) {
+DataFusionRExprFunctions$`length` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_length__impl, arg))
 }
 
-DataFusionRExprFunctions$lpad <- function(string, padding_str = NULL) {
+DataFusionRExprFunctions$`lpad` <- function(string, padding_str = NULL) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   padding_str <- .savvy_extract_ptr(padding_str, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_lpad__impl, string, padding_str))
 }
 
-DataFusionRExprFunctions$position <- function(string, substring) {
+DataFusionRExprFunctions$`position` <- function(string, substring) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   substring <- .savvy_extract_ptr(substring, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_position__impl, string, substring))
 }
 
-DataFusionRExprFunctions$reverse <- function(arg) {
+DataFusionRExprFunctions$`reverse` <- function(arg) {
   arg <- .savvy_extract_ptr(arg, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_reverse__impl, arg))
 }
 
-DataFusionRExprFunctions$right <- function(string, n) {
+DataFusionRExprFunctions$`right` <- function(string, n) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   n <- .savvy_extract_ptr(n, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_right__impl, string, n))
 }
 
-DataFusionRExprFunctions$rpad <- function(string, padding_str = NULL) {
+DataFusionRExprFunctions$`rpad` <- function(string, padding_str = NULL) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   padding_str <- .savvy_extract_ptr(padding_str, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_rpad__impl, string, padding_str))
 }
 
-DataFusionRExprFunctions$strpos <- function(string, substring) {
+DataFusionRExprFunctions$`strpos` <- function(string, substring) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   substring <- .savvy_extract_ptr(substring, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_strpos__impl, string, substring))
 }
 
-DataFusionRExprFunctions$substr <- function(string, position) {
+DataFusionRExprFunctions$`substr` <- function(string, position) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   position <- .savvy_extract_ptr(position, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_substr__impl, string, position))
 }
 
-DataFusionRExprFunctions$substr_index <- function(string, delimiter, count) {
+DataFusionRExprFunctions$`substr_index` <- function(string, delimiter, count) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   delimiter <- .savvy_extract_ptr(delimiter, "DataFusionRExpr")
   count <- .savvy_extract_ptr(count, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_substr_index__impl, string, delimiter, count))
 }
 
-DataFusionRExprFunctions$substring <- function(string, position, length) {
+DataFusionRExprFunctions$`substring` <- function(string, position, length) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   position <- .savvy_extract_ptr(position, "DataFusionRExpr")
   length <- .savvy_extract_ptr(length, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_substring__impl, string, position, length))
 }
 
-DataFusionRExprFunctions$translate <- function(string, from, to) {
+DataFusionRExprFunctions$`translate` <- function(string, from, to) {
   string <- .savvy_extract_ptr(string, "DataFusionRExpr")
   from <- .savvy_extract_ptr(from, "DataFusionRExpr")
   to <- .savvy_extract_ptr(to, "DataFusionRExpr")
@@ -1056,7 +1056,7 @@ DataFusionRExprs <- new.env(parent = emptyenv())
 
 ### associated functions for DataFusionRExprs
 
-DataFusionRExprs$new <- function(capacity) {
+DataFusionRExprs$`new` <- function(capacity) {
   .savvy_wrap_DataFusionRExprs(.Call(savvy_DataFusionRExprs_new__impl, capacity))
 }
 
@@ -1106,7 +1106,7 @@ DataFusionRSessionContext <- new.env(parent = emptyenv())
 
 ### associated functions for DataFusionRSessionContext
 
-DataFusionRSessionContext$new <- function() {
+DataFusionRSessionContext$`new` <- function() {
   .savvy_wrap_DataFusionRSessionContext(.Call(savvy_DataFusionRSessionContext_new__impl))
 }
 
@@ -1129,7 +1129,7 @@ RawArrayStream <- new.env(parent = emptyenv())
 
 ### associated functions for RawArrayStream
 
-RawArrayStream$new_without_init <- function() {
+RawArrayStream$`new_without_init` <- function() {
   .savvy_wrap_RawArrayStream(.Call(savvy_RawArrayStream_new_without_init__impl))
 }
 
