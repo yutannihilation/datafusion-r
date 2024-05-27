@@ -28,7 +28,7 @@ NULL
 
 DataFusionRDataFrame_print <- function(self) {
   function() {
-  invisible(.Call(savvy_DataFusionRDataFrame_print__impl, self))
+    invisible(.Call(savvy_DataFusionRDataFrame_print__impl, self))
   }
 }
 
@@ -53,33 +53,33 @@ DataFusionRDataFrame_select_columns <- function(self) {
 DataFusionRDataFrame_select <- function(self) {
   function(exprs) {
     exprs <- .savvy_extract_ptr(exprs, "DataFusionRExprs")
-  .savvy_wrap_DataFusionRDataFrame(.Call(savvy_DataFusionRDataFrame_select__impl, self, exprs))
+    .savvy_wrap_DataFusionRDataFrame(.Call(savvy_DataFusionRDataFrame_select__impl, self, exprs))
   }
 }
 
 DataFusionRDataFrame_dim <- function(self) {
   function() {
-  .Call(savvy_DataFusionRDataFrame_dim__impl, self)
+    .Call(savvy_DataFusionRDataFrame_dim__impl, self)
   }
 }
 
 DataFusionRDataFrame_names <- function(self) {
   function() {
-  .Call(savvy_DataFusionRDataFrame_names__impl, self)
+    .Call(savvy_DataFusionRDataFrame_names__impl, self)
   }
 }
 
 .savvy_wrap_DataFusionRDataFrame <- function(ptr) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
-    e$print <- DataFusionRDataFrame_print(ptr)
+  e$print <- DataFusionRDataFrame_print(ptr)
   e$collect <- DataFusionRDataFrame_collect(ptr)
   e$limit <- DataFusionRDataFrame_limit(ptr)
   e$select_columns <- DataFusionRDataFrame_select_columns(ptr)
   e$select <- DataFusionRDataFrame_select(ptr)
   e$dim <- DataFusionRDataFrame_dim(ptr)
   e$names <- DataFusionRDataFrame_names(ptr)
-  
+
   class(e) <- "DataFusionRDataFrame"
   e
 }
@@ -96,119 +96,119 @@ DataFusionRDataFrame <- new.env(parent = emptyenv())
 
 DataFusionRExpr_print <- function(self) {
   function() {
-  invisible(.Call(savvy_DataFusionRExpr_print__impl, self))
+    invisible(.Call(savvy_DataFusionRExpr_print__impl, self))
   }
 }
 
 DataFusionRExpr_add <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_add__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_add__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_sub <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_sub__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_sub__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_mul <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_mul__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_mul__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_div <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_div__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_div__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_reminder <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_reminder__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_reminder__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_lt <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_lt__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_lt__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_lt_eq <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_lt_eq__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_lt_eq__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_gt <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_gt__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_gt__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_gt_eq <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_gt_eq__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_gt_eq__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_eq <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_eq__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_eq__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_not_eq <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_not_eq__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_not_eq__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_and <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_and__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_and__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_or <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_or__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_or__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_bitand <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitand__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitand__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_bitor <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitor__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitor__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_bitxor <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitxor__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitxor__impl, self, rhs))
   }
 }
 
@@ -221,59 +221,59 @@ DataFusionRExpr_field <- function(self) {
 DataFusionRExpr_index <- function(self) {
   function(key) {
     key <- .savvy_extract_ptr(key, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_index__impl, self, key))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_index__impl, self, key))
   }
 }
 
 DataFusionRExpr_range <- function(self) {
   function(start, stop) {
     start <- .savvy_extract_ptr(start, "DataFusionRExpr")
-  stop <- .savvy_extract_ptr(stop, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_range__impl, self, start, stop))
+    stop <- .savvy_extract_ptr(stop, "DataFusionRExpr")
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_range__impl, self, start, stop))
   }
 }
 
 DataFusionRExpr_like <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_like__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_like__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_not_like <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_not_like__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_not_like__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_ilike <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_ilike__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_ilike__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_not_ilike <- function(self) {
   function(rhs) {
     rhs <- .savvy_extract_ptr(rhs, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_not_ilike__impl, self, rhs))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_not_ilike__impl, self, rhs))
   }
 }
 
 DataFusionRExpr_between <- function(self) {
   function(low, high) {
     low <- .savvy_extract_ptr(low, "DataFusionRExpr")
-  high <- .savvy_extract_ptr(high, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_between__impl, self, low, high))
+    high <- .savvy_extract_ptr(high, "DataFusionRExpr")
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_between__impl, self, low, high))
   }
 }
 
 DataFusionRExpr_not_between <- function(self) {
   function(low, high) {
     low <- .savvy_extract_ptr(low, "DataFusionRExpr")
-  high <- .savvy_extract_ptr(high, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_not_between__impl, self, low, high))
+    high <- .savvy_extract_ptr(high, "DataFusionRExpr")
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_not_between__impl, self, low, high))
   }
 }
 
@@ -286,7 +286,7 @@ DataFusionRExpr_alias <- function(self) {
 DataFusionRExpr_in_list <- function(self) {
   function(list, negated) {
     list <- .savvy_extract_ptr(list, "DataFusionRExprs")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_in_list__impl, self, list, negated))
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_in_list__impl, self, list, negated))
   }
 }
 
@@ -341,7 +341,7 @@ DataFusionRExpr_is_not_false <- function(self) {
 .savvy_wrap_DataFusionRExpr <- function(ptr) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
-    e$print <- DataFusionRExpr_print(ptr)
+  e$print <- DataFusionRExpr_print(ptr)
   e$add <- DataFusionRExpr_add(ptr)
   e$sub <- DataFusionRExpr_sub(ptr)
   e$mul <- DataFusionRExpr_mul(ptr)
@@ -377,7 +377,7 @@ DataFusionRExpr_is_not_false <- function(self) {
   e$is_not_true <- DataFusionRExpr_is_not_true(ptr)
   e$is_false <- DataFusionRExpr_is_false(ptr)
   e$is_not_false <- DataFusionRExpr_is_not_false(ptr)
-  
+
   class(e) <- "DataFusionRExpr"
   e
 }
@@ -403,8 +403,8 @@ DataFusionRExpr$lit <- function(x) {
 .savvy_wrap_DataFusionRExprFunctions <- function(ptr) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
-  
-  
+
+
   class(e) <- "DataFusionRExprFunctions"
   e
 }
@@ -1030,22 +1030,22 @@ DataFusionRExprFunctions$translate <- function(string, from, to) {
 DataFusionRExprs_add_expr <- function(self) {
   function(expr) {
     expr <- .savvy_extract_ptr(expr, "DataFusionRExpr")
-invisible(.Call(savvy_DataFusionRExprs_add_expr__impl, self, expr))
+    invisible(.Call(savvy_DataFusionRExprs_add_expr__impl, self, expr))
   }
 }
 
 DataFusionRExprs_print <- function(self) {
   function() {
-  invisible(.Call(savvy_DataFusionRExprs_print__impl, self))
+    invisible(.Call(savvy_DataFusionRExprs_print__impl, self))
   }
 }
 
 .savvy_wrap_DataFusionRExprs <- function(ptr) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
-    e$add_expr <- DataFusionRExprs_add_expr(ptr)
+  e$add_expr <- DataFusionRExprs_add_expr(ptr)
   e$print <- DataFusionRExprs_print(ptr)
-  
+
   class(e) <- "DataFusionRExprs"
   e
 }
@@ -1066,7 +1066,7 @@ DataFusionRExprs$new <- function(capacity) {
 DataFusionRSessionContext_create_data_frame <- function(self) {
   function(raw_stream, table_name) {
     raw_stream <- .savvy_extract_ptr(raw_stream, "RawArrayStream")
-  .savvy_wrap_DataFusionRDataFrame(.Call(savvy_DataFusionRSessionContext_create_data_frame__impl, self, raw_stream, table_name))
+    .savvy_wrap_DataFusionRDataFrame(.Call(savvy_DataFusionRSessionContext_create_data_frame__impl, self, raw_stream, table_name))
   }
 }
 
@@ -1078,24 +1078,24 @@ DataFusionRSessionContext_sql <- function(self) {
 
 DataFusionRSessionContext_register_parquet <- function(self) {
   function(name, path, file_extension = NULL, parquet_pruning = NULL, skip_metadata = NULL) {
-  invisible(.Call(savvy_DataFusionRSessionContext_register_parquet__impl, self, name, path, file_extension, parquet_pruning, skip_metadata))
+    invisible(.Call(savvy_DataFusionRSessionContext_register_parquet__impl, self, name, path, file_extension, parquet_pruning, skip_metadata))
   }
 }
 
 DataFusionRSessionContext_register_csv <- function(self) {
   function(name, path, has_header = NULL, delimiter = NULL, quote = NULL, escape = NULL, schema_infer_max_records = NULL, file_extension = NULL) {
-  invisible(.Call(savvy_DataFusionRSessionContext_register_csv__impl, self, name, path, has_header, delimiter, quote, escape, schema_infer_max_records, file_extension))
+    invisible(.Call(savvy_DataFusionRSessionContext_register_csv__impl, self, name, path, has_header, delimiter, quote, escape, schema_infer_max_records, file_extension))
   }
 }
 
 .savvy_wrap_DataFusionRSessionContext <- function(ptr) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
-    e$create_data_frame <- DataFusionRSessionContext_create_data_frame(ptr)
+  e$create_data_frame <- DataFusionRSessionContext_create_data_frame(ptr)
   e$sql <- DataFusionRSessionContext_sql(ptr)
   e$register_parquet <- DataFusionRSessionContext_register_parquet(ptr)
   e$register_csv <- DataFusionRSessionContext_register_csv(ptr)
-  
+
   class(e) <- "DataFusionRSessionContext"
   e
 }
@@ -1117,8 +1117,8 @@ DataFusionRSessionContext$new <- function() {
 .savvy_wrap_RawArrayStream <- function(ptr) {
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
-  
-  
+
+
   class(e) <- "RawArrayStream"
   e
 }
