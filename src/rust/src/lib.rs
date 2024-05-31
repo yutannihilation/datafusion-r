@@ -220,6 +220,16 @@ impl DataFusionRDataFrame {
         Ok(())
     }
 
+    fn logical_plan(&self) -> savvy::Result<()> {
+        r_println!("{}", self.df.as_ref().logical_plan().display());
+        Ok(())
+    }
+
+    // fn explain(&self) -> savvy::Result<()> {
+    //     r_println!("{}", self.df.as_ref().explain(true, true).unwrap());
+    //     Ok(())
+    // }
+
     fn collect(&self) -> savvy::Result<RawArrayStream> {
         let record_batches = match RUNTIME.get() {
             Some(rt) => match rt.block_on(self.df.as_ref().clone().collect()) {

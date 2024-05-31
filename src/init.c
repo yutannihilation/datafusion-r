@@ -44,6 +44,11 @@ SEXP savvy_DataFusionRDataFrame_print__impl(SEXP self__) {
     return handle_result(res);
 }
 
+SEXP savvy_DataFusionRDataFrame_logical_plan__impl(SEXP self__) {
+    SEXP res = savvy_DataFusionRDataFrame_logical_plan__ffi(self__);
+    return handle_result(res);
+}
+
 SEXP savvy_DataFusionRDataFrame_collect__impl(SEXP self__) {
     SEXP res = savvy_DataFusionRDataFrame_collect__ffi(self__);
     return handle_result(res);
@@ -1048,6 +1053,7 @@ SEXP savvy_RawArrayStream_new_without_init__impl(void) {
 static const R_CallMethodDef CallEntries[] = {
 
     {"savvy_DataFusionRDataFrame_print__impl", (DL_FUNC) &savvy_DataFusionRDataFrame_print__impl, 1},
+    {"savvy_DataFusionRDataFrame_logical_plan__impl", (DL_FUNC) &savvy_DataFusionRDataFrame_logical_plan__impl, 1},
     {"savvy_DataFusionRDataFrame_collect__impl", (DL_FUNC) &savvy_DataFusionRDataFrame_collect__impl, 1},
     {"savvy_DataFusionRDataFrame_limit__impl", (DL_FUNC) &savvy_DataFusionRDataFrame_limit__impl, 3},
     {"savvy_DataFusionRDataFrame_select_columns__impl", (DL_FUNC) &savvy_DataFusionRDataFrame_select_columns__impl, 2},

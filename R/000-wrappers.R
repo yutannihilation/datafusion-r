@@ -32,6 +32,12 @@ NULL
   }
 }
 
+`DataFusionRDataFrame_logical_plan` <- function(self) {
+  function() {
+    invisible(.Call(savvy_DataFusionRDataFrame_logical_plan__impl, `self`))
+  }
+}
+
 `DataFusionRDataFrame_collect` <- function(self) {
   function() {
     .savvy_wrap_RawArrayStream(.Call(savvy_DataFusionRDataFrame_collect__impl, `self`))
@@ -73,6 +79,7 @@ NULL
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
   e$`print` <- `DataFusionRDataFrame_print`(ptr)
+  e$`logical_plan` <- `DataFusionRDataFrame_logical_plan`(ptr)
   e$`collect` <- `DataFusionRDataFrame_collect`(ptr)
   e$`limit` <- `DataFusionRDataFrame_limit`(ptr)
   e$`select_columns` <- `DataFusionRDataFrame_select_columns`(ptr)
