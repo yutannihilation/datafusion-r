@@ -34,6 +34,10 @@ SEXP handle_result(SEXP res_) {
     return (SEXP)res;
 }
 
+SEXP savvy_init_runtime__impl() {
+    SEXP res = savvy_init_runtime__ffi();
+    return handle_result(res);
+}
 
 SEXP savvy_DataFusionRDataFrame_print__impl(SEXP self__) {
     SEXP res = savvy_DataFusionRDataFrame_print__ffi(self__);
@@ -1252,5 +1256,5 @@ void R_init_datafusionr(DllInfo *dll) {
     R_useDynamicSymbols(dll, FALSE);
 
     // Functions for initialzation, if any.
-
+    savvy_init_runtime__impl(dll);
 }
