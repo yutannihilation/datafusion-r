@@ -102,6 +102,9 @@ print.DataFusionRExprs <- function(x, ...) x$print()
 
 .datafusion_env_for_eval$concat_ws <- .wrap_dots2(.datafusion_env_for_eval$concat_ws)
 
+.datafusion_env_for_eval$array_concat <- .wrap_dots(.datafusion_env_for_eval$array_concat)
+.datafusion_env_for_eval$make_array <- .wrap_dots(.datafusion_env_for_eval$make_array)
+
 datafusion_exprs <- function(...) {
   expr_list <- rlang::exprs(...)
   e <- rlang::env_clone(.datafusion_env_for_eval, parent.frame(2L))

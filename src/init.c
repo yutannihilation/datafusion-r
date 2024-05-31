@@ -260,6 +260,186 @@ SEXP savvy_DataFusionRExpr_is_not_false__impl(SEXP self__) {
     return handle_result(res);
 }
 
+SEXP savvy_DataFusionRExprFunctions_array_append__impl(SEXP array, SEXP element) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_append__ffi(array, element);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_concat__impl(SEXP args) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_concat__ffi(args);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_dims__impl(SEXP array) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_dims__ffi(array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_distinct__impl(SEXP array) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_distinct__ffi(array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_element__impl(SEXP array, SEXP element) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_element__ffi(array, element);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_empty__impl(SEXP array) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_empty__ffi(array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_except__impl(SEXP first_array, SEXP second_array) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_except__ffi(first_array, second_array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_has__impl(SEXP first_array, SEXP second_array) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_has__ffi(first_array, second_array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_has_all__impl(SEXP first_array, SEXP second_array) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_has_all__ffi(first_array, second_array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_has_any__impl(SEXP first_array, SEXP second_array) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_has_any__ffi(first_array, second_array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_intersect__impl(SEXP first_array, SEXP second_array) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_intersect__ffi(first_array, second_array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_ndims__impl(SEXP array) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_ndims__ffi(array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_pop_back__impl(SEXP array) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_pop_back__ffi(array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_pop_front__impl(SEXP array) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_pop_front__ffi(array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_position__impl(SEXP array, SEXP element, SEXP index) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_position__ffi(array, element, index);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_positions__impl(SEXP array, SEXP element) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_positions__ffi(array, element);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_prepend__impl(SEXP array, SEXP element) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_prepend__ffi(array, element);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_remove__impl(SEXP array, SEXP element) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_remove__ffi(array, element);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_remove_all__impl(SEXP array, SEXP element) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_remove_all__ffi(array, element);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_remove_n__impl(SEXP array, SEXP element, SEXP max) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_remove_n__ffi(array, element, max);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_repeat__impl(SEXP array, SEXP count) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_repeat__ffi(array, count);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_replace__impl(SEXP array, SEXP from, SEXP to) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_replace__ffi(array, from, to);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_replace_all__impl(SEXP array, SEXP from, SEXP to) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_replace_all__ffi(array, from, to);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_replace_n__impl(SEXP array, SEXP from, SEXP to, SEXP max) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_replace_n__ffi(array, from, to, max);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_resize__impl(SEXP array, SEXP size, SEXP value) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_resize__ffi(array, size, value);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_reverse__impl(SEXP array) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_reverse__ffi(array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_slice__impl(SEXP array, SEXP begin, SEXP end, SEXP stride) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_slice__ffi(array, begin, end, stride);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_sort__impl(SEXP array, SEXP desc, SEXP null_first) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_sort__ffi(array, desc, null_first);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_to_string__impl(SEXP array, SEXP delimiter) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_to_string__ffi(array, delimiter);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_array_union__impl(SEXP array1, SEXP array2) {
+    SEXP res = savvy_DataFusionRExprFunctions_array_union__ffi(array1, array2);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_cardinality__impl(SEXP array) {
+    SEXP res = savvy_DataFusionRExprFunctions_cardinality__ffi(array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_flatten__impl(SEXP array) {
+    SEXP res = savvy_DataFusionRExprFunctions_flatten__ffi(array);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_gen_series__impl(SEXP start, SEXP stop, SEXP step) {
+    SEXP res = savvy_DataFusionRExprFunctions_gen_series__ffi(start, stop, step);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_make_array__impl(SEXP args) {
+    SEXP res = savvy_DataFusionRExprFunctions_make_array__ffi(args);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_range__impl(SEXP start, SEXP stop, SEXP step) {
+    SEXP res = savvy_DataFusionRExprFunctions_range__ffi(start, stop, step);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExprFunctions_string_to_array__impl(SEXP array, SEXP delimiter, SEXP null_string) {
+    SEXP res = savvy_DataFusionRExprFunctions_string_to_array__ffi(array, delimiter, null_string);
+    return handle_result(res);
+}
+
 SEXP savvy_DataFusionRExprFunctions_arrow_cast__impl(SEXP arg1, SEXP arg2) {
     SEXP res = savvy_DataFusionRExprFunctions_arrow_cast__ffi(arg1, arg2);
     return handle_result(res);
@@ -908,6 +1088,42 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRExpr_is_not_true__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_not_true__impl, 1},
     {"savvy_DataFusionRExpr_is_false__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_false__impl, 1},
     {"savvy_DataFusionRExpr_is_not_false__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_not_false__impl, 1},
+    {"savvy_DataFusionRExprFunctions_array_append__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_append__impl, 2},
+    {"savvy_DataFusionRExprFunctions_array_concat__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_concat__impl, 1},
+    {"savvy_DataFusionRExprFunctions_array_dims__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_dims__impl, 1},
+    {"savvy_DataFusionRExprFunctions_array_distinct__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_distinct__impl, 1},
+    {"savvy_DataFusionRExprFunctions_array_element__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_element__impl, 2},
+    {"savvy_DataFusionRExprFunctions_array_empty__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_empty__impl, 1},
+    {"savvy_DataFusionRExprFunctions_array_except__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_except__impl, 2},
+    {"savvy_DataFusionRExprFunctions_array_has__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_has__impl, 2},
+    {"savvy_DataFusionRExprFunctions_array_has_all__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_has_all__impl, 2},
+    {"savvy_DataFusionRExprFunctions_array_has_any__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_has_any__impl, 2},
+    {"savvy_DataFusionRExprFunctions_array_intersect__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_intersect__impl, 2},
+    {"savvy_DataFusionRExprFunctions_array_ndims__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_ndims__impl, 1},
+    {"savvy_DataFusionRExprFunctions_array_pop_back__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_pop_back__impl, 1},
+    {"savvy_DataFusionRExprFunctions_array_pop_front__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_pop_front__impl, 1},
+    {"savvy_DataFusionRExprFunctions_array_position__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_position__impl, 3},
+    {"savvy_DataFusionRExprFunctions_array_positions__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_positions__impl, 2},
+    {"savvy_DataFusionRExprFunctions_array_prepend__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_prepend__impl, 2},
+    {"savvy_DataFusionRExprFunctions_array_remove__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_remove__impl, 2},
+    {"savvy_DataFusionRExprFunctions_array_remove_all__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_remove_all__impl, 2},
+    {"savvy_DataFusionRExprFunctions_array_remove_n__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_remove_n__impl, 3},
+    {"savvy_DataFusionRExprFunctions_array_repeat__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_repeat__impl, 2},
+    {"savvy_DataFusionRExprFunctions_array_replace__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_replace__impl, 3},
+    {"savvy_DataFusionRExprFunctions_array_replace_all__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_replace_all__impl, 3},
+    {"savvy_DataFusionRExprFunctions_array_replace_n__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_replace_n__impl, 4},
+    {"savvy_DataFusionRExprFunctions_array_resize__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_resize__impl, 3},
+    {"savvy_DataFusionRExprFunctions_array_reverse__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_reverse__impl, 1},
+    {"savvy_DataFusionRExprFunctions_array_slice__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_slice__impl, 4},
+    {"savvy_DataFusionRExprFunctions_array_sort__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_sort__impl, 3},
+    {"savvy_DataFusionRExprFunctions_array_to_string__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_to_string__impl, 2},
+    {"savvy_DataFusionRExprFunctions_array_union__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_union__impl, 2},
+    {"savvy_DataFusionRExprFunctions_cardinality__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_cardinality__impl, 1},
+    {"savvy_DataFusionRExprFunctions_flatten__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_flatten__impl, 1},
+    {"savvy_DataFusionRExprFunctions_gen_series__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_gen_series__impl, 3},
+    {"savvy_DataFusionRExprFunctions_make_array__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_make_array__impl, 1},
+    {"savvy_DataFusionRExprFunctions_range__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_range__impl, 3},
+    {"savvy_DataFusionRExprFunctions_string_to_array__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_string_to_array__impl, 3},
     {"savvy_DataFusionRExprFunctions_arrow_cast__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_arrow_cast__impl, 2},
     {"savvy_DataFusionRExprFunctions_arrow_typeof__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_arrow_typeof__impl, 1},
     {"savvy_DataFusionRExprFunctions_coalesce__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_coalesce__impl, 1},

@@ -415,6 +415,224 @@ NULL
 
 ### associated functions for DataFusionRExprFunctions
 
+`DataFusionRExprFunctions`$`array_append` <- function(`array`, `element`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `element` <- .savvy_extract_ptr(`element`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_append__impl, `array`, `element`))
+}
+
+`DataFusionRExprFunctions`$`array_concat` <- function(`args`) {
+  `args` <- .savvy_extract_ptr(`args`, "DataFusionRExprs")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_concat__impl, `args`))
+}
+
+`DataFusionRExprFunctions`$`array_dims` <- function(`array`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_dims__impl, `array`))
+}
+
+`DataFusionRExprFunctions`$`array_distinct` <- function(`array`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_distinct__impl, `array`))
+}
+
+`DataFusionRExprFunctions`$`array_element` <- function(`array`, `element`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `element` <- .savvy_extract_ptr(`element`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_element__impl, `array`, `element`))
+}
+
+`DataFusionRExprFunctions`$`array_empty` <- function(`array`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_empty__impl, `array`))
+}
+
+`DataFusionRExprFunctions`$`array_except` <- function(`first_array`, `second_array`) {
+  `first_array` <- .savvy_extract_ptr(`first_array`, "DataFusionRExpr")
+  `second_array` <- .savvy_extract_ptr(`second_array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_except__impl, `first_array`, `second_array`))
+}
+
+`DataFusionRExprFunctions`$`array_has` <- function(`first_array`, `second_array`) {
+  `first_array` <- .savvy_extract_ptr(`first_array`, "DataFusionRExpr")
+  `second_array` <- .savvy_extract_ptr(`second_array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_has__impl, `first_array`, `second_array`))
+}
+
+`DataFusionRExprFunctions`$`array_has_all` <- function(`first_array`, `second_array`) {
+  `first_array` <- .savvy_extract_ptr(`first_array`, "DataFusionRExpr")
+  `second_array` <- .savvy_extract_ptr(`second_array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_has_all__impl, `first_array`, `second_array`))
+}
+
+`DataFusionRExprFunctions`$`array_has_any` <- function(`first_array`, `second_array`) {
+  `first_array` <- .savvy_extract_ptr(`first_array`, "DataFusionRExpr")
+  `second_array` <- .savvy_extract_ptr(`second_array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_has_any__impl, `first_array`, `second_array`))
+}
+
+`DataFusionRExprFunctions`$`array_intersect` <- function(`first_array`, `second_array`) {
+  `first_array` <- .savvy_extract_ptr(`first_array`, "DataFusionRExpr")
+  `second_array` <- .savvy_extract_ptr(`second_array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_intersect__impl, `first_array`, `second_array`))
+}
+
+`DataFusionRExprFunctions`$`array_ndims` <- function(`array`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_ndims__impl, `array`))
+}
+
+`DataFusionRExprFunctions`$`array_pop_back` <- function(`array`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_pop_back__impl, `array`))
+}
+
+`DataFusionRExprFunctions`$`array_pop_front` <- function(`array`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_pop_front__impl, `array`))
+}
+
+`DataFusionRExprFunctions`$`array_position` <- function(`array`, `element`, `index`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `element` <- .savvy_extract_ptr(`element`, "DataFusionRExpr")
+  `index` <- .savvy_extract_ptr(`index`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_position__impl, `array`, `element`, `index`))
+}
+
+`DataFusionRExprFunctions`$`array_positions` <- function(`array`, `element`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `element` <- .savvy_extract_ptr(`element`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_positions__impl, `array`, `element`))
+}
+
+`DataFusionRExprFunctions`$`array_prepend` <- function(`array`, `element`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `element` <- .savvy_extract_ptr(`element`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_prepend__impl, `array`, `element`))
+}
+
+`DataFusionRExprFunctions`$`array_remove` <- function(`array`, `element`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `element` <- .savvy_extract_ptr(`element`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_remove__impl, `array`, `element`))
+}
+
+`DataFusionRExprFunctions`$`array_remove_all` <- function(`array`, `element`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `element` <- .savvy_extract_ptr(`element`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_remove_all__impl, `array`, `element`))
+}
+
+`DataFusionRExprFunctions`$`array_remove_n` <- function(`array`, `element`, `max`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `element` <- .savvy_extract_ptr(`element`, "DataFusionRExpr")
+  `max` <- .savvy_extract_ptr(`max`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_remove_n__impl, `array`, `element`, `max`))
+}
+
+`DataFusionRExprFunctions`$`array_repeat` <- function(`array`, `count`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `count` <- .savvy_extract_ptr(`count`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_repeat__impl, `array`, `count`))
+}
+
+`DataFusionRExprFunctions`$`array_replace` <- function(`array`, `from`, `to`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `from` <- .savvy_extract_ptr(`from`, "DataFusionRExpr")
+  `to` <- .savvy_extract_ptr(`to`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_replace__impl, `array`, `from`, `to`))
+}
+
+`DataFusionRExprFunctions`$`array_replace_all` <- function(`array`, `from`, `to`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `from` <- .savvy_extract_ptr(`from`, "DataFusionRExpr")
+  `to` <- .savvy_extract_ptr(`to`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_replace_all__impl, `array`, `from`, `to`))
+}
+
+`DataFusionRExprFunctions`$`array_replace_n` <- function(`array`, `from`, `to`, `max`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `from` <- .savvy_extract_ptr(`from`, "DataFusionRExpr")
+  `to` <- .savvy_extract_ptr(`to`, "DataFusionRExpr")
+  `max` <- .savvy_extract_ptr(`max`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_replace_n__impl, `array`, `from`, `to`, `max`))
+}
+
+`DataFusionRExprFunctions`$`array_resize` <- function(`array`, `size`, `value`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `size` <- .savvy_extract_ptr(`size`, "DataFusionRExpr")
+  `value` <- .savvy_extract_ptr(`value`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_resize__impl, `array`, `size`, `value`))
+}
+
+`DataFusionRExprFunctions`$`array_reverse` <- function(`array`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_reverse__impl, `array`))
+}
+
+`DataFusionRExprFunctions`$`array_slice` <- function(`array`, `begin`, `end`, `stride`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `begin` <- .savvy_extract_ptr(`begin`, "DataFusionRExpr")
+  `end` <- .savvy_extract_ptr(`end`, "DataFusionRExpr")
+  `stride` <- .savvy_extract_ptr(`stride`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_slice__impl, `array`, `begin`, `end`, `stride`))
+}
+
+`DataFusionRExprFunctions`$`array_sort` <- function(`array`, `desc`, `null_first`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `desc` <- .savvy_extract_ptr(`desc`, "DataFusionRExpr")
+  `null_first` <- .savvy_extract_ptr(`null_first`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_sort__impl, `array`, `desc`, `null_first`))
+}
+
+`DataFusionRExprFunctions`$`array_to_string` <- function(`array`, `delimiter`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `delimiter` <- .savvy_extract_ptr(`delimiter`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_to_string__impl, `array`, `delimiter`))
+}
+
+`DataFusionRExprFunctions`$`array_union` <- function(`array1`, `array2`) {
+  `array1` <- .savvy_extract_ptr(`array1`, "DataFusionRExpr")
+  `array2` <- .savvy_extract_ptr(`array2`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_array_union__impl, `array1`, `array2`))
+}
+
+`DataFusionRExprFunctions`$`cardinality` <- function(`array`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_cardinality__impl, `array`))
+}
+
+`DataFusionRExprFunctions`$`flatten` <- function(`array`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_flatten__impl, `array`))
+}
+
+`DataFusionRExprFunctions`$`gen_series` <- function(`start`, `stop`, `step`) {
+  `start` <- .savvy_extract_ptr(`start`, "DataFusionRExpr")
+  `stop` <- .savvy_extract_ptr(`stop`, "DataFusionRExpr")
+  `step` <- .savvy_extract_ptr(`step`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_gen_series__impl, `start`, `stop`, `step`))
+}
+
+`DataFusionRExprFunctions`$`make_array` <- function(`args`) {
+  `args` <- .savvy_extract_ptr(`args`, "DataFusionRExprs")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_make_array__impl, `args`))
+}
+
+`DataFusionRExprFunctions`$`range` <- function(`start`, `stop`, `step`) {
+  `start` <- .savvy_extract_ptr(`start`, "DataFusionRExpr")
+  `stop` <- .savvy_extract_ptr(`stop`, "DataFusionRExpr")
+  `step` <- .savvy_extract_ptr(`step`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_range__impl, `start`, `stop`, `step`))
+}
+
+`DataFusionRExprFunctions`$`string_to_array` <- function(`array`, `delimiter`, `null_string`) {
+  `array` <- .savvy_extract_ptr(`array`, "DataFusionRExpr")
+  `delimiter` <- .savvy_extract_ptr(`delimiter`, "DataFusionRExpr")
+  `null_string` <- .savvy_extract_ptr(`null_string`, "DataFusionRExpr")
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_string_to_array__impl, `array`, `delimiter`, `null_string`))
+}
+
 `DataFusionRExprFunctions`$`arrow_cast` <- function(`arg1`, `arg2`) {
   `arg1` <- .savvy_extract_ptr(`arg1`, "DataFusionRExpr")
   `arg2` <- .savvy_extract_ptr(`arg2`, "DataFusionRExpr")

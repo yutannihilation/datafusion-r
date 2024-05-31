@@ -7,7 +7,7 @@ use crate::expr::{DataFusionRExpr, DataFusionRExprs};
 
 // This is an dummy struct to bundle function expressions.
 #[savvy]
-struct DataFusionRExprFunctions;
+pub(crate) struct DataFusionRExprFunctions;
 
 #[savvy]
 impl DataFusionRExprFunctions {
