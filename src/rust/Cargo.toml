@@ -9,8 +9,8 @@ crate-type = ["staticlib", "lib"]
 [dependencies]
 arrow = { version = "51.0.0", features = ["ffi"] }
 datafusion = { version = "38.0.0", features = ["array_expressions"] }
-pollster = "0.3.0"
 savvy = { git = "https://github.com/yutannihilation/savvy" }
+tokio = { version = "1.38.0", features = ["rt", "rt-multi-thread"] }
 
 [profile.release]
 # By default, on release build, savvy terminates the R session when a panic

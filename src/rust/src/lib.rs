@@ -3,6 +3,7 @@
 mod expr;
 mod expr_array_fn;
 mod expr_fn;
+mod runtime;
 
 use std::sync::Arc;
 
@@ -22,7 +23,7 @@ use datafusion::{
     },
 };
 use expr::DataFusionRExprs;
-use pollster::block_on;
+use runtime::RUNTIME;
 use savvy::{r_eprintln, r_println, savvy, OwnedIntegerSexp, OwnedStringSexp, Sexp, StringSexp};
 
 #[savvy]
@@ -78,16 +79,22 @@ impl DataFusionRSessionContext {
             .register_table(table_name, Arc::new(table))
             .map_err(|e| <savvy::Error>::from(e.to_string()))?;
 
-        let df = block_on(self.ctx.table(table_name))
-            .map_err(|e| <savvy::Error>::from(e.to_string()))?;
-
-        Ok(DataFusionRDataFrame::new(df))
+        match RUNTIME.get() {
+            Some(rt) => match rt.block_on(self.ctx.table(table_name)) {
+                Ok(df) => Ok(DataFusionRDataFrame::new(df)),
+                Err(e) => Err(e.to_string().into()),
+            },
+            None => Err("Failed to get Tokio runtime".into()),
+        }
     }
 
     fn sql(&mut self, sql: &str) -> savvy::Result<DataFusionRDataFrame> {
-        match pollster::block_on(self.ctx.sql(sql)) {
-            Ok(df) => Ok(DataFusionRDataFrame::new(df)),
-            Err(e) => Err(e.to_string().into()),
+        match RUNTIME.get() {
+            Some(rt) => match rt.block_on(self.ctx.sql(sql)) {
+                Ok(df) => Ok(DataFusionRDataFrame::new(df)),
+                Err(e) => Err(e.to_string().into()),
+            },
+            None => Err("Failed to get Tokio runtime".into()),
         }
     }
 
@@ -117,10 +124,13 @@ impl DataFusionRSessionContext {
         // TODO
         // options.file_sort_order =
 
-        pollster::block_on(self.ctx.register_parquet(name, path, options))
-            .map_err(|e| savvy::Error::from(e.to_string()))?;
-
-        Ok(())
+        match RUNTIME.get() {
+            Some(rt) => match rt.block_on(self.ctx.register_parquet(name, path, options)) {
+                Ok(_) => Ok(()),
+                Err(e) => Err(e.to_string().into()),
+            },
+            None => Err("Failed to get Tokio runtime".into()),
+        }
     }
 
     fn register_csv(
@@ -179,10 +189,13 @@ impl DataFusionRSessionContext {
             ..default
         };
 
-        pollster::block_on(self.ctx.register_csv(name, path, options))
-            .map_err(|e| savvy::Error::from(e.to_string()))?;
-
-        Ok(())
+        match RUNTIME.get() {
+            Some(rt) => match rt.block_on(self.ctx.register_csv(name, path, options)) {
+                Ok(_) => Ok(()),
+                Err(e) => Err(e.to_string().into()),
+            },
+            None => Err("Failed to get Tokio runtime".into()),
+        }
     }
 }
 
@@ -190,8 +203,14 @@ impl DataFusionRSessionContext {
 impl DataFusionRDataFrame {
     fn print(&self) -> savvy::Result<()> {
         let df = self.df.as_ref().clone();
-        let batches = block_on(df.collect()).expect("Must not fail"); // TODO: handle async properly
-        let batches_as_string = pretty::pretty_format_batches(&batches);
+        let record_batches = match RUNTIME.get() {
+            Some(rt) => match rt.block_on(df.collect()) {
+                Ok(batches) => batches,
+                Err(e) => return Err(e.to_string().into()),
+            },
+            None => return Err("Failed to get Tokio runtime".into()),
+        };
+        let batches_as_string = pretty::pretty_format_batches(&record_batches);
 
         match batches_as_string {
             Ok(batch) => r_println!("DataFrame()\n{batch}"),
@@ -202,8 +221,13 @@ impl DataFusionRDataFrame {
     }
 
     fn collect(&self) -> savvy::Result<RawArrayStream> {
-        let record_batches = pollster::block_on(self.df.as_ref().clone().collect())
-            .map_err(|e| savvy::Error::from(e.to_string()))?;
+        let record_batches = match RUNTIME.get() {
+            Some(rt) => match rt.block_on(self.df.as_ref().clone().collect()) {
+                Ok(batches) => batches,
+                Err(e) => return Err(e.to_string().into()),
+            },
+            None => return Err("Failed to get Tokio runtime".into()),
+        };
 
         let schema = self.df.as_ref().schema().as_arrow();
         let iter =
@@ -249,8 +273,15 @@ impl DataFusionRDataFrame {
         let mut out = OwnedIntegerSexp::new(2)?;
 
         // nrow
-        out[0] = pollster::block_on((*self.df).clone().count())
-            .map_err(|e| <savvy::Error>::from(e.to_string()))? as _;
+        match RUNTIME.get() {
+            Some(rt) => match rt.block_on((*self.df).clone().count()) {
+                Ok(i) => {
+                    out[0] = i as _;
+                }
+                Err(e) => return Err(e.to_string().into()),
+            },
+            None => return Err("Failed to get Tokio runtime".into()),
+        };
 
         // ncol
         out[1] = self.df.schema().fields().len() as _;

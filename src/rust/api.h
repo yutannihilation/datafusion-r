@@ -1,4 +1,4 @@
-
+SEXP savvy_init_runtime__ffi(DllInfo* _dll_info);
 
 // methods and associated functions for DataFusionRDataFrame
 SEXP savvy_DataFusionRDataFrame_print__ffi(SEXP self__);
