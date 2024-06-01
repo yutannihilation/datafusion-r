@@ -1,5 +1,5 @@
-use datafusion::logical_expr::{self, lit};
-use savvy::{savvy, Sexp, TypedSexp};
+use datafusion::logical_expr::{self};
+use savvy::savvy;
 
 use crate::{
     expr::{DataFusionRExpr, DataFusionRExprs},
@@ -8,10 +8,6 @@ use crate::{
 
 #[savvy]
 impl DataFusionRExprFunctions {
-    fn and(left: DataFusionRExpr, right: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::and(left.0, right.0)))
-    }
-
     fn approx_distinct(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(logical_expr::expr_fn::approx_distinct(
             arg.0,
@@ -65,48 +61,6 @@ impl DataFusionRExprFunctions {
     //     )))
     // }
 
-    fn bitwise_and(
-        left: DataFusionRExpr,
-        right: DataFusionRExpr,
-    ) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::bitwise_and(
-            left.0, right.0,
-        )))
-    }
-
-    fn bitwise_or(left: DataFusionRExpr, right: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::bitwise_or(
-            left.0, right.0,
-        )))
-    }
-
-    fn bitwise_shift_left(
-        left: DataFusionRExpr,
-        right: DataFusionRExpr,
-    ) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::bitwise_shift_left(
-            left.0, right.0,
-        )))
-    }
-
-    fn bitwise_shift_right(
-        left: DataFusionRExpr,
-        right: DataFusionRExpr,
-    ) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::bitwise_shift_right(
-            left.0, right.0,
-        )))
-    }
-
-    fn bitwise_xor(
-        left: DataFusionRExpr,
-        right: DataFusionRExpr,
-    ) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::bitwise_xor(
-            left.0, right.0,
-        )))
-    }
-
     // TODO: support CaseBuilder?
     // fn case(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
     //     Ok(DataFusionRExpr(logical_expr::expr_fn::case(arg.0)))
@@ -156,46 +110,9 @@ impl DataFusionRExprFunctions {
     // - exists
     // - not_exists
     // - grouping_set
-
-    fn ident(arg: &str) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::ident(arg)))
-    }
-
-    // TODO
-    //
     // - in_list
     // - in_subquery
     // - not_in_subquery
-
-    fn is_false(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::is_false(arg.0)))
-    }
-
-    fn is_not_false(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::is_not_false(arg.0)))
-    }
-
-    fn is_not_true(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::is_not_true(arg.0)))
-    }
-
-    fn is_not_unknown(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::is_not_unknown(
-            arg.0,
-        )))
-    }
-
-    fn is_null(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::is_null(arg.0)))
-    }
-
-    fn is_true(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::is_true(arg.0)))
-    }
-
-    fn is_unknown(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::is_unknown(arg.0)))
-    }
 
     fn max(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(logical_expr::expr_fn::max(arg.0)))
@@ -209,21 +126,9 @@ impl DataFusionRExprFunctions {
         Ok(DataFusionRExpr(logical_expr::expr_fn::min(arg.0)))
     }
 
-    fn not(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::not(arg.0)))
-    }
-
-    fn or(left: DataFusionRExpr, right: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::or(left.0, right.0)))
-    }
-
     // TODO:
     //
     // - out_ref_col
-
-    fn placeholder(arg: &str) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::placeholder(arg)))
-    }
 
     fn rollup(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(logical_expr::expr_fn::rollup(args.0)))
@@ -239,20 +144,5 @@ impl DataFusionRExprFunctions {
 
     fn sum(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(logical_expr::expr_fn::sum(arg.0)))
-    }
-
-    fn lit(x: Sexp) -> savvy::Result<DataFusionRExpr> {
-        let lit = match &x.into_typed() {
-            TypedSexp::Integer(i) => lit(i.as_slice()[0]),
-            TypedSexp::Real(r) => lit(r.as_slice()[0]),
-            TypedSexp::Logical(l) => lit(l.iter().next().unwrap()),
-            TypedSexp::String(s) => lit(s.iter().next().unwrap()),
-            _ => return Err("Unsupported type".into()),
-        };
-        Ok(DataFusionRExpr(lit))
-    }
-
-    fn wildcard() -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::wildcard()))
     }
 }
