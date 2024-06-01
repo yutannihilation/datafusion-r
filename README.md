@@ -1,4 +1,4 @@
-# 🚧 WIP 🚧
+# R bindings for DataFusion
 
 
 <!-- badges: start -->
@@ -16,7 +16,7 @@ for mildly complex usages. Especially,
   other package defines.
   e.g. <https://arrow.apache.org/datafusion-python/>
 - to figure out what async support is supposed to be
-  e.g. \<https://github.com/yutannihilation/savvy-async-poc?
+  e.g. <https://github.com/yutannihilation/savvy-async-poc>
 
 ## Usages
 
@@ -108,6 +108,27 @@ d |>
 #> | 18.7 | 3.057776970284131             |
 #> | 18.1 | 3.0083217912982647            |
 #> +------+-------------------------------+
+```
+
+#### `aggregate()`
+
+``` r
+d |> 
+  datafusion_aggregate(
+    datafusion_exprs(col("cyl")),
+    datafusion_exprs(
+      count(lit(1))$alias("count"),
+      avg(col("wt"))$alias("avg_wt")
+    )
+  )
+#> DataFrame()
+#> +-----+-------+--------------------+
+#> | cyl | count | avg_wt             |
+#> +-----+-------+--------------------+
+#> | 8.0 | 1     | 3.44               |
+#> | 6.0 | 4     | 3.0425000000000004 |
+#> | 4.0 | 1     | 2.32               |
+#> +-----+-------+--------------------+
 ```
 
 ### Parquet file

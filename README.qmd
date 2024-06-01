@@ -1,5 +1,5 @@
 ---
-title: "🚧 WIP 🚧"
+title: "R bindings for DataFusion"
 format: gfm
 editor: visual
 ---
@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 The main purpose of this repo is to see if [the savvy framework](https://github.com/yutannihilation/savvy) has enough features for mildly complex usages. Especially,
 
 -   to check if savvy can convert an external pointer or ALTREP that an other package defines. e.g. <https://arrow.apache.org/datafusion-python/>
--   to figure out what async support is supposed to be e.g. \<https://github.com/yutannihilation/savvy-async-poc?
+-   to figure out what async support is supposed to be e.g. <https://github.com/yutannihilation/savvy-async-poc>
 
 ## Usages
 
@@ -77,10 +77,10 @@ d |>
 ```{r}
 d |> 
   datafusion_aggregate(
-    datafusion_exprs(col("mpg")),
+    datafusion_exprs(col("cyl")),
     datafusion_exprs(
-      count()$alias("count"),
-      avg(wt)$alias("avg_wt")
+      count(lit(1))$alias("count"),
+      avg(col("wt"))$alias("avg_wt")
     )
   )
 ```

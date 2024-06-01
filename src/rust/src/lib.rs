@@ -2,6 +2,7 @@
 
 mod data_frame;
 mod expr;
+mod expr_aggr_fn;
 mod expr_array_fn;
 mod expr_fn;
 mod runtime;

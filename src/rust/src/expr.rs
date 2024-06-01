@@ -1,5 +1,5 @@
-use datafusion::logical_expr::{col, lit, Expr};
-use savvy::{r_println, savvy, Sexp, TypedSexp};
+use datafusion::logical_expr::Expr;
+use savvy::{r_println, savvy};
 
 #[savvy]
 struct DataFusionRExpr(pub(crate) Expr);
@@ -9,21 +9,6 @@ impl DataFusionRExpr {
     fn print(&self) -> savvy::Result<()> {
         r_println!("{}", self.0);
         Ok(())
-    }
-
-    fn col(x: &str) -> savvy::Result<Self> {
-        Ok(Self(col(x)))
-    }
-
-    fn lit(x: Sexp) -> savvy::Result<Self> {
-        let lit = match &x.into_typed() {
-            TypedSexp::Integer(i) => lit(i.as_slice()[0]),
-            TypedSexp::Real(r) => lit(r.as_slice()[0]),
-            TypedSexp::Logical(l) => lit(l.iter().next().unwrap()),
-            TypedSexp::String(s) => lit(s.iter().next().unwrap()),
-            _ => return Err("Unsupported type".into()),
-        };
-        Ok(Self(lit))
     }
 
     fn add(self, rhs: DataFusionRExpr) -> savvy::Result<Self> {
