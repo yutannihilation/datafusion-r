@@ -98,6 +98,20 @@ impl DataFusionRDataFrame {
         Ok(Self::new(new_df))
     }
 
+    fn aggregate(
+        &self,
+        group_expr: DataFusionRExprs,
+        aggr_expr: DataFusionRExprs,
+    ) -> savvy::Result<Self> {
+        let new_df = self
+            .df
+            .as_ref()
+            .clone()
+            .aggregate(group_expr.0, aggr_expr.0)
+            .map_err(|e| <savvy::Error>::from(e.to_string()))?;
+        Ok(Self::new(new_df))
+    }
+
     fn dim(&self) -> savvy::Result<Sexp> {
         let mut out = OwnedIntegerSexp::new(2)?;
 

@@ -61,6 +61,7 @@ d |>
 d |>
   datafusion_select_columns("cyl", "mpg")
 ```
+
 #### `select()`
 
 ```{r}
@@ -70,6 +71,20 @@ d |>
     sqrt(col("mpg") / lit(2)) # arbitrary expression
   )
 ```
+
+#### `aggregate()`
+
+```{r}
+d |> 
+  datafusion_aggregate(
+    datafusion_exprs(col("mpg")),
+    datafusion_exprs(
+      count()$alias("count"),
+      avg(wt)$alias("avg_wt")
+    )
+  )
+```
+
 
 ### Parquet file
 

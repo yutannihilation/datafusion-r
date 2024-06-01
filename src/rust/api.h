@@ -7,6 +7,7 @@ SEXP savvy_DataFusionRDataFrame_collect__ffi(SEXP self__);
 SEXP savvy_DataFusionRDataFrame_limit__ffi(SEXP self__, SEXP n, SEXP offset);
 SEXP savvy_DataFusionRDataFrame_select_columns__ffi(SEXP self__, SEXP columns);
 SEXP savvy_DataFusionRDataFrame_select__ffi(SEXP self__, SEXP exprs);
+SEXP savvy_DataFusionRDataFrame_aggregate__ffi(SEXP self__, SEXP group_expr, SEXP aggr_expr);
 SEXP savvy_DataFusionRDataFrame_dim__ffi(SEXP self__);
 SEXP savvy_DataFusionRDataFrame_names__ffi(SEXP self__);
 

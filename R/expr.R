@@ -60,6 +60,7 @@ print.DataFusionRExprs <- function(x, ...) x$print()
   `==` = function(x, y) x$eq(y),
   `!=` = function(x, y) x$not_eq(y),
   `!`  = function(x)    x$not(),
+
   # TODO: can I always overwrite `c`?
   `%in%` = function(x, y) {
     y_expr <- rlang::enexpr(y)
@@ -106,7 +107,7 @@ print.DataFusionRExprs <- function(x, ...) x$print()
 .datafusion_env_for_eval$make_array <- .wrap_dots(.datafusion_env_for_eval$make_array)
 
 datafusion_exprs <- function(...) {
-  expr_list <- rlang::exprs(...)
+  expr_list <- rlang::enexprs(...)
   e <- rlang::env_clone(.datafusion_env_for_eval, parent.frame(2L))
   out <- DataFusionRExprs$new(length(expr_list))
   for (expr in expr_list) {

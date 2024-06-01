@@ -25,3 +25,8 @@ datafusion_select <- function(x, ...) {
   expr_list <- datafusion_exprs(...)
   x$select(expr_list)
 }
+
+#' @export
+datafusion_aggregate <- function(x, group_expr, aggr_expr) {
+  x$aggregate(group_expr, aggr_expr)
+}

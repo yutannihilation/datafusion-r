@@ -63,6 +63,14 @@ NULL
   }
 }
 
+`DataFusionRDataFrame_aggregate` <- function(self) {
+  function(`group_expr`, `aggr_expr`) {
+    `group_expr` <- .savvy_extract_ptr(`group_expr`, "DataFusionRExprs")
+    `aggr_expr` <- .savvy_extract_ptr(`aggr_expr`, "DataFusionRExprs")
+    .savvy_wrap_DataFusionRDataFrame(.Call(savvy_DataFusionRDataFrame_aggregate__impl, `self`, `group_expr`, `aggr_expr`))
+  }
+}
+
 `DataFusionRDataFrame_dim` <- function(self) {
   function() {
     .Call(savvy_DataFusionRDataFrame_dim__impl, `self`)
@@ -84,6 +92,7 @@ NULL
   e$`limit` <- `DataFusionRDataFrame_limit`(ptr)
   e$`select_columns` <- `DataFusionRDataFrame_select_columns`(ptr)
   e$`select` <- `DataFusionRDataFrame_select`(ptr)
+  e$`aggregate` <- `DataFusionRDataFrame_aggregate`(ptr)
   e$`dim` <- `DataFusionRDataFrame_dim`(ptr)
   e$`names` <- `DataFusionRDataFrame_names`(ptr)
 
