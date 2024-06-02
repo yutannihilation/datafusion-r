@@ -116,6 +116,48 @@ NULL
   }
 }
 
+`DataFusionRExpr_and` <- function(self) {
+  function(`right`) {
+    `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_and__impl, `self`, `right`))
+  }
+}
+
+`DataFusionRExpr_bitwise_and` <- function(self) {
+  function(`right`) {
+    `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitwise_and__impl, `self`, `right`))
+  }
+}
+
+`DataFusionRExpr_bitwise_or` <- function(self) {
+  function(`right`) {
+    `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitwise_or__impl, `self`, `right`))
+  }
+}
+
+`DataFusionRExpr_bitwise_shift_left` <- function(self) {
+  function(`right`) {
+    `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitwise_shift_left__impl, `self`, `right`))
+  }
+}
+
+`DataFusionRExpr_bitwise_shift_right` <- function(self) {
+  function(`right`) {
+    `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitwise_shift_right__impl, `self`, `right`))
+  }
+}
+
+`DataFusionRExpr_or` <- function(self) {
+  function(`right`) {
+    `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_or__impl, `self`, `right`))
+  }
+}
+
 `DataFusionRExpr_add` <- function(self) {
   function(`rhs`) {
     `rhs` <- .savvy_extract_ptr(`rhs`, "DataFusionRExpr")
@@ -298,9 +340,64 @@ NULL
   }
 }
 
+`DataFusionRExpr_not` <- function(self) {
+  function() {
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_not__impl, `self`))
+  }
+}
+
+`DataFusionRExpr_is_null` <- function(self) {
+  function() {
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_null__impl, `self`))
+  }
+}
+
 `DataFusionRExpr_is_not_null` <- function(self) {
   function() {
     .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_not_null__impl, `self`))
+  }
+}
+
+`DataFusionRExpr_is_true` <- function(self) {
+  function() {
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_true__impl, `self`))
+  }
+}
+
+`DataFusionRExpr_is_not_true` <- function(self) {
+  function() {
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_not_true__impl, `self`))
+  }
+}
+
+`DataFusionRExpr_is_false` <- function(self) {
+  function() {
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_false__impl, `self`))
+  }
+}
+
+`DataFusionRExpr_is_not_false` <- function(self) {
+  function() {
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_not_false__impl, `self`))
+  }
+}
+
+`DataFusionRExpr_bitwise_xor` <- function(self) {
+  function(`right`) {
+    `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitwise_xor__impl, `self`, `right`))
+  }
+}
+
+`DataFusionRExpr_is_unknown` <- function(self) {
+  function() {
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_unknown__impl, `self`))
+  }
+}
+
+`DataFusionRExpr_is_not_unknown` <- function(self) {
+  function() {
+    .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_not_unknown__impl, `self`))
   }
 }
 
@@ -308,6 +405,12 @@ NULL
   e <- new.env(parent = emptyenv())
   e$.ptr <- ptr
   e$`print` <- `DataFusionRExpr_print`(ptr)
+  e$`and` <- `DataFusionRExpr_and`(ptr)
+  e$`bitwise_and` <- `DataFusionRExpr_bitwise_and`(ptr)
+  e$`bitwise_or` <- `DataFusionRExpr_bitwise_or`(ptr)
+  e$`bitwise_shift_left` <- `DataFusionRExpr_bitwise_shift_left`(ptr)
+  e$`bitwise_shift_right` <- `DataFusionRExpr_bitwise_shift_right`(ptr)
+  e$`or` <- `DataFusionRExpr_or`(ptr)
   e$`add` <- `DataFusionRExpr_add`(ptr)
   e$`sub` <- `DataFusionRExpr_sub`(ptr)
   e$`mul` <- `DataFusionRExpr_mul`(ptr)
@@ -334,7 +437,16 @@ NULL
   e$`alias` <- `DataFusionRExpr_alias`(ptr)
   e$`in_list` <- `DataFusionRExpr_in_list`(ptr)
   e$`neg` <- `DataFusionRExpr_neg`(ptr)
+  e$`not` <- `DataFusionRExpr_not`(ptr)
+  e$`is_null` <- `DataFusionRExpr_is_null`(ptr)
   e$`is_not_null` <- `DataFusionRExpr_is_not_null`(ptr)
+  e$`is_true` <- `DataFusionRExpr_is_true`(ptr)
+  e$`is_not_true` <- `DataFusionRExpr_is_not_true`(ptr)
+  e$`is_false` <- `DataFusionRExpr_is_false`(ptr)
+  e$`is_not_false` <- `DataFusionRExpr_is_not_false`(ptr)
+  e$`bitwise_xor` <- `DataFusionRExpr_bitwise_xor`(ptr)
+  e$`is_unknown` <- `DataFusionRExpr_is_unknown`(ptr)
+  e$`is_not_unknown` <- `DataFusionRExpr_is_not_unknown`(ptr)
 
   class(e) <- "DataFusionRExpr"
   e
@@ -346,102 +458,24 @@ NULL
 
 ### associated functions for DataFusionRExpr
 
-`DataFusionRExpr`$`and` <- function(`left`, `right`) {
-  `left` <- .savvy_extract_ptr(`left`, "DataFusionRExpr")
-  `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_and__impl, `left`, `right`))
-}
-
-`DataFusionRExpr`$`bitwise_and` <- function(`left`, `right`) {
-  `left` <- .savvy_extract_ptr(`left`, "DataFusionRExpr")
-  `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitwise_and__impl, `left`, `right`))
-}
-
-`DataFusionRExpr`$`bitwise_or` <- function(`left`, `right`) {
-  `left` <- .savvy_extract_ptr(`left`, "DataFusionRExpr")
-  `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitwise_or__impl, `left`, `right`))
-}
-
-`DataFusionRExpr`$`bitwise_shift_left` <- function(`left`, `right`) {
-  `left` <- .savvy_extract_ptr(`left`, "DataFusionRExpr")
-  `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitwise_shift_left__impl, `left`, `right`))
-}
-
-`DataFusionRExpr`$`bitwise_shift_right` <- function(`left`, `right`) {
-  `left` <- .savvy_extract_ptr(`left`, "DataFusionRExpr")
-  `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitwise_shift_right__impl, `left`, `right`))
-}
-
-`DataFusionRExpr`$`bitwise_xor` <- function(`left`, `right`) {
-  `left` <- .savvy_extract_ptr(`left`, "DataFusionRExpr")
-  `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_bitwise_xor__impl, `left`, `right`))
-}
-
 `DataFusionRExpr`$`ident` <- function(`arg`) {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_ident__impl, `arg`))
-}
-
-`DataFusionRExpr`$`is_false` <- function(`arg`) {
-  `arg` <- .savvy_extract_ptr(`arg`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_false__impl, `arg`))
-}
-
-`DataFusionRExpr`$`is_not_false` <- function(`arg`) {
-  `arg` <- .savvy_extract_ptr(`arg`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_not_false__impl, `arg`))
-}
-
-`DataFusionRExpr`$`is_not_true` <- function(`arg`) {
-  `arg` <- .savvy_extract_ptr(`arg`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_not_true__impl, `arg`))
-}
-
-`DataFusionRExpr`$`is_not_unknown` <- function(`arg`) {
-  `arg` <- .savvy_extract_ptr(`arg`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_not_unknown__impl, `arg`))
-}
-
-`DataFusionRExpr`$`is_null` <- function(`arg`) {
-  `arg` <- .savvy_extract_ptr(`arg`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_null__impl, `arg`))
-}
-
-`DataFusionRExpr`$`is_true` <- function(`arg`) {
-  `arg` <- .savvy_extract_ptr(`arg`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_true__impl, `arg`))
-}
-
-`DataFusionRExpr`$`is_unknown` <- function(`arg`) {
-  `arg` <- .savvy_extract_ptr(`arg`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_is_unknown__impl, `arg`))
-}
-
-`DataFusionRExpr`$`not` <- function(`arg`) {
-  `arg` <- .savvy_extract_ptr(`arg`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_not__impl, `arg`))
-}
-
-`DataFusionRExpr`$`or` <- function(`left`, `right`) {
-  `left` <- .savvy_extract_ptr(`left`, "DataFusionRExpr")
-  `right` <- .savvy_extract_ptr(`right`, "DataFusionRExpr")
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_or__impl, `left`, `right`))
-}
-
-`DataFusionRExpr`$`placeholder` <- function(`arg`) {
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_placeholder__impl, `arg`))
 }
 
 `DataFusionRExpr`$`lit` <- function(`x`) {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_lit__impl, `x`))
 }
 
+`DataFusionRExpr`$`col` <- function(`arg`) {
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_col__impl, `arg`))
+}
+
 `DataFusionRExpr`$`wildcard` <- function() {
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_wildcard__impl))
+}
+
+`DataFusionRExpr`$`placeholder` <- function(`arg`) {
+  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExpr_placeholder__impl, `arg`))
 }
 
 
@@ -494,10 +528,6 @@ NULL
 `DataFusionRExprFunctions`$`avg` <- function(`arg`) {
   `arg` <- .savvy_extract_ptr(`arg`, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_avg__impl, `arg`))
-}
-
-`DataFusionRExprFunctions`$`col` <- function(`arg`) {
-  .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_col__impl, `arg`))
 }
 
 `DataFusionRExprFunctions`$`count` <- function(`arg`) {

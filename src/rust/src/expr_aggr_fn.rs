@@ -81,10 +81,6 @@ impl DataFusionRExprFunctions {
     //
     // - try_cast
 
-    fn col(arg: &str) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::col(arg)))
-    }
-
     fn count(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(logical_expr::expr_fn::count(arg.0)))
     }

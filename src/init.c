@@ -84,93 +84,8 @@ SEXP savvy_DataFusionRDataFrame_names__impl(SEXP self__) {
     return handle_result(res);
 }
 
-SEXP savvy_DataFusionRExpr_print__impl(SEXP self__) {
-    SEXP res = savvy_DataFusionRExpr_print__ffi(self__);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_and__impl(SEXP left, SEXP right) {
-    SEXP res = savvy_DataFusionRExpr_and__ffi(left, right);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_bitwise_and__impl(SEXP left, SEXP right) {
-    SEXP res = savvy_DataFusionRExpr_bitwise_and__ffi(left, right);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_bitwise_or__impl(SEXP left, SEXP right) {
-    SEXP res = savvy_DataFusionRExpr_bitwise_or__ffi(left, right);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_bitwise_shift_left__impl(SEXP left, SEXP right) {
-    SEXP res = savvy_DataFusionRExpr_bitwise_shift_left__ffi(left, right);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_bitwise_shift_right__impl(SEXP left, SEXP right) {
-    SEXP res = savvy_DataFusionRExpr_bitwise_shift_right__ffi(left, right);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_bitwise_xor__impl(SEXP left, SEXP right) {
-    SEXP res = savvy_DataFusionRExpr_bitwise_xor__ffi(left, right);
-    return handle_result(res);
-}
-
 SEXP savvy_DataFusionRExpr_ident__impl(SEXP arg) {
     SEXP res = savvy_DataFusionRExpr_ident__ffi(arg);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_is_false__impl(SEXP arg) {
-    SEXP res = savvy_DataFusionRExpr_is_false__ffi(arg);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_is_not_false__impl(SEXP arg) {
-    SEXP res = savvy_DataFusionRExpr_is_not_false__ffi(arg);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_is_not_true__impl(SEXP arg) {
-    SEXP res = savvy_DataFusionRExpr_is_not_true__ffi(arg);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_is_not_unknown__impl(SEXP arg) {
-    SEXP res = savvy_DataFusionRExpr_is_not_unknown__ffi(arg);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_is_null__impl(SEXP arg) {
-    SEXP res = savvy_DataFusionRExpr_is_null__ffi(arg);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_is_true__impl(SEXP arg) {
-    SEXP res = savvy_DataFusionRExpr_is_true__ffi(arg);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_is_unknown__impl(SEXP arg) {
-    SEXP res = savvy_DataFusionRExpr_is_unknown__ffi(arg);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_not__impl(SEXP arg) {
-    SEXP res = savvy_DataFusionRExpr_not__ffi(arg);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_or__impl(SEXP left, SEXP right) {
-    SEXP res = savvy_DataFusionRExpr_or__ffi(left, right);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExpr_placeholder__impl(SEXP arg) {
-    SEXP res = savvy_DataFusionRExpr_placeholder__ffi(arg);
     return handle_result(res);
 }
 
@@ -179,8 +94,53 @@ SEXP savvy_DataFusionRExpr_lit__impl(SEXP x) {
     return handle_result(res);
 }
 
+SEXP savvy_DataFusionRExpr_col__impl(SEXP arg) {
+    SEXP res = savvy_DataFusionRExpr_col__ffi(arg);
+    return handle_result(res);
+}
+
 SEXP savvy_DataFusionRExpr_wildcard__impl(void) {
     SEXP res = savvy_DataFusionRExpr_wildcard__ffi();
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_print__impl(SEXP self__) {
+    SEXP res = savvy_DataFusionRExpr_print__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_and__impl(SEXP self__, SEXP right) {
+    SEXP res = savvy_DataFusionRExpr_and__ffi(self__, right);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_bitwise_and__impl(SEXP self__, SEXP right) {
+    SEXP res = savvy_DataFusionRExpr_bitwise_and__ffi(self__, right);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_bitwise_or__impl(SEXP self__, SEXP right) {
+    SEXP res = savvy_DataFusionRExpr_bitwise_or__ffi(self__, right);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_bitwise_shift_left__impl(SEXP self__, SEXP right) {
+    SEXP res = savvy_DataFusionRExpr_bitwise_shift_left__ffi(self__, right);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_bitwise_shift_right__impl(SEXP self__, SEXP right) {
+    SEXP res = savvy_DataFusionRExpr_bitwise_shift_right__ffi(self__, right);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_or__impl(SEXP self__, SEXP right) {
+    SEXP res = savvy_DataFusionRExpr_or__ffi(self__, right);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_placeholder__impl(SEXP arg) {
+    SEXP res = savvy_DataFusionRExpr_placeholder__ffi(arg);
     return handle_result(res);
 }
 
@@ -314,8 +274,53 @@ SEXP savvy_DataFusionRExpr_neg__impl(SEXP self__) {
     return handle_result(res);
 }
 
+SEXP savvy_DataFusionRExpr_not__impl(SEXP self__) {
+    SEXP res = savvy_DataFusionRExpr_not__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_is_null__impl(SEXP self__) {
+    SEXP res = savvy_DataFusionRExpr_is_null__ffi(self__);
+    return handle_result(res);
+}
+
 SEXP savvy_DataFusionRExpr_is_not_null__impl(SEXP self__) {
     SEXP res = savvy_DataFusionRExpr_is_not_null__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_is_true__impl(SEXP self__) {
+    SEXP res = savvy_DataFusionRExpr_is_true__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_is_not_true__impl(SEXP self__) {
+    SEXP res = savvy_DataFusionRExpr_is_not_true__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_is_false__impl(SEXP self__) {
+    SEXP res = savvy_DataFusionRExpr_is_false__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_is_not_false__impl(SEXP self__) {
+    SEXP res = savvy_DataFusionRExpr_is_not_false__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_bitwise_xor__impl(SEXP self__, SEXP right) {
+    SEXP res = savvy_DataFusionRExpr_bitwise_xor__ffi(self__, right);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_is_unknown__impl(SEXP self__) {
+    SEXP res = savvy_DataFusionRExpr_is_unknown__ffi(self__);
+    return handle_result(res);
+}
+
+SEXP savvy_DataFusionRExpr_is_not_unknown__impl(SEXP self__) {
+    SEXP res = savvy_DataFusionRExpr_is_not_unknown__ffi(self__);
     return handle_result(res);
 }
 
@@ -346,11 +351,6 @@ SEXP savvy_DataFusionRExprFunctions_approx_median__impl(SEXP arg) {
 
 SEXP savvy_DataFusionRExprFunctions_avg__impl(SEXP arg) {
     SEXP res = savvy_DataFusionRExprFunctions_avg__ffi(arg);
-    return handle_result(res);
-}
-
-SEXP savvy_DataFusionRExprFunctions_col__impl(SEXP arg) {
-    SEXP res = savvy_DataFusionRExprFunctions_col__ffi(arg);
     return handle_result(res);
 }
 
@@ -1191,26 +1191,18 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRDataFrame_aggregate__impl", (DL_FUNC) &savvy_DataFusionRDataFrame_aggregate__impl, 3},
     {"savvy_DataFusionRDataFrame_dim__impl", (DL_FUNC) &savvy_DataFusionRDataFrame_dim__impl, 1},
     {"savvy_DataFusionRDataFrame_names__impl", (DL_FUNC) &savvy_DataFusionRDataFrame_names__impl, 1},
+    {"savvy_DataFusionRExpr_ident__impl", (DL_FUNC) &savvy_DataFusionRExpr_ident__impl, 1},
+    {"savvy_DataFusionRExpr_lit__impl", (DL_FUNC) &savvy_DataFusionRExpr_lit__impl, 1},
+    {"savvy_DataFusionRExpr_col__impl", (DL_FUNC) &savvy_DataFusionRExpr_col__impl, 1},
+    {"savvy_DataFusionRExpr_wildcard__impl", (DL_FUNC) &savvy_DataFusionRExpr_wildcard__impl, 0},
     {"savvy_DataFusionRExpr_print__impl", (DL_FUNC) &savvy_DataFusionRExpr_print__impl, 1},
     {"savvy_DataFusionRExpr_and__impl", (DL_FUNC) &savvy_DataFusionRExpr_and__impl, 2},
     {"savvy_DataFusionRExpr_bitwise_and__impl", (DL_FUNC) &savvy_DataFusionRExpr_bitwise_and__impl, 2},
     {"savvy_DataFusionRExpr_bitwise_or__impl", (DL_FUNC) &savvy_DataFusionRExpr_bitwise_or__impl, 2},
     {"savvy_DataFusionRExpr_bitwise_shift_left__impl", (DL_FUNC) &savvy_DataFusionRExpr_bitwise_shift_left__impl, 2},
     {"savvy_DataFusionRExpr_bitwise_shift_right__impl", (DL_FUNC) &savvy_DataFusionRExpr_bitwise_shift_right__impl, 2},
-    {"savvy_DataFusionRExpr_bitwise_xor__impl", (DL_FUNC) &savvy_DataFusionRExpr_bitwise_xor__impl, 2},
-    {"savvy_DataFusionRExpr_ident__impl", (DL_FUNC) &savvy_DataFusionRExpr_ident__impl, 1},
-    {"savvy_DataFusionRExpr_is_false__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_false__impl, 1},
-    {"savvy_DataFusionRExpr_is_not_false__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_not_false__impl, 1},
-    {"savvy_DataFusionRExpr_is_not_true__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_not_true__impl, 1},
-    {"savvy_DataFusionRExpr_is_not_unknown__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_not_unknown__impl, 1},
-    {"savvy_DataFusionRExpr_is_null__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_null__impl, 1},
-    {"savvy_DataFusionRExpr_is_true__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_true__impl, 1},
-    {"savvy_DataFusionRExpr_is_unknown__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_unknown__impl, 1},
-    {"savvy_DataFusionRExpr_not__impl", (DL_FUNC) &savvy_DataFusionRExpr_not__impl, 1},
     {"savvy_DataFusionRExpr_or__impl", (DL_FUNC) &savvy_DataFusionRExpr_or__impl, 2},
     {"savvy_DataFusionRExpr_placeholder__impl", (DL_FUNC) &savvy_DataFusionRExpr_placeholder__impl, 1},
-    {"savvy_DataFusionRExpr_lit__impl", (DL_FUNC) &savvy_DataFusionRExpr_lit__impl, 1},
-    {"savvy_DataFusionRExpr_wildcard__impl", (DL_FUNC) &savvy_DataFusionRExpr_wildcard__impl, 0},
     {"savvy_DataFusionRExpr_add__impl", (DL_FUNC) &savvy_DataFusionRExpr_add__impl, 2},
     {"savvy_DataFusionRExpr_sub__impl", (DL_FUNC) &savvy_DataFusionRExpr_sub__impl, 2},
     {"savvy_DataFusionRExpr_mul__impl", (DL_FUNC) &savvy_DataFusionRExpr_mul__impl, 2},
@@ -1237,14 +1229,22 @@ static const R_CallMethodDef CallEntries[] = {
     {"savvy_DataFusionRExpr_alias__impl", (DL_FUNC) &savvy_DataFusionRExpr_alias__impl, 2},
     {"savvy_DataFusionRExpr_in_list__impl", (DL_FUNC) &savvy_DataFusionRExpr_in_list__impl, 3},
     {"savvy_DataFusionRExpr_neg__impl", (DL_FUNC) &savvy_DataFusionRExpr_neg__impl, 1},
+    {"savvy_DataFusionRExpr_not__impl", (DL_FUNC) &savvy_DataFusionRExpr_not__impl, 1},
+    {"savvy_DataFusionRExpr_is_null__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_null__impl, 1},
     {"savvy_DataFusionRExpr_is_not_null__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_not_null__impl, 1},
+    {"savvy_DataFusionRExpr_is_true__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_true__impl, 1},
+    {"savvy_DataFusionRExpr_is_not_true__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_not_true__impl, 1},
+    {"savvy_DataFusionRExpr_is_false__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_false__impl, 1},
+    {"savvy_DataFusionRExpr_is_not_false__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_not_false__impl, 1},
+    {"savvy_DataFusionRExpr_bitwise_xor__impl", (DL_FUNC) &savvy_DataFusionRExpr_bitwise_xor__impl, 2},
+    {"savvy_DataFusionRExpr_is_unknown__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_unknown__impl, 1},
+    {"savvy_DataFusionRExpr_is_not_unknown__impl", (DL_FUNC) &savvy_DataFusionRExpr_is_not_unknown__impl, 1},
     {"savvy_DataFusionRExprFunctions_approx_distinct__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_approx_distinct__impl, 1},
     {"savvy_DataFusionRExprFunctions_approx_percentile_cont__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_approx_percentile_cont__impl, 2},
     {"savvy_DataFusionRExprFunctions_approx_percentile_cont_with_weight__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_approx_percentile_cont_with_weight__impl, 3},
     {"savvy_DataFusionRExprFunctions_array_agg__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_array_agg__impl, 1},
     {"savvy_DataFusionRExprFunctions_approx_median__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_approx_median__impl, 1},
     {"savvy_DataFusionRExprFunctions_avg__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_avg__impl, 1},
-    {"savvy_DataFusionRExprFunctions_col__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_col__impl, 1},
     {"savvy_DataFusionRExprFunctions_count__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_count__impl, 1},
     {"savvy_DataFusionRExprFunctions_count_distinct__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_count_distinct__impl, 1},
     {"savvy_DataFusionRExprFunctions_cube__impl", (DL_FUNC) &savvy_DataFusionRExprFunctions_cube__impl, 1},

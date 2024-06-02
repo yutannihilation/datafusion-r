@@ -6,81 +6,8 @@ struct DataFusionRExpr(pub(crate) Expr);
 
 #[savvy]
 impl DataFusionRExpr {
-    fn print(&self) -> savvy::Result<()> {
-        r_println!("{}", self.0);
-        Ok(())
-    }
-
-    fn and(left: DataFusionRExpr, right: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::and(left.0, right.0)))
-    }
-
-    fn bitwise_and(left: DataFusionRExpr, right: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::bitwise_and(left.0, right.0)))
-    }
-
-    fn bitwise_or(left: DataFusionRExpr, right: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::bitwise_or(left.0, right.0)))
-    }
-
-    fn bitwise_shift_left(left: DataFusionRExpr, right: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::bitwise_shift_left(
-            left.0, right.0,
-        )))
-    }
-
-    fn bitwise_shift_right(left: DataFusionRExpr, right: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::bitwise_shift_right(
-            left.0, right.0,
-        )))
-    }
-
-    fn bitwise_xor(left: DataFusionRExpr, right: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::bitwise_xor(left.0, right.0)))
-    }
-
     fn ident(arg: &str) -> savvy::Result<Self> {
         Ok(Self(logical_expr::expr_fn::ident(arg)))
-    }
-
-    fn is_false(arg: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::is_false(arg.0)))
-    }
-
-    fn is_not_false(arg: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::is_not_false(arg.0)))
-    }
-
-    fn is_not_true(arg: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::is_not_true(arg.0)))
-    }
-
-    fn is_not_unknown(arg: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::is_not_unknown(arg.0)))
-    }
-
-    fn is_null(arg: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::is_null(arg.0)))
-    }
-
-    fn is_true(arg: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::is_true(arg.0)))
-    }
-
-    fn is_unknown(arg: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::is_unknown(arg.0)))
-    }
-
-    fn not(arg: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::not(arg.0)))
-    }
-
-    fn or(left: DataFusionRExpr, right: DataFusionRExpr) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::or(left.0, right.0)))
-    }
-
-    fn placeholder(arg: &str) -> savvy::Result<Self> {
-        Ok(Self(logical_expr::expr_fn::placeholder(arg)))
     }
 
     fn lit(x: Sexp) -> savvy::Result<Self> {
@@ -94,8 +21,52 @@ impl DataFusionRExpr {
         Ok(Self(lit))
     }
 
+    fn col(arg: &str) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::col(arg)))
+    }
+
     fn wildcard() -> savvy::Result<Self> {
         Ok(Self(logical_expr::expr_fn::wildcard()))
+    }
+}
+
+#[savvy]
+impl DataFusionRExpr {
+    fn print(&self) -> savvy::Result<()> {
+        r_println!("{}", self.0);
+        Ok(())
+    }
+
+    fn and(self, right: DataFusionRExpr) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::and(self.0, right.0)))
+    }
+
+    fn bitwise_and(self, right: DataFusionRExpr) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::bitwise_and(self.0, right.0)))
+    }
+
+    fn bitwise_or(self, right: DataFusionRExpr) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::bitwise_or(self.0, right.0)))
+    }
+
+    fn bitwise_shift_left(self, right: DataFusionRExpr) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::bitwise_shift_left(
+            self.0, right.0,
+        )))
+    }
+
+    fn bitwise_shift_right(self, right: DataFusionRExpr) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::bitwise_shift_right(
+            self.0, right.0,
+        )))
+    }
+
+    fn or(self, right: DataFusionRExpr) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::or(self.0, right.0)))
+    }
+
+    fn placeholder(arg: &str) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::placeholder(arg)))
     }
 
     fn add(self, rhs: DataFusionRExpr) -> savvy::Result<Self> {
@@ -204,8 +175,44 @@ impl DataFusionRExpr {
         Ok(Self(-self.0))
     }
 
+    fn not(self) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::not(self.0)))
+    }
+
+    fn is_null(self) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::is_null(self.0)))
+    }
+
     fn is_not_null(self) -> savvy::Result<Self> {
         Ok(Self(self.0.is_not_null()))
+    }
+
+    fn is_true(self) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::is_true(self.0)))
+    }
+
+    fn is_not_true(self) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::is_not_true(self.0)))
+    }
+
+    fn is_false(self) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::is_false(self.0)))
+    }
+
+    fn is_not_false(self) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::is_not_false(self.0)))
+    }
+
+    fn bitwise_xor(self, right: DataFusionRExpr) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::bitwise_xor(self.0, right.0)))
+    }
+
+    fn is_unknown(self) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::is_unknown(self.0)))
+    }
+
+    fn is_not_unknown(self) -> savvy::Result<Self> {
+        Ok(Self(logical_expr::expr_fn::is_not_unknown(self.0)))
     }
 }
 
