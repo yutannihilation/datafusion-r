@@ -117,7 +117,7 @@ d |>
   datafusion_aggregate(
     datafusion_exprs(col("cyl")),
     datafusion_exprs(
-      count(lit(1))$alias("count"),
+      count(wildcard())$alias("count"),
       avg(col("wt"))$alias("avg_wt")
     )
   )
@@ -125,9 +125,9 @@ d |>
 #> +-----+-------+--------------------+
 #> | cyl | count | avg_wt             |
 #> +-----+-------+--------------------+
+#> | 4.0 | 1     | 2.32               |
 #> | 8.0 | 1     | 3.44               |
 #> | 6.0 | 4     | 3.0425000000000004 |
-#> | 4.0 | 1     | 2.32               |
 #> +-----+-------+--------------------+
 ```
 

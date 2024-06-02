@@ -50,7 +50,10 @@ print.DataFusionRExprs <- function(x, ...) x$print()
 
 .datafusion_env_for_eval <- rlang::env(
   col  = DataFusionRExpr$col,
+  ident  = DataFusionRExpr$ident,
   lit  = DataFusionRExpr$lit,
+  wildcard  = DataFusionRExpr$wildcard,
+
   `&&` = function(x, y) x$and(y),
   `||` = function(x, y) x$or(y),
   `<`  = function(x, y) x$lt(y),
