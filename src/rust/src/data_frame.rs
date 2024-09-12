@@ -58,9 +58,8 @@ impl DataFusionRDataFrame {
             None => return Err("Failed to get Tokio runtime".into()),
         };
 
-        let schema = self.df.as_ref().schema().as_arrow();
-        let iter =
-            RecordBatchIterator::new(record_batches.into_iter().map(Ok), Arc::new(schema.clone()));
+        let schema = self.df.as_ref().schema().inner();
+        let iter = RecordBatchIterator::new(record_batches.into_iter().map(Ok), schema.clone());
 
         let array_stream = FFI_ArrowArrayStream::new(Box::new(iter));
         Ok(RawArrayStream(array_stream))

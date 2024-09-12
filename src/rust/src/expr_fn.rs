@@ -1,6 +1,6 @@
 // https://docs.rs/datafusion-functions/latest/datafusion_functions/expr_fn/index.html
 
-use datafusion::functions::{core, crypto, datetime, encoding, math, regex, string, unicode};
+use datafusion::functions::{self, core, crypto, datetime, encoding, math, regex, string, unicode};
 use savvy::savvy;
 
 use crate::expr::{DataFusionRExpr, DataFusionRExprs};
@@ -26,8 +26,8 @@ impl DataFusionRExprFunctions {
         Ok(DataFusionRExpr(core::expr_fn::coalesce(args.0)))
     }
 
-    fn get_field(arg1: DataFusionRExpr, arg2: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(core::expr_fn::get_field(arg1.0, arg2.0)))
+    fn get_field(arg1: DataFusionRExpr, arg2: &str) -> savvy::Result<DataFusionRExpr> {
+        Ok(DataFusionRExpr(core::expr_fn::get_field(arg1.0, arg2)))
     }
 
     // Change to accept dots on R's side
@@ -364,8 +364,8 @@ impl DataFusionRExprFunctions {
         string: DataFusionRExpr,
         pattern: DataFusionRExpr,
     ) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(regex::expr_fn::regexp_like(
-            string.0, pattern.0,
+        Ok(DataFusionRExpr(functions::expr_fn::regexp_like(
+            string.0, pattern.0, None, // TODO
         )))
     }
 
@@ -373,8 +373,8 @@ impl DataFusionRExprFunctions {
         string: DataFusionRExpr,
         pattern: DataFusionRExpr,
     ) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(regex::expr_fn::regexp_match(
-            string.0, pattern.0,
+        Ok(DataFusionRExpr(functions::expr_fn::regexp_match(
+            string.0, pattern.0, None, // TODO
         )))
     }
 
@@ -389,11 +389,11 @@ impl DataFusionRExprFunctions {
             None => datafusion::logical_expr::lit("g"),
         };
 
-        Ok(DataFusionRExpr(regex::expr_fn::regexp_replace(
+        Ok(DataFusionRExpr(functions::expr_fn::regexp_replace(
             string.0,
             pattern.0,
             replacement.0,
-            flags,
+            Some(flags),
         )))
     }
 
@@ -473,7 +473,7 @@ impl DataFusionRExprFunctions {
     }
 
     fn octet_length(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(string::expr_fn::octet_length(vec![arg.0])))
+        Ok(DataFusionRExpr(string::expr_fn::octet_length(arg.0)))
     }
 
     fn overlay(

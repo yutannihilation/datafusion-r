@@ -1,4 +1,8 @@
-use datafusion::logical_expr::{self, lit, Expr};
+use datafusion::{
+    functions::core::expr_ext::FieldAccessor,
+    functions_array::expr_ext::{IndexAccessor, SliceAccessor},
+    logical_expr::{self, lit, Expr},
+};
 use savvy::{r_println, savvy, Sexp, TypedSexp};
 
 #[savvy]

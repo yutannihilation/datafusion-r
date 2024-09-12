@@ -237,7 +237,10 @@ impl DataFusionRExprFunctions {
         stride: DataFusionRExpr,
     ) -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(functions_array::expr_fn::array_slice(
-            array.0, begin.0, end.0, stride.0,
+            array.0,
+            begin.0,
+            end.0,
+            Some(stride.0),
         )))
     }
 

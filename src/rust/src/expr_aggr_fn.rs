@@ -1,4 +1,7 @@
-use datafusion::logical_expr::{self};
+use datafusion::{
+    functions_aggregate,
+    logical_expr::{self},
+};
 use savvy::savvy;
 
 use crate::{
@@ -9,9 +12,9 @@ use crate::{
 #[savvy]
 impl DataFusionRExprFunctions {
     fn approx_distinct(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::approx_distinct(
-            arg.0,
-        )))
+        Ok(DataFusionRExpr(
+            functions_aggregate::expr_fn::approx_distinct(arg.0),
+        ))
     }
 
     fn approx_percentile_cont(
@@ -19,7 +22,7 @@ impl DataFusionRExprFunctions {
         percentile: DataFusionRExpr,
     ) -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(
-            logical_expr::expr_fn::approx_percentile_cont(expr.0, percentile.0),
+            functions_aggregate::expr_fn::approx_percentile_cont(expr.0, percentile.0),
         ))
     }
 
@@ -29,7 +32,7 @@ impl DataFusionRExprFunctions {
         percentile: DataFusionRExpr,
     ) -> savvy::Result<DataFusionRExpr> {
         Ok(DataFusionRExpr(
-            logical_expr::expr_fn::approx_percentile_cont_with_weight(
+            functions_aggregate::expr_fn::approx_percentile_cont_with_weight(
                 expr.0,
                 weight_expr.0,
                 percentile.0,
@@ -38,15 +41,19 @@ impl DataFusionRExprFunctions {
     }
 
     fn array_agg(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::array_agg(arg.0)))
+        Ok(DataFusionRExpr(functions_aggregate::expr_fn::array_agg(
+            arg.0,
+        )))
     }
 
     fn approx_median(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::approx_median(arg.0)))
+        Ok(DataFusionRExpr(
+            functions_aggregate::expr_fn::approx_median(arg.0),
+        ))
     }
 
     fn avg(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::avg(arg.0)))
+        Ok(DataFusionRExpr(functions_aggregate::expr_fn::avg(arg.0)))
     }
 
     // TODO: support Operator?
@@ -56,14 +63,14 @@ impl DataFusionRExprFunctions {
     //     op: DataFusionRExpr,
     //     right: DataFusionRExpr,
     // ) -> savvy::Result<DataFusionRExpr> {
-    //     Ok(DataFusionRExpr(logical_expr::expr_fn::binary_expr(
+    //     Ok(DataFusionRExpr(functions_aggregate::expr_fn::binary_expr(
     //         left.0, op.0, right.0,
     //     )))
     // }
 
     // TODO: support CaseBuilder?
     // fn case(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-    //     Ok(DataFusionRExpr(logical_expr::expr_fn::case(arg.0)))
+    //     Ok(DataFusionRExpr(functions_aggregate::expr_fn::case(arg.0)))
     // }
     //
     // - when
@@ -74,7 +81,7 @@ impl DataFusionRExprFunctions {
     //     expr: DataFusionRExpr,
     //     data_type: DataFusionRExpr,
     // ) -> savvy::Result<DataFusionRExpr> {
-    //     Ok(DataFusionRExpr(logical_expr::expr_fn::cast(
+    //     Ok(DataFusionRExpr(functions_aggregate::expr_fn::cast(
     //         expr.0, data_type.0,
     //     )))
     // }
@@ -82,13 +89,13 @@ impl DataFusionRExprFunctions {
     // - try_cast
 
     fn count(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::count(arg.0)))
+        Ok(DataFusionRExpr(functions_aggregate::expr_fn::count(arg.0)))
     }
 
     fn count_distinct(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::count_distinct(
-            arg.0,
-        )))
+        Ok(DataFusionRExpr(
+            functions_aggregate::expr_fn::count_distinct(arg.0),
+        ))
     }
 
     // TODO
@@ -98,7 +105,7 @@ impl DataFusionRExprFunctions {
     // - create_udwf
 
     fn cube(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::cube(args.0)))
+        Ok(DataFusionRExpr(logical_expr::cube(args.0)))
     }
 
     // TODO
@@ -111,15 +118,15 @@ impl DataFusionRExprFunctions {
     // - not_in_subquery
 
     fn max(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::max(arg.0)))
+        Ok(DataFusionRExpr(functions_aggregate::expr_fn::max(arg.0)))
     }
 
     fn median(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::median(arg.0)))
+        Ok(DataFusionRExpr(functions_aggregate::expr_fn::median(arg.0)))
     }
 
     fn min(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::min(arg.0)))
+        Ok(DataFusionRExpr(functions_aggregate::expr_fn::min(arg.0)))
     }
 
     // TODO:
@@ -127,7 +134,7 @@ impl DataFusionRExprFunctions {
     // - out_ref_col
 
     fn rollup(args: DataFusionRExprs) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::rollup(args.0)))
+        Ok(DataFusionRExpr(logical_expr::rollup(args.0)))
     }
 
     // TODO:
@@ -135,10 +142,10 @@ impl DataFusionRExprFunctions {
     // - scalar_subquery
 
     fn stddev(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::stddev(arg.0)))
+        Ok(DataFusionRExpr(functions_aggregate::expr_fn::stddev(arg.0)))
     }
 
     fn sum(arg: DataFusionRExpr) -> savvy::Result<DataFusionRExpr> {
-        Ok(DataFusionRExpr(logical_expr::expr_fn::sum(arg.0)))
+        Ok(DataFusionRExpr(functions_aggregate::expr_fn::sum(arg.0)))
     }
 }
