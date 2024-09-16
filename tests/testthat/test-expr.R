@@ -38,9 +38,9 @@ test_that("expressions", {
   expect_equal(e(col("foo") && col("bar")), "foo AND bar")
   expect_equal(e(col("foo") || col("bar")), "foo OR bar")
 
-  expect_equal(e(col("foo")[["a"]]), '(foo)[a]')            # field
-  expect_equal(e(col("foo")[lit("a")]), '(foo)[Utf8("a")]') # index
-  expect_equal(e(col("foo")[1:3]), '(foo)[Int32(1):Int32(3):Int64(1)]') # range
+  expect_equal(e(col("foo")[["a"]]), 'get_field(foo, Utf8("a"))')            # field
+  expect_equal(e(col("foo")[lit("a")]), 'array_element(foo, Utf8("a"))') # index
+  expect_equal(e(col("foo")[1:3]), 'array_slice(foo, Int32(1), Int32(3))') # range
 
   # % needs to be escaped
   expect_equal(e(col("foo")$like(lit("prefix_%"))),      'foo LIKE Utf8("prefix_%")')
@@ -63,7 +63,7 @@ test_that("function expressions", {
   expect_equal(e(arrow_cast(col("foo"), lit("Utf8"))),                  'arrow_cast(foo, Utf8("Utf8"))')
   expect_equal(e(arrow_typeof(col("foo"))),                             "arrow_typeof(foo)")
   expect_equal(e(coalesce(col("foo"), col("bar"), lit("default"))),     'coalesce(foo, bar, Utf8("default"))')
-  expect_equal(e(get_field(col("foo"), col("bar"))),                    "get_field(foo, bar)")
+  expect_equal(e(get_field(col("foo"), "bar")),                         'get_field(foo, Utf8("bar"))')
   expect_equal(e(named_struct(lit("A"), col("a"), lit("B"), col("b"))), 'named_struct(Utf8("A"), a, Utf8("B"), b)')
   expect_equal(e(nullif(col("foo"), lit("NULL"))),                      'nullif(foo, Utf8("NULL"))')
   expect_equal(e(nvl(col("foo"), lit("default"))),                      'nvl(foo, Utf8("default"))')

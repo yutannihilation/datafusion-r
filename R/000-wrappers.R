@@ -100,13 +100,38 @@ NULL
   e
 }
 
+#' @export
+`$<-.DataFusionRDataFrame` <- function(x, name, value) stop("DataFusionRDataFrame cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRDataFrame` <- function(x, i, value) stop("DataFusionRDataFrame cannot be modified", call. = FALSE)
+
 
 
 `DataFusionRDataFrame` <- new.env(parent = emptyenv())
 
+#' @export
+`$<-.DataFusionRDataFrame` <- function(x, name, value) stop("DataFusionRDataFrame cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRDataFrame` <- function(x, i, value) stop("DataFusionRDataFrame cannot be modified", call. = FALSE)
+
 ### associated functions for DataFusionRDataFrame
 
 
+
+class(`DataFusionRDataFrame`) <- "DataFusionRDataFrame__bundle"
+
+#' @export
+`print.DataFusionRDataFrame__bundle` <- function(x, ...) {
+  cat('DataFusionRDataFrame')
+}
+
+#' @export
+`$<-.DataFusionRDataFrame__bundle` <- function(x, name, value) stop("DataFusionRDataFrame cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRDataFrame__bundle` <- function(x, i, value) stop("DataFusionRDataFrame cannot be modified", call. = FALSE)
 
 ### wrapper functions for DataFusionRExpr
 
@@ -452,9 +477,21 @@ NULL
   e
 }
 
+#' @export
+`$<-.DataFusionRExpr` <- function(x, name, value) stop("DataFusionRExpr cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRExpr` <- function(x, i, value) stop("DataFusionRExpr cannot be modified", call. = FALSE)
+
 
 
 `DataFusionRExpr` <- new.env(parent = emptyenv())
+
+#' @export
+`$<-.DataFusionRExpr` <- function(x, name, value) stop("DataFusionRExpr cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRExpr` <- function(x, i, value) stop("DataFusionRExpr cannot be modified", call. = FALSE)
 
 ### associated functions for DataFusionRExpr
 
@@ -479,6 +516,19 @@ NULL
 }
 
 
+class(`DataFusionRExpr`) <- "DataFusionRExpr__bundle"
+
+#' @export
+`print.DataFusionRExpr__bundle` <- function(x, ...) {
+  cat('DataFusionRExpr')
+}
+
+#' @export
+`$<-.DataFusionRExpr__bundle` <- function(x, name, value) stop("DataFusionRExpr cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRExpr__bundle` <- function(x, i, value) stop("DataFusionRExpr cannot be modified", call. = FALSE)
+
 ### wrapper functions for DataFusionRExprFunctions
 
 
@@ -491,9 +541,21 @@ NULL
   e
 }
 
+#' @export
+`$<-.DataFusionRExprFunctions` <- function(x, name, value) stop("DataFusionRExprFunctions cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRExprFunctions` <- function(x, i, value) stop("DataFusionRExprFunctions cannot be modified", call. = FALSE)
+
 
 
 `DataFusionRExprFunctions` <- new.env(parent = emptyenv())
+
+#' @export
+`$<-.DataFusionRExprFunctions` <- function(x, name, value) stop("DataFusionRExprFunctions cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRExprFunctions` <- function(x, i, value) stop("DataFusionRExprFunctions cannot be modified", call. = FALSE)
 
 ### associated functions for DataFusionRExprFunctions
 
@@ -811,7 +873,6 @@ NULL
 
 `DataFusionRExprFunctions`$`get_field` <- function(`arg1`, `arg2`) {
   `arg1` <- .savvy_extract_ptr(`arg1`, "DataFusionRExpr")
-  `arg2` <- .savvy_extract_ptr(`arg2`, "DataFusionRExpr")
   .savvy_wrap_DataFusionRExpr(.Call(savvy_DataFusionRExprFunctions_get_field__impl, `arg1`, `arg2`))
 }
 
@@ -1403,6 +1464,19 @@ NULL
 }
 
 
+class(`DataFusionRExprFunctions`) <- "DataFusionRExprFunctions__bundle"
+
+#' @export
+`print.DataFusionRExprFunctions__bundle` <- function(x, ...) {
+  cat('DataFusionRExprFunctions')
+}
+
+#' @export
+`$<-.DataFusionRExprFunctions__bundle` <- function(x, name, value) stop("DataFusionRExprFunctions cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRExprFunctions__bundle` <- function(x, i, value) stop("DataFusionRExprFunctions cannot be modified", call. = FALSE)
+
 ### wrapper functions for DataFusionRExprs
 
 `DataFusionRExprs_add_expr` <- function(self) {
@@ -1428,9 +1502,21 @@ NULL
   e
 }
 
+#' @export
+`$<-.DataFusionRExprs` <- function(x, name, value) stop("DataFusionRExprs cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRExprs` <- function(x, i, value) stop("DataFusionRExprs cannot be modified", call. = FALSE)
+
 
 
 `DataFusionRExprs` <- new.env(parent = emptyenv())
+
+#' @export
+`$<-.DataFusionRExprs` <- function(x, name, value) stop("DataFusionRExprs cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRExprs` <- function(x, i, value) stop("DataFusionRExprs cannot be modified", call. = FALSE)
 
 ### associated functions for DataFusionRExprs
 
@@ -1438,6 +1524,19 @@ NULL
   .savvy_wrap_DataFusionRExprs(.Call(savvy_DataFusionRExprs_new__impl, `capacity`))
 }
 
+
+class(`DataFusionRExprs`) <- "DataFusionRExprs__bundle"
+
+#' @export
+`print.DataFusionRExprs__bundle` <- function(x, ...) {
+  cat('DataFusionRExprs')
+}
+
+#' @export
+`$<-.DataFusionRExprs__bundle` <- function(x, name, value) stop("DataFusionRExprs cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRExprs__bundle` <- function(x, i, value) stop("DataFusionRExprs cannot be modified", call. = FALSE)
 
 ### wrapper functions for DataFusionRSessionContext
 
@@ -1478,9 +1577,21 @@ NULL
   e
 }
 
+#' @export
+`$<-.DataFusionRSessionContext` <- function(x, name, value) stop("DataFusionRSessionContext cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRSessionContext` <- function(x, i, value) stop("DataFusionRSessionContext cannot be modified", call. = FALSE)
+
 
 
 `DataFusionRSessionContext` <- new.env(parent = emptyenv())
+
+#' @export
+`$<-.DataFusionRSessionContext` <- function(x, name, value) stop("DataFusionRSessionContext cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRSessionContext` <- function(x, i, value) stop("DataFusionRSessionContext cannot be modified", call. = FALSE)
 
 ### associated functions for DataFusionRSessionContext
 
@@ -1488,6 +1599,19 @@ NULL
   .savvy_wrap_DataFusionRSessionContext(.Call(savvy_DataFusionRSessionContext_new__impl))
 }
 
+
+class(`DataFusionRSessionContext`) <- "DataFusionRSessionContext__bundle"
+
+#' @export
+`print.DataFusionRSessionContext__bundle` <- function(x, ...) {
+  cat('DataFusionRSessionContext')
+}
+
+#' @export
+`$<-.DataFusionRSessionContext__bundle` <- function(x, name, value) stop("DataFusionRSessionContext cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.DataFusionRSessionContext__bundle` <- function(x, i, value) stop("DataFusionRSessionContext cannot be modified", call. = FALSE)
 
 ### wrapper functions for RawArrayStream
 
@@ -1501,9 +1625,21 @@ NULL
   e
 }
 
+#' @export
+`$<-.RawArrayStream` <- function(x, name, value) stop("RawArrayStream cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.RawArrayStream` <- function(x, i, value) stop("RawArrayStream cannot be modified", call. = FALSE)
+
 
 
 `RawArrayStream` <- new.env(parent = emptyenv())
+
+#' @export
+`$<-.RawArrayStream` <- function(x, name, value) stop("RawArrayStream cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.RawArrayStream` <- function(x, i, value) stop("RawArrayStream cannot be modified", call. = FALSE)
 
 ### associated functions for RawArrayStream
 
@@ -1511,4 +1647,17 @@ NULL
   .savvy_wrap_RawArrayStream(.Call(savvy_RawArrayStream_new_without_init__impl))
 }
 
+
+class(`RawArrayStream`) <- "RawArrayStream__bundle"
+
+#' @export
+`print.RawArrayStream__bundle` <- function(x, ...) {
+  cat('RawArrayStream')
+}
+
+#' @export
+`$<-.RawArrayStream__bundle` <- function(x, name, value) stop("RawArrayStream cannot be modified", call. = FALSE)
+
+#' @export
+`[[<-.RawArrayStream__bundle` <- function(x, i, value) stop("RawArrayStream cannot be modified", call. = FALSE)
 

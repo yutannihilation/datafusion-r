@@ -48,37 +48,36 @@ print.DataFusionRExprs <- function(x, ...) x$print()
   x$field(y)
 }
 
-.datafusion_env_for_eval <- rlang::env(
-  col  = DataFusionRExpr$col,
-  ident  = DataFusionRExpr$ident,
-  lit  = DataFusionRExpr$lit,
-  wildcard  = DataFusionRExpr$wildcard,
+.datafusion_env_for_eval <- rlang::env_clone(DataFusionRExprFunctions)
+class(.datafusion_env_for_eval) <- NULL
 
-  `&&` = function(x, y) x$and(y),
-  `||` = function(x, y) x$or(y),
-  `<`  = function(x, y) x$lt(y),
-  `<=` = function(x, y) x$lt_eq(y),
-  `>`  = function(x, y) x$gt(y),
-  `>=` = function(x, y) x$gt_eq(y),
-  `==` = function(x, y) x$eq(y),
-  `!=` = function(x, y) x$not_eq(y),
-  `!`  = function(x)    x$not(),
+.datafusion_env_for_eval$col  <- DataFusionRExpr$col
+.datafusion_env_for_eval$ident  <- DataFusionRExpr$ident
+.datafusion_env_for_eval$lit  <- DataFusionRExpr$lit
+.datafusion_env_for_eval$wildcard  <- DataFusionRExpr$wildcard
 
-  # TODO: can I always overwrite `c`?
-  `%in%` = function(x, y) {
-    y_expr <- rlang::enexpr(y)
+.datafusion_env_for_eval$`&&` <- function(x, y) x$and(y)
+.datafusion_env_for_eval$`||` <- function(x, y) x$or(y)
+.datafusion_env_for_eval$`<`  <- function(x, y) x$lt(y)
+.datafusion_env_for_eval$`<=` <- function(x, y) x$lt_eq(y)
+.datafusion_env_for_eval$`>`  <- function(x, y) x$gt(y)
+.datafusion_env_for_eval$`>=` <- function(x, y) x$gt_eq(y)
+.datafusion_env_for_eval$`==` <- function(x, y) x$eq(y)
+.datafusion_env_for_eval$`!=` <- function(x, y) x$not_eq(y)
+.datafusion_env_for_eval$`!`  <- function(x)    x$not()
 
-    # convert an expression like `c(lit("a"), ...)` to DataFusionRExprs
-    if (y_expr[[1L]] == as.name("c")) {
-      y_expr[[1]] <- as.name("datafusion_exprs")
-      y <- rlang::eval_bare(y_expr)
-    }
+# TODO: can I always overwrite `c`?
+.datafusion_env_for_eval$`%in%` <- function(x, y) {
+  y_expr <- rlang::enexpr(y)
 
-    x$in_list(y, FALSE)
-  },
+  # convert an expression like `c(lit("a"), ...)` to DataFusionRExprs
+  if (y_expr[[1L]] == as.name("c")) {
+    y_expr[[1]] <- as.name("datafusion_exprs")
+    y <- rlang::eval_bare(y_expr)
+  }
 
-  !!!as.list(DataFusionRExprFunctions)
-)
+  x$in_list(y, FALSE)
+}
 
 .wrap_dots <- function(f) {
   f <- force(f)
